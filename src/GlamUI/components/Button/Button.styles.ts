@@ -62,10 +62,10 @@ export const StyledButton = styled.button.attrs<StyledButtonProps>(
 
   /* Rounded */
   &.btn-full {
-    border-radius: ${({ theme }) => theme.radius.lg};
+    border-radius: ${({ theme }) => theme.radius.xl};
   }
 
   &.btn-semi {
-    border-radius: ${({ theme }) => theme.radius.md};
+    border-radius: ${({ theme }) => theme.radius.lg};
   }
 `

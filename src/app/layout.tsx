@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
 import AuthProvider from "@Providers/AuthProvider";
 import StyledComponentsRegistry from "@Providers/StyledComponentsRegistry";
+import ThemeProvider from "@Providers/ThemeProvider";
+import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+
 import "./globals.css";
 
 const nunito = Nunito({
@@ -23,7 +25,9 @@ export default function RootLayout({
       <body className={`${nunito.className} antialiased`}>
         <AuthProvider>
           <StyledComponentsRegistry>
-            {children}
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
           </StyledComponentsRegistry>
         </AuthProvider>
       </body>
