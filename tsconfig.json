@@ -31,6 +31,12 @@
       ],
       "@Providers/*": [
         "./src/providers/*"
+      ],
+      "@GlamUI": [
+        "./src/GlamUI/index.ts"
+      ],
+      "@GlamUI/components/*": [
+        "./src/GlamUI/components/*"
       ]
     }
   },
