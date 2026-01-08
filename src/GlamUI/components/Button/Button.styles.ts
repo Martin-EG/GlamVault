@@ -23,7 +23,7 @@ export const StyledButton = styled.button.attrs<StyledButtonProps>(
   border: none;
   transition: background 0.2s ease, transform 0.1s ease;
   border-radius: ${({ theme }) => theme.radius.md};
-  font-weight: ${({ theme }) => theme.typography.weight.semibold};
+  font-weight: ${({ theme }) => theme.typography.weights.semibold};
 
   &:active {
     transform: scale(0.98);
