@@ -35,9 +35,17 @@ const typesContent = `/**
 
 const stylesContent = `import styled from 'styled-components';
 
-import type { } from './${componentName}.types';
+import type { ${componentName}Variant } from './${componentName}.types';
 
-export const Styled${componentName} = styled.div<{}>\`
+interface Styled${componentName}Props {
+  $variant: ${componentName}Variant
+}
+
+export const Styled${componentName} = styled.div.attrs<Styled${componentName}Props>(
+  ({ $variant }) => ({
+    className: \`\`,
+  })
+)\`
   /* Add styles here */
 \`;
 `;
@@ -45,16 +53,18 @@ export const Styled${componentName} = styled.div<{}>\`
 const componentContent = `import { FC, PropsWithChildren } from 'react';
 
 import { Styled${componentName} } from './${componentName}.styles';
-import type { } from './${componentName}.types';
+import type { ${componentName}Variant } from './${componentName}.types';
 
 interface ${componentName}Props extends PropsWithChildren {
+  variant?: ${componentName}Variant;
 }
 
 const ${componentName}: FC<${componentName}Props> = ({
   children,
+  variant = 'default',
 }) => {
   return (
-    <Styled${componentName}>
+    <Styled${componentName} $variant={variant}>
       {children}
     </Styled${componentName}>
   );
