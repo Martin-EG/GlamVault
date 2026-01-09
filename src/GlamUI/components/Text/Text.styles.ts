@@ -131,6 +131,22 @@ export const StyledText = styled.p.attrs<
     color: ${({ theme }) => theme.colors.danger};
   }
 
+  &.text-error {
+    color: ${({ theme }) => theme.colors.feedback.errorText};
+  }
+
+  &.text-success {
+    color: ${({ theme }) => theme.colors.feedback.successText};
+  }
+
+  &.text-warning {
+    color: ${({ theme }) => theme.colors.feedback.warningText};
+  }
+
+  &.text-info {
+    color: ${({ theme }) => theme.colors.feedback.infoText};
+  }
+
   /* Single-line truncate */
   &.text-truncate {
     white-space: nowrap;

@@ -1,3 +1,13 @@
+/***
+ * Text types
+ * @property {TextVariant} variant - The variant of the text
+ * @property {TextSize} size - The size of the text
+ * @property {TextWeight} weight - The weight of the text
+ * @property {TextAs} as - The html element to render the text as
+ * @property {TextColor} color - The color of the text
+ * @property {TextTruncate} truncate - The truncate of the text
+ */
+
 export type TextVariant =
   | 'body'
   | 'caption'
@@ -26,5 +36,9 @@ export type TextColor =
   | 'brand'
   | 'brandSecondary'
   | 'danger'
+  | 'error'
+  | 'success'
+  | 'warning'
+  | 'info'
 
 export type TextTruncate = boolean | number;
