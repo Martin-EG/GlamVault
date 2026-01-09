@@ -18,3 +18,13 @@ export type TextAs =
   | 'h2'
   | 'h3'
   | 'h4'
+
+export type TextColor =
+  | 'default'
+  | 'light'
+  | 'muted'
+  | 'brand'
+  | 'brandSecondary'
+  | 'danger'
+
+export type TextTruncate = boolean | number;

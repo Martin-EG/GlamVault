@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import type { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types'
 
 interface StyledButtonProps {
-  $variant: ButtonVariant
-  $size: ButtonSize
-  $rounded: ButtonRounded
-  $fullSize?: boolean
-  disabled?: boolean
+  readonly $variant: ButtonVariant;
+  readonly $size: ButtonSize;
+  readonly $rounded: ButtonRounded;
+  readonly $fullSize?: boolean;
+  readonly disabled?: boolean;
 }
 
 export const StyledButton = styled.button.attrs<StyledButtonProps>(
