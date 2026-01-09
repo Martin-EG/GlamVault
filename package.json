@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint",
+    "generate:ui-component": "node scripts/generate-ui-component.js"
   },
   "dependencies": {
     "next": "16.1.1",
