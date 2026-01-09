@@ -1,22 +1,42 @@
 import styled from 'styled-components'
 
 import type {
-  TextVariant,
-  TextSize,
-  TextWeight,
   TextAs,
+  TextColor,
+  TextSize,
+  TextTruncate,
+  TextVariant,
+  TextWeight,
 } from './Text.types'
 
 interface StyledTextProps {
-  $variant: TextVariant
-  $size: TextSize
-  $weight: TextWeight
+  readonly $variant: TextVariant;
+  readonly $size: TextSize;
+  readonly $weight: TextWeight;
+  readonly $color: TextColor;
+  readonly $truncate: TextTruncate;
 }
+
+const getTruncateClassname = (truncate: TextTruncate) => {
+  let className = '';
+
+  if (truncate === true) {
+    className = 'text-truncate';
+  } else if (typeof truncate === 'number') {
+    className = `text-clamp-${truncate}`;
+  }
+
+  return className;
+};
 
 export const StyledText = styled.p.attrs<
   StyledTextProps & { as?: TextAs }
->(({ $variant, $size, $weight }) => ({
-  className: `text text-${$variant} text-${$size} text-${$weight}`,
+>(({ $variant, $size, $weight, $color, $truncate }) => ({
+  className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} ${getTruncateClassname($truncate)}`,
+  style:
+    typeof $truncate === 'number'
+      ? { WebkitLineClamp: $truncate }
+      : undefined,
 }))`
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.primary};
@@ -32,7 +52,7 @@ export const StyledText = styled.p.attrs<
   }
 
   &.text-label {
-    text-transform: uppercase;
+    display: block;
     letter-spacing: 0.04em;
   }
 
@@ -84,5 +104,44 @@ export const StyledText = styled.p.attrs<
 
   &.text-bold {
     font-weight: ${({ theme }) => theme.typography.weights.bold};
+  }
+
+  /* Colors */
+  &.text-default {
+    color: ${({ theme }) => theme.colors.neutral[900]};
+  }
+
+  &.text-light {
+    color: ${({ theme }) => theme.colors.neutral[600]};
+  }
+
+  &.text-muted {
+    color: ${({ theme }) => theme.colors.neutral[400]};
+  }
+
+  &.text-brand {
+    color: ${({ theme }) => theme.colors.brand.primary};
+  }
+
+  &.text-brandSecondary {
+    color: ${({ theme }) => theme.colors.brand.secondary};
+  }
+
+  &.text-danger {
+    color: ${({ theme }) => theme.colors.danger};
+  }
+
+  /* Single-line truncate */
+  &.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Multi-line clamp */
+  &[data-clamp] {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 `

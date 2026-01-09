@@ -5,10 +5,8 @@ export const colors = {
   },
   neutral: {
     900: '#111827',
-    700: '#374151',
-    400: '#4A5565',
-    300: '#d1d5db',
-    100: '#f3f4f6',
+    600: '#4b5563',
+    400: '#9ca3af',
   },
   danger: '#ef4444',
   white: '#ffffff',
