@@ -35,6 +35,11 @@ export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
 
   animation: ${slideFadeIn} 180ms ease-out;
 
+  &:focus-visible {
+    outline: 2px solid ${({ theme }) => theme.colors.feedback.error};
+    outline-offset: 2px;
+  }
+
   &.message-bar-error {
     background: ${({ theme }) => theme.colors.feedback.errorBg};
   }

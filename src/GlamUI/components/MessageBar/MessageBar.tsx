@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useRef } from 'react';
 
 import Text from '../Text';
 
@@ -19,10 +19,20 @@ const MessageBar: FC<MessageBarProps> = ({
   dismissible = false,
   dismissMessageBar,
 }) => {
+  const messageBarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (message && variant === 'error' && messageBarRef.current) {
+      messageBarRef.current.focus();
+    }
+  }, [message, variant, messageBarRef]);
+
   if (!message) return null;
 
+  const messageBarFocusProps = variant === 'error' ? { tabIndex: -1 } : {};
+
   return (
-    <StyledMessageBar $variant={variant}>
+    <StyledMessageBar $variant={variant} ref={messageBarRef} {...messageBarFocusProps}>
       <Text as="span" size="sm" weight="medium" color={variant}>
         {message}
       </Text>
