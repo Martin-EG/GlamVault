@@ -87,6 +87,24 @@ or, if semantics matter:
       ],
     },
   },
+  {
+    files: ['GlamUI/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector: 'JSXAttribute[name.name="className"]',
+          message: 'Do not use Tailwind in GlamUI components.',
+        },
+      ],
+    },
+  },
+  {
+    files: ['app/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': 'off',
+    },
+  },
 
   // Override default ignores of eslint-config-next.
   globalIgnores([

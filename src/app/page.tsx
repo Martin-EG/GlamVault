@@ -1,27 +1,14 @@
-"use client";
+import { getServerSession } from "next-auth";
+import { redirect } from 'next/navigation'
 
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+const Home = async () => {
+  const session = await getServerSession();
 
-const Home = () => {
-  const { status } = useSession();
-  const router = useRouter();
+  if (!session) {
+    redirect("/login");
+  }
 
-  useEffect(() => {
-    console.log(status);
-    if (status === "authenticated") {
-      router.push("/dashboard");
-    } else if (status === "unauthenticated") {
-      router.push("/login");
-    }
-  }, [status, router]);
-
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-pink-500"></div>
-    </div>
-  );
+  redirect("/dashboard");
 }
 
 export default Home;

@@ -1,6 +1,6 @@
 "use client";
 
-import { theme, GlobalStyles } from '@/GlamUI'
+import { theme } from '@/GlamUI'
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 export default function ThemeProvider({
@@ -10,7 +10,6 @@ export default function ThemeProvider({
 }) {
   return (
     <StyledThemeProvider theme={theme}>
-      <GlobalStyles />
       {children}
     </StyledThemeProvider>
   );

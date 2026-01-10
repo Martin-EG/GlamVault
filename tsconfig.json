@@ -26,16 +26,16 @@
       "@/*": [
         "./src/*"
       ],
-      "@Components/*": [
+      "@/Components/*": [
         "./src/components/*"
       ],
-      "@Providers/*": [
+      "@/Providers/*": [
         "./src/providers/*"
       ],
-      "@GlamUI": [
+      "@/GlamUI": [
         "./src/GlamUI/index.ts"
       ],
-      "@GlamUI/components/*": [
+      "@/GlamUI/components/*": [
         "./src/GlamUI/components/*"
       ]
     }

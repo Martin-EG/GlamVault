@@ -1,9 +1,9 @@
-import AuthProvider from "@Providers/AuthProvider";
-import StyledComponentsRegistry from "@Providers/StyledComponentsRegistry";
-import ThemeProvider from "@Providers/ThemeProvider";
+import { GlobalStyles } from "@/GlamUI/styles/GlobalStyles";
+import AuthProvider from "@/Providers/AuthProvider";
+import StyledComponentsRegistry from "@/Providers/StyledComponentsRegistry";
+import ThemeProvider from "@/Providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-
 import "./globals.css";
 
 const nunito = Nunito({
@@ -21,15 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${nunito.className} antialiased`}>
-        <AuthProvider>
-          <StyledComponentsRegistry>
-            <ThemeProvider>
+        <StyledComponentsRegistry>
+          <ThemeProvider>
+            <GlobalStyles />
+            <AuthProvider>
               {children}
-            </ThemeProvider>
-          </StyledComponentsRegistry>
-        </AuthProvider>
+            </AuthProvider>
+          </ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
