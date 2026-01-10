@@ -1,6 +1,5 @@
 /**
 * MessageBar types
-* Add your types here like:
 * @property {MessageBarVariant} variant - The variant of the MessageBar
 */
 
