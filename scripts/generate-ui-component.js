@@ -38,7 +38,7 @@ const stylesContent = `import styled from 'styled-components';
 import type { ${componentName}Variant } from './${componentName}.types';
 
 interface Styled${componentName}Props {
-  $variant: ${componentName}Variant
+  readonly $variant: ${componentName}Variant;
 }
 
 export const Styled${componentName} = styled.div.attrs<Styled${componentName}Props>(
