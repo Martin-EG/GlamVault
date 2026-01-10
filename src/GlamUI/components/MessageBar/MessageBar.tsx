@@ -1,30 +1,42 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC } from 'react';
 
-import Text from '../Text'
+import Text from '../Text';
 
-import { StyledMessageBar } from './MessageBar.styles'
-import type { MessageBarVariant } from './MessageBar.types'
+import { StyledMessageBar } from './MessageBar.styles';
+import type { MessageBarVariant } from './MessageBar.types';
+import { MessageBarDismissButton } from './MessageBarDismissButton.styles';
 
-interface MessageBarProps extends PropsWithChildren {
-  variant?: MessageBarVariant
+interface MessageBarProps {
+  readonly message: string | null;
+  readonly variant?: MessageBarVariant;
+  readonly dismissible?: boolean;
+  readonly dismissMessageBar?: () => void;
 }
 
 const MessageBar: FC<MessageBarProps> = ({
+  message,
   variant = 'error',
-  children,
-}: MessageBarProps) => {
+  dismissible = false,
+  dismissMessageBar,
+}) => {
+  if (!message) return null;
+
   return (
     <StyledMessageBar $variant={variant}>
-      <Text
-        as="span"
-        size="sm"
-        weight="medium"
-        color={variant}
-      >
-        {children}
+      <Text as="span" size="sm" weight="medium" color={variant}>
+        {message}
       </Text>
-    </StyledMessageBar>
-  )
-}
 
-export default MessageBar
+      {dismissible && (
+        <MessageBarDismissButton
+          $variant={variant}
+          onClick={dismissMessageBar}
+        >
+          ×
+        </MessageBarDismissButton>
+      )}
+    </StyledMessageBar>
+  );
+};
+
+export default MessageBar;

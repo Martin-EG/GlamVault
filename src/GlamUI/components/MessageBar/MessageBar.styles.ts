@@ -1,10 +1,21 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import type { MessageBarVariant } from './MessageBar.types';
 
 interface StyledMessageBarProps {
-  $variant: MessageBarVariant
+  readonly $variant: MessageBarVariant;
 }
+
+const slideFadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
   ({ $variant }) => ({
@@ -13,15 +24,17 @@ export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
   })
 )`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.xs};
-  margin-top: ${({ theme }) => theme.spacing.sm};
-  margin-bottom: ${({ theme }) => theme.spacing.sm};
-  border-radius: ${({ theme }) => theme.radius.md};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: ${({ theme }) => theme.spacing.sm};
+  margin: ${({ theme }) => theme.spacing.sm} 0;
+  border-radius: ${({ theme }) => theme.radius.sm};
 
-  /* Variants */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${({ theme }) => theme.spacing.sm};
+
+  animation: ${slideFadeIn} 180ms ease-out;
+
   &.message-bar-error {
     background: ${({ theme }) => theme.colors.feedback.errorBg};
   }
