@@ -3,19 +3,30 @@
 import MessageBar from '@/GlamUI/components/MessageBar'
 import Button from '@/GlamUI/components/Button'
 import Text from '@/GlamUI/components/Text'
+import TextInput from '@/GlamUI/components/TextInput'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
+
+const errorsInitialState: LoginErrors = {
+  email: undefined,
+  login: undefined,
+}
 
 interface LoginProps {
   email: string;
   password: string;
 }
 
+interface LoginErrors {
+  email?: string;
+  login?: string;
+}
+
 const Login = () => {
   const router = useRouter();
-  const [error, setError] = useState<string | null>(null);
+  const [loginErrors, setLoginErrors] = useState<LoginErrors>(errorsInitialState);
   const [loginData, setLoginData] = useState<LoginProps>({
     email: '',
     password: '',
@@ -23,10 +34,19 @@ const Login = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const updateLoginData = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLoginData({
-      ...loginData,
+
+    if (e.target.name === 'email') {
+      if (e.target.validity.typeMismatch) {
+        setLoginErrors((prev) => ({ ...prev, email: 'Introduce un email válido' }));
+      } else {
+        setLoginErrors((prev) => ({ ...prev, email: undefined }));
+      }
+    }
+
+    setLoginData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   const updateRememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,10 +55,10 @@ const Login = () => {
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError(null);
+    setLoginErrors((prev) => ({ ...prev, login: undefined }));
 
     if (!loginData.email || !loginData.password) {
-      setError('Completa todos los campos');
+      setLoginErrors((prev) => ({ ...prev, login: 'Completa todos los campos' }));
       return;
     }
 
@@ -52,44 +72,27 @@ const Login = () => {
           <Image src="/glamvault-complete.svg" alt="GlamVault" width={320} height={200} />
           <div className="flex flex-col items-center w-full max-w-sm">
             <Text variant="heading" size="xxl" weight="bold" as="h1">Bienvenido</Text>
-            <form className="flex flex-col w-full max-w-sm mt-4 mb-4" onSubmit={handleLogin}>
-              <Text
-                variant="label"
-                size="sm"
-                weight="regular"
-                as="label"
-                color="light"
-                labelFor="email"
-              >
-                Email
-              </Text>
-              <input
+            <form className="flex flex-col w-full max-w-sm mb-4" onSubmit={handleLogin}>
+              <TextInput
+                label="Email"
                 name="email"
                 type="email"
                 id="email"
-                className="border border-gray-300 rounded px-3 py-1 mb-4"
+                placeholder="you@email.com"
                 onChange={updateLoginData}
                 value={loginData.email}
+                error={loginErrors.email}
               />
-              <Text
-                variant="label"
-                size="sm"
-                weight="regular"
-                as="label"
-                color="light"
-                labelFor="password"
-              >
-                Contraseña
-              </Text>
-              <input
+              <TextInput
+                label="Contraseña"
+                variant="password"
                 name="password"
                 type="password"
                 id="password"
-                className="border border-gray-300 rounded px-2 py-1 mb-1"
                 onChange={updateLoginData}
                 value={loginData.password}
               />
-              <div className="flex justify-end items-center gap-2 mb-4">
+              <div className="flex justify-end items-center gap-2 mb-2">
                 <input
                   name="rememberMe"
                   type="checkbox"
@@ -110,10 +113,10 @@ const Login = () => {
               </div>
 
               <MessageBar
+                message={loginErrors.login}
                 variant="error"
                 dismissible={true}
-                dismissMessageBar={() => setError(null)}
-                message={error}
+                dismissMessageBar={() => setLoginErrors((prev) => ({ ...prev, login: undefined }))}
               />
 
               <Button
