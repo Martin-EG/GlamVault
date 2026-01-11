@@ -10,7 +10,7 @@ export const MessageBarDismissButton = styled.button.attrs<StyledMessageBarDismi
   className: `message-bar-dismiss-btn message-bar-dismiss-btn-${$variant}`,
   type: 'button',
   'aria-label': 'Dismiss message',
-}))`
+})) <StyledMessageBarDismissButtonProps>`
   background: transparent;
   border: none;
   padding: ${({ theme }) => theme.spacing.xs};

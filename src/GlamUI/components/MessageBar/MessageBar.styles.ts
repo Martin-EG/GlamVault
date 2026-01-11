@@ -22,10 +22,10 @@ export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
     className: `message-bar message-bar-${$variant}`,
     role: 'alert',
   })
-)`
+) <StyledMessageBarProps>`
   width: 100%;
   padding: ${({ theme }) => theme.spacing.sm};
-  margin: ${({ theme }) => theme.spacing.sm} 0;
+  margin: ${({ theme }) => theme.spacing.xs} 0;
   border-radius: ${({ theme }) => theme.radius.sm};
 
   display: flex;
@@ -36,7 +36,7 @@ export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
   animation: ${slideFadeIn} 180ms ease-out;
 
   &:focus-visible {
-    outline: 2px solid ${({ theme }) => theme.colors.feedback.error};
+    outline: 2px solid ${({ theme }) => theme.colors.feedback.errorText};
     outline-offset: 2px;
   }
 
