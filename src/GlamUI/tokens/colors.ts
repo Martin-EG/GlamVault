@@ -2,6 +2,7 @@ export const colors = {
   brand: {
     primary: '#EA638C',
     secondary: '#F6339A',
+    primaryAlpha: 'rgba(234, 99, 140, 0.25)',
   },
   neutral: {
     900: '#111827',
