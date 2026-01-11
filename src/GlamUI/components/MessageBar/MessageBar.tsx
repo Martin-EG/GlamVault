@@ -7,7 +7,7 @@ import type { MessageBarVariant } from './MessageBar.types';
 import { MessageBarDismissButton } from './MessageBarDismissButton.styles';
 
 interface MessageBarProps {
-  readonly message: string | null;
+  readonly message: string | undefined;
   readonly variant?: MessageBarVariant;
   readonly dismissible?: boolean;
   readonly dismissMessageBar?: () => void;
