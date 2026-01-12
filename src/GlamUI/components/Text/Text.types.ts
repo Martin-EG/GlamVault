@@ -6,6 +6,7 @@
  * @property {TextAs} as - The html element to render the text as
  * @property {TextColor} color - The color of the text
  * @property {TextTruncate} truncate - The truncate of the text
+ * @property {TextAlign} align - The alignment of the text
  */
 
 export type TextVariant =
@@ -42,3 +43,5 @@ export type TextColor =
   | 'info'
 
 export type TextTruncate = boolean | number;
+
+export type TextAlign = 'left' | 'center' | 'right' | 'justify';

@@ -3,6 +3,7 @@ import { FC, PropsWithChildren } from 'react'
 import { StyledText } from './Text.styles'
 import type {
   TextAs,
+  TextAlign,
   TextColor,
   TextSize,
   TextTruncate,
@@ -17,6 +18,7 @@ interface TextProps extends PropsWithChildren {
   readonly weight?: TextWeight;
   readonly color?: TextColor;
   readonly truncate?: TextTruncate;
+  readonly align?: TextAlign;
   readonly labelFor?: string;
 }
 
@@ -27,6 +29,7 @@ const Text: FC<TextProps> = ({
   weight = 'regular',
   color = 'default',
   truncate = false,
+  align = 'left',
   labelFor,
   children,
 }) => {
@@ -40,6 +43,7 @@ const Text: FC<TextProps> = ({
       $weight={weight}
       $color={color}
       $truncate={truncate}
+      $align={align}
       {...labelProps}
     >
       {children}
