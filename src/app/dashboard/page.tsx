@@ -1,6 +1,6 @@
 "use client";
 
-import Text from '@GlamUI/components/Text'
+import Text from '@/GlamUI/components/Text'
 
 
 const Signup = () => {

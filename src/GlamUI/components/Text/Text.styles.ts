@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import type {
   TextAs,
+  TextAlign,
   TextColor,
   TextSize,
   TextTruncate,
@@ -15,6 +16,7 @@ interface StyledTextProps {
   readonly $weight: TextWeight;
   readonly $color: TextColor;
   readonly $truncate: TextTruncate;
+  readonly $align: TextAlign;
 }
 
 const getTruncateClassname = (truncate: TextTruncate) => {
@@ -29,15 +31,15 @@ const getTruncateClassname = (truncate: TextTruncate) => {
   return className;
 };
 
-export const StyledText = styled.p.attrs<
-  StyledTextProps & { as?: TextAs }
->(({ $variant, $size, $weight, $color, $truncate }) => ({
-  className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} ${getTruncateClassname($truncate)}`,
-  style:
-    typeof $truncate === 'number'
-      ? { WebkitLineClamp: $truncate }
-      : undefined,
-}))`
+export const StyledText = styled.p.attrs<StyledTextProps>(
+  ({ $variant, $size, $weight, $color, $truncate, $align }) => ({
+    className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
+    style:
+      typeof $truncate === 'number'
+        ? { WebkitLineClamp: $truncate }
+        : undefined,
+  })
+)`
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.primary};
 
@@ -145,6 +147,23 @@ export const StyledText = styled.p.attrs<
 
   &.text-info {
     color: ${({ theme }) => theme.colors.feedback.infoText};
+  }
+
+  /* Alignments */
+  &.text-align-left {
+    text-align: left;
+  }
+
+  &.text-align-center {
+    text-align: center;
+  }
+
+  &.text-align-right {
+    text-align: right;
+  }
+
+  &.text-align-justify {
+    text-align: justify;
   }
 
   /* Single-line truncate */
