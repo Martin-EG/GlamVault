@@ -1,8 +1,9 @@
-import { colors } from '@/GlamUI/tokens/colors';
-import { spacing } from '@/GlamUI/tokens/spacing';
-import { radius } from '@/GlamUI/tokens/radius';
-import { typography } from '@/GlamUI/tokens/typography';
-import type { Config } from 'tailwindcss';
+import { colors } from './src/GlamUI/tokens/dist/colors'
+import { spacing } from './src/GlamUI/tokens/dist/spacing'
+import { radius } from './src/GlamUI/tokens/dist/radius'
+import { typography } from './src/GlamUI/tokens/dist/typography'
+
+import type { Config } from 'tailwindcss' with { 'resolution-mode': 'import' };
 
 const config = {
   content: [
@@ -14,7 +15,7 @@ const config = {
   },
   theme: {
     extend: {
-      fonts: {
+      fontFamily: {
         primary: 'var(--font-nunito), system-ui, sans-serif',
       },
       colors,
