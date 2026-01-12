@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "outDir": "./src/GlamUI/tokens/dist",
+    "declaration": false,
+    "emitDeclarationOnly": false,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/GlamUI/tokens/**/*.ts"
+  ]
+}
