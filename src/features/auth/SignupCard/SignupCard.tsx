@@ -1,6 +1,5 @@
 "use client"
 
-import Avatar from '@/GlamUI/components/Avatar'
 import MessageBar from '@/GlamUI/components/MessageBar'
 import Button from '@/GlamUI/components/Button'
 import PasswordInput from '@/GlamUI/components/PasswordInput'
@@ -10,6 +9,7 @@ import Link from 'next/link'
 import { redirect } from 'next/navigation'
 import { useState } from 'react'
 
+import ProfilePhotoInput from '../../ProfilePhotoInput'
 import AuthCard from "../AuthCard";
 
 const errorsInitialState: SignupErrors = {
@@ -34,6 +34,7 @@ interface SignupErrors {
 }
 
 const SignupCard = () => {
+  const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
   const [signupErrors, setSignupErrors] = useState<SignupErrors>(errorsInitialState);
   const [signupData, setSignupData] = useState<SignupProps>({
     name: '',
@@ -90,6 +91,8 @@ const SignupCard = () => {
       return;
     }
 
+    console.log(profilePhoto, signupData);
+
     redirect('/dashboard');
   };
 
@@ -99,17 +102,10 @@ const SignupCard = () => {
         <Text variant='body' size='sm' weight='semibold' as='p' align='center'>
           Comienza a organizar tu maquillaje en linea
         </Text>
+        <div className="flex items-center justify-center mt-4">
+          <ProfilePhotoInput onChangeProfilePhoto={setProfilePhoto} />
+        </div>
         <form className="flex flex-col w-full max-w-sm mb-4" onSubmit={handleSignup}>
-          <div className="flex items-center justify-center mt-4">
-            <Avatar
-              size="lg"
-              editable
-              onClick={() => {
-                console.log('Avatar clicked');
-              }}
-            />
-          </div>
-
           <TextInput
             label="Nombre"
             name="name"
