@@ -1,11 +1,13 @@
-import Text from '@/GlamUI/components/Text'
+"use client"
 
-const Signup = () => {
-  return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16  sm:items-start">
-      <Text as="h1">Registrate!</Text>
-    </main>
-  );
-}
+import SignupCard from '@/Features/auth/SignupCard'
 
-export default Signup;
+const PasswordRecover = () => (
+  <main className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-pink-100 flex items-center justify-center p-4">
+    <div className="w-full max-w-sm">
+      <SignupCard />
+    </div>
+  </main>
+);
+
+export default PasswordRecover;

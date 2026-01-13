@@ -16,7 +16,7 @@ export const FieldWrapper = styled.div<WrapperProps>`
 export const Label = styled.label`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
   font-weight: ${({ theme }) => theme.typography.weights.medium};
-  color: ${({ theme }) => theme.colors.neutral[900]};
+  color: ${({ theme }) => theme.colors.text.primary};
 `
 
 export const Input = styled.input<WrapperProps>`
@@ -27,22 +27,22 @@ export const Input = styled.input<WrapperProps>`
   border-radius: ${({ theme }) => theme.radius.md};
   font-size: ${({ theme }) => theme.typography.sizes.md};
 
-  background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.neutral[900]};
+  background: ${({ theme }) => theme.colors.text.inverse};
+  color: ${({ theme }) => theme.colors.text.primary};
 
   border: 1px solid
     ${({ theme, $hasError }) =>
     $hasError
       ? theme.colors.feedback.errorText
-      : theme.colors.neutral[400]};
+      : theme.colors.text.muted};
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral[400]};
+    color: ${({ theme }) => theme.colors.text.muted};
   }
 
   &:focus-visible {
     outline: none;
-    border-color: ${({ theme }) => theme.colors.neutral[600]};
+    border-color: ${({ theme }) => theme.colors.text.secondary};
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
   }
 

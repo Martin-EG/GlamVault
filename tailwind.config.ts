@@ -21,7 +21,7 @@ const config = {
       colors,
       spacing,
       typography,
-      radius,
+      borderRadius: radius,
     },
   },
 } as unknown as Config;

@@ -53,7 +53,7 @@ const PasswordRecoveryCard = () => {
   return (
     <AuthCard title="Olvide mi contraseña">
       <div className="flex flex-col items-center w-full max-w-sm">
-        <Text variant='body' size='md' weight='semibold' as='p' align='center'>
+        <Text variant='body' size='sm' weight='semibold' as='p' align='center'>
           Ingresa tu correo y te enviaremos instrucciones para restablecerla
         </Text>
         <form className="flex flex-col w-full max-w-sm mt-2 mb-4" onSubmit={recoverPassword}>

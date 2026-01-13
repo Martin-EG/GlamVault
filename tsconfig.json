@@ -29,9 +29,6 @@
       "@/Components/*": [
         "./src/components/*"
       ],
-      "@/Providers/*": [
-        "./src/providers/*"
-      ],
       "@/GlamUI": [
         "./src/GlamUI/index.ts"
       ],
@@ -40,7 +37,10 @@
       ],
       "@/Features/*": [
         "./src/features/*"
-      ]
+      ],
+      "@/Providers/*": [
+        "./src/providers/*"
+      ],
     }
   },
   "include": [

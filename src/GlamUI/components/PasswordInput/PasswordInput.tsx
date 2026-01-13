@@ -17,9 +17,11 @@ export interface PasswordInputProps
 const PasswordInput: FC<PasswordInputProps> = ({
   showLabel = 'Mostrar contraseña',
   hideLabel = 'Ocultar contraseña',
+  error,
   ...props
 }) => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+  const hasError = !!error;
 
   const toggleVisibility = () => {
     setIsVisible((prev) => !prev)
@@ -29,6 +31,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
     <PasswordWrapper>
       <TextInput
         {...props}
+        error={error}
         variant={isVisible ? 'text' : 'password'}
       />
 
@@ -36,6 +39,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
         aria-label={isVisible ? hideLabel : showLabel}
         aria-pressed={isVisible}
         onClick={toggleVisibility}
+        $hasError={hasError}
         tabIndex={0}
       >
         {isVisible ? <Eye /> : <EyeOff />}

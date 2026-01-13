@@ -13,12 +13,20 @@ export const PasswordInputField = styled(Input)`
   );
 `
 
-export const ToggleButton = styled.button.attrs({
+interface ToggleButtonProps {
+  $hasError: boolean
+}
+
+export const ToggleButton = styled.button.attrs<ToggleButtonProps>({
   type: 'button',
 })`
-    position: absolute;
+  position: absolute;
   top: 50%;
   right: ${({ theme }) => theme.spacing.sm};
+  transform: ${({ $hasError }) =>
+    $hasError
+      ? 'translateY(-30%)'
+      : 'translateY(0)'};
 
   width: 32px;
   height: 32px;
@@ -31,10 +39,10 @@ export const ToggleButton = styled.button.attrs({
   border: none;
   cursor: pointer;
 
-  color: ${({ theme }) => theme.colors.neutral[600]};
+  color: ${({ theme }) => theme.colors.text.secondary};
 
   &:hover {
-    color: ${({ theme }) => theme.colors.neutral[900]};
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 
   &:focus-visible {
