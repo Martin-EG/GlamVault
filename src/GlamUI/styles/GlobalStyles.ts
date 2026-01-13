@@ -10,6 +10,6 @@ export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.primary};
-    color: ${({ theme }) => theme.colors.neutral[900]};
-    background: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.text.primary};
+    background: ${({ theme }) => theme.colors.text.inverse};
   }`

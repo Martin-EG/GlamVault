@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import type {
-  TextAs,
   TextAlign,
   TextColor,
   TextSize,
@@ -110,15 +109,15 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
 
   /* Colors */
   &.text-default {
-    color: ${({ theme }) => theme.colors.neutral[900]};
+    color: ${({ theme }) => theme.colors.text.primary};
   }
 
   &.text-light {
-    color: ${({ theme }) => theme.colors.neutral[600]};
+    color: ${({ theme }) => theme.colors.text.secondary};
   }
 
   &.text-muted {
-    color: ${({ theme }) => theme.colors.neutral[400]};
+    color: ${({ theme }) => theme.colors.text.muted};
   }
 
   &.text-brand {
