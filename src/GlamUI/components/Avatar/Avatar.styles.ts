@@ -61,7 +61,7 @@ export const AvatarPlaceholder = styled.div`
   width: 32px;
   height: 32px;
 
-  background: url('/icons/camera.svg') center / contain no-repeat;
+  background: url('/camera.svg') center / contain no-repeat;
   color: ${({ theme }) => theme.colors.text.muted};
   opacity: 0.7;
 
