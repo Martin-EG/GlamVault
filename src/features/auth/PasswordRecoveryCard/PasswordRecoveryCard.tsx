@@ -56,7 +56,7 @@ const PasswordRecoveryCard = () => {
         <Text variant='body' size='sm' weight='semibold' as='p' align='center'>
           Ingresa tu correo y te enviaremos instrucciones para restablecerla
         </Text>
-        <form className="flex flex-col w-full max-w-sm mt-2 mb-4" onSubmit={recoverPassword}>
+        <form className="flex flex-col gap-2 w-full max-w-sm mt-2 mb-4" onSubmit={recoverPassword}>
           <TextInput
             label="Email"
             name="email"
@@ -82,7 +82,7 @@ const PasswordRecoveryCard = () => {
             dismissMessageBar={() => setSuccessMessage(undefined)}
           />
 
-          <div className="mt-4">
+          <div className="mt-0">
             <Button
               type="submit"
               variant="primary"

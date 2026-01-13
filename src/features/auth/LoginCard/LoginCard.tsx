@@ -113,14 +113,16 @@ const LoginCard = () => {
             dismissMessageBar={() => setLoginErrors((prev) => ({ ...prev, login: undefined }))}
           />
 
-          <Button
-            type="submit"
-            variant="primary"
-            rounded="full"
-            size="sm"
-            fullSize={true}
-            text="Iniciar sesión"
-          />
+          <div className="mt-4">
+            <Button
+              type="submit"
+              variant="primary"
+              rounded="full"
+              size="sm"
+              fullSize={true}
+              text="Iniciar sesión"
+            />
+          </div>
         </form>
         <div className="flex justify-center items-center gap-2">
           <Text variant="label" size="sm" weight="semibold" as="span">

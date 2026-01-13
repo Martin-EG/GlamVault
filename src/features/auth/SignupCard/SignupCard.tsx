@@ -142,12 +142,14 @@ const SignupCard = () => {
             error={signupErrors.passwordConfirmation}
           />
 
-          <MessageBar
-            message={signupErrors.signup}
-            variant="error"
-            dismissible={true}
-            dismissMessageBar={() => setSignupErrors((prev) => ({ ...prev, signup: undefined }))}
-          />
+          <div className="mt-4">
+            <MessageBar
+              message={signupErrors.signup}
+              variant="error"
+              dismissible={true}
+              dismissMessageBar={() => setSignupErrors((prev) => ({ ...prev, signup: undefined }))}
+            />
+          </div>
 
           <div className="mt-4">
             <Button
