@@ -11,10 +11,10 @@ interface StyledButtonProps {
 
 export const StyledButton = styled('button').attrs<StyledButtonProps>(
   ({ $variant, $size, $rounded, $fullSize, disabled }) => ({
-    className: `btn btn-${$variant} btn-${$size} btn-${$rounded} ${$fullSize ? 'w-full' : ''} ${disabled ? 'btn-disabled' : ''}`,
+    className: `btn btn-${$variant} btn-${$size} btn-${$rounded} ${disabled ? 'btn-disabled' : ''}`,
     disabled: disabled,
   })
-) < StyledButtonProps>`
+) <StyledButtonProps>`
   cursor: pointer;
   color: black;
   display: flex;
@@ -24,6 +24,7 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   transition: background 0.2s ease, transform 0.1s ease;
   border-radius: ${({ theme }) => theme.radius.md};
   font-weight: ${({ theme }) => theme.typography.weights.semibold};
+  width: ${({ $fullSize }) => $fullSize ? '100%' : 'auto'};
 
   &:active {
     transform: scale(0.98);
