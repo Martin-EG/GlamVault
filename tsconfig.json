@@ -26,9 +26,6 @@
       "@/*": [
         "./src/*"
       ],
-      "@/Components/*": [
-        "./src/components/*"
-      ],
       "@/GlamUI": [
         "./src/GlamUI/index.ts"
       ],
@@ -38,10 +35,10 @@
       "@/Features/*": [
         "./src/features/*"
       ],
-      "@/Lib/*": [
+      "@/lib/*": [
         "./src/lib/*"
       ],
-      "@/Providers/*": [
+      "@/providers/*": [
         "./src/providers/*"
       ],
     }
