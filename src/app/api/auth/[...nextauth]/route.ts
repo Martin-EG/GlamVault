@@ -1,10 +1,8 @@
+import { authOptions } from '@/Lib/auth';
 import NextAuth from 'next-auth';
 
 export const runtime = 'nodejs';
 
-const handler = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
-  providers: [],
-});
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

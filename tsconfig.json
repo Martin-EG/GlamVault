@@ -38,6 +38,9 @@
       "@/Features/*": [
         "./src/features/*"
       ],
+      "@/Lib/*": [
+        "./src/lib/*"
+      ],
       "@/Providers/*": [
         "./src/providers/*"
       ],
