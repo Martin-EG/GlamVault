@@ -33,6 +33,7 @@ const getTruncateClassname = (truncate: TextTruncate) => {
 export const StyledText = styled.p.attrs<StyledTextProps>(
   ({ $variant, $size, $weight, $color, $truncate, $align }) => ({
     className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
+    'data-clamp': $truncate,
     style:
       typeof $truncate === 'number'
         ? { WebkitLineClamp: $truncate }
@@ -174,8 +175,9 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
 
   /* Multi-line clamp */
   &[data-clamp] {
+    overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    -webkit-line-clamp: ${({ $truncate }) => typeof $truncate === 'number' ? $truncate : 1};
   }
 `

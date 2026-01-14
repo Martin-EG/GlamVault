@@ -39,6 +39,7 @@ const ProfilePhotoInput: FC<ProfilePhotoInputProps> = ({
     <>
       <Avatar
         src={preview}
+        alt="Foto de perfil"
         size="lg"
         editable
         loading={loading}

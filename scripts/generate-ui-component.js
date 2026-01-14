@@ -73,9 +73,28 @@ const ${componentName}: FC<${componentName}Props> = ({
 export default ${componentName};
 `;
 
+const storyContent = `import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from 'storybook/test';
+
+import ${componentName} from './${componentName}';
+
+const meta = {
+  title: 'GlamUI/${componentName}',
+  component: ${componentName},
+} satisfies Meta<typeof ${componentName}>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {}
+};
+`;
+
 fs.writeFileSync(path.join(componentDir, 'index.ts'), indexContent);
 fs.writeFileSync(path.join(componentDir, `${componentName}.types.ts`), typesContent);
 fs.writeFileSync(path.join(componentDir, `${componentName}.styles.ts`), stylesContent);
 fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), componentContent);
+fs.writeFileSync(path.join(componentDir, `${componentName}.stories.tsx`), storyContent);
 
 console.log(`Component ${componentName} created successfully at ${componentDir}`);

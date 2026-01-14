@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/nextjs-vite'
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/GlamUI/styles/theme';
 import { GlobalStyles } from '../src/GlamUI/styles/GlobalStyles';

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { fn } from 'storybook/test';
 
+import Text from '../Text/Text';
+
 import Button from './Button';
 
 const meta = {
@@ -24,7 +26,7 @@ export const Variants: Story = {
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <h3>Variants:</h3>
+      <Text as="h3" variant="heading" weight="bold">Variants:</Text>
       <Button {...args} variant="primary" text="Primary" />
       <Button {...args} variant="secondary" text="Secondary" />
       <Button {...args} variant="danger" text="Danger" />
@@ -38,7 +40,7 @@ export const Sizes: Story = {
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <h3>Sizes:</h3>
+      <Text as="h3" variant="heading" weight="bold">Sizes:</Text>
       <Button {...args} size="sm" text="Small" />
       <Button {...args} size="md" text="Medium" />
       <Button {...args} size="lg" text="Large" />
@@ -52,7 +54,7 @@ export const Rounded: Story = {
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <h3>Rounded:</h3>
+      <Text as="h3" variant="heading" weight="bold">Rounded:</Text>
       <Button {...args} rounded="semi" text="Semi Rounded" />
       <Button {...args} rounded="full" text="Full Rounded" />
     </div>
@@ -65,7 +67,7 @@ export const States: Story = {
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '20px' }}>
-      <h3>States:</h3>
+      <Text as="h3" variant="heading" weight="bold">States:</Text>
       <Button {...args} disabled text="Disabled" />
     </div>
   )
@@ -77,7 +79,7 @@ export const FullSize: Story = {
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '20px' }}>
-      <h3>States:</h3>
+      <Text as="h3" variant="heading" weight="bold">States:</Text>
       <Button {...args} fullSize text="Full size" />
     </div>
   )
