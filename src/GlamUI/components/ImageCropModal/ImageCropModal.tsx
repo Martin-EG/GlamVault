@@ -4,13 +4,9 @@
 import { FC, useState } from 'react';
 import Cropper from 'react-easy-crop';
 
-import Button from '../Button';
-import {
-  CropArea,
-  Footer,
-  Modal,
-  Overlay,
-} from './ImageCropModal.styles';
+import Modal from '../Modal';
+
+import { CropArea } from './ImageCropModal.styles';
 import { useCroppedImage } from './hooks';
 
 interface ImageCropModalProps {
@@ -40,26 +36,19 @@ const ImageCropModal: FC<ImageCropModalProps> = ({
   };
 
   return (
-    <Overlay>
-      <Modal role="dialog" aria-modal="true">
-        <CropArea>
-          <Cropper
-            image={image}
-            crop={crop}
-            zoom={zoom}
-            aspect={1}
-            onCropChange={setCrop}
-            onZoomChange={setZoom}
-            onCropComplete={onCropComplete}
-          />
-        </CropArea>
-
-        <Footer>
-          <Button variant="secondary" onClick={onCancel} text="Cancelar" size="sm" fullSize />
-          <Button onClick={handleConfirm} text="Guardar" size="sm" fullSize />
-        </Footer>
-      </Modal>
-    </Overlay>
+    <Modal onCancel={onCancel} onConfirm={handleConfirm}>
+      <CropArea>
+        <Cropper
+          image={image}
+          crop={crop}
+          zoom={zoom}
+          aspect={1}
+          onCropChange={setCrop}
+          onZoomChange={setZoom}
+          onCropComplete={onCropComplete}
+        />
+      </CropArea>
+    </Modal>
   );
 };
 
