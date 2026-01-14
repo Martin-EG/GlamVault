@@ -4,6 +4,7 @@ import StyledComponentsRegistry from "@/Providers/StyledComponentsRegistry";
 import ThemeProvider from "@/Providers/ThemeProvider";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+
 import "./globals.css";
 
 const nunito = Nunito({
