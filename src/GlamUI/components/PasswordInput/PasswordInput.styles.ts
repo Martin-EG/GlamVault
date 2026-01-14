@@ -17,9 +17,9 @@ interface ToggleButtonProps {
   $hasError: boolean
 }
 
-export const ToggleButton = styled.button.attrs<ToggleButtonProps>({
+export const ToggleButton = styled.button.attrs({
   type: 'button',
-})`
+}) <ToggleButtonProps>`
   position: absolute;
   top: 50%;
   right: ${({ theme }) => theme.spacing.sm};

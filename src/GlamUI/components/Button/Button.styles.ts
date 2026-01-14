@@ -9,12 +9,12 @@ interface StyledButtonProps {
   readonly disabled?: boolean;
 }
 
-export const StyledButton = styled.button.attrs<StyledButtonProps>(
+export const StyledButton = styled('button').attrs<StyledButtonProps>(
   ({ $variant, $size, $rounded, $fullSize, disabled }) => ({
     className: `btn btn-${$variant} btn-${$size} btn-${$rounded} ${$fullSize ? 'w-full' : ''} ${disabled ? 'btn-disabled' : ''}`,
     disabled: disabled,
   })
-)`
+) < StyledButtonProps>`
   cursor: pointer;
   color: black;
   display: flex;

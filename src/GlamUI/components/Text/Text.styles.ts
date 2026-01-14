@@ -38,7 +38,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
         ? { WebkitLineClamp: $truncate }
         : undefined,
   })
-)`
+) <StyledTextProps>`
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.primary};
 
