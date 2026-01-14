@@ -25,7 +25,7 @@ export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
   border-radius: 50%;
 
   background: ${({ theme }) => theme.colors.surface.muted};
-  border: 2px dashed ${({ theme }) => theme.colors.border.muted};
+  border: 2px ${({ $clickable }) => ($clickable ? 'dashed' : 'solid')} ${({ theme }) => theme.colors.border.muted};
 
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@ export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
 
   &:hover {
     border-color: ${({ theme, $clickable }) =>
-    $clickable ? theme.colors.brand.primary : 'inherit'};
+    $clickable ? theme.colors.brand.primary : theme.colors.border.muted};
   }
 
   &:focus-visible {
