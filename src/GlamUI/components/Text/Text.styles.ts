@@ -129,7 +129,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
   }
 
   &.text-danger {
-    color: ${({ theme }) => theme.colors.danger};
+    color: ${({ theme }) => theme.colors.text.danger};
   }
 
   &.text-error {
