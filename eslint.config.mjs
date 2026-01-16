@@ -17,6 +17,19 @@ const eslintConfig = defineConfig([
         "error",
         {
           selector:
+            "JSXElement > JSXOpeningElement[name.name='button']:not([parent.name.name='Markdown'])",
+          message: `
+❌ Do not use <button> directly.
+
+✅ Use the GlamUI Button component instead:
+
+<Button>
+  Your text here
+</Button>
+        `,
+        },
+        {
+          selector:
             "JSXElement > JSXOpeningElement[name.name='p']:not([parent.name.name='Markdown'])",
           message: `
 ❌ Do not use <p> directly.
@@ -87,6 +100,7 @@ or, if semantics matter:
 </Text>
         `,
         },
+
       ],
     },
   },
