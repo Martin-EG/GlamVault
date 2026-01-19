@@ -36,7 +36,11 @@ const ImageCropModal: FC<ImageCropModalProps> = ({
   };
 
   return (
-    <Modal onCancel={onCancel} onConfirm={handleConfirm}>
+    <Modal
+      cancelText="Cancelar edición"
+      onCancel={onCancel}
+      onConfirm={handleConfirm}
+    >
       <CropArea>
         <Cropper
           image={image}

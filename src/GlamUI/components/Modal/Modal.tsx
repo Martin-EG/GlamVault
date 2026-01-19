@@ -12,13 +12,17 @@ import {
 } from './Modal.styles';
 
 interface ModalProps extends PropsWithChildren {
-  title?: string;
-  onCancel?: () => void;
-  onConfirm?: () => void;
+  readonly title?: string;
+  readonly cancelText?: string;
+  readonly confirmText?: string;
+  readonly onCancel?: () => void;
+  readonly onConfirm: () => void;
 }
 
 const Modal: FC<ModalProps> = ({
   title,
+  cancelText,
+  confirmText,
   onCancel,
   onConfirm,
   children
@@ -38,12 +42,11 @@ const Modal: FC<ModalProps> = ({
     </Text>
   ) : null;
 
-  const secondaryButton = onCancel ? (
-    <Button variant="secondary" onClick={onCancel} text="Cancelar" size="sm" fullSize />
-  ) : null;
+  const secondaryButtonText = !!onCancel && !!cancelText ? cancelText : 'Cancelar';
+  const primaryButtonText = !!confirmText ? confirmText : 'Guardar';
 
-  const primaryButton = onConfirm ? (
-    <Button onClick={onConfirm} text="Guardar" size="sm" fullSize />
+  const secondaryButton = onCancel ? (
+    <Button variant="secondary" onClick={onCancel} text={secondaryButtonText} size="sm" fullSize />
   ) : null;
 
 
@@ -56,7 +59,7 @@ const Modal: FC<ModalProps> = ({
 
         <Footer>
           {secondaryButton}
-          {primaryButton}
+          <Button onClick={onConfirm} text={primaryButtonText} size="sm" fullSize />
         </Footer>
       </ModalBase>
     </Overlay>
