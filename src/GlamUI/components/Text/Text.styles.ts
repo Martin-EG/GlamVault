@@ -33,7 +33,7 @@ const getTruncateClassname = (truncate: TextTruncate) => {
 export const StyledText = styled.p.attrs<StyledTextProps>(
   ({ $variant, $size, $weight, $color, $truncate, $align }) => ({
     className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
-    'data-clamp': $truncate,
+    'data-clamp': !!$truncate ? $truncate : undefined,
     style:
       typeof $truncate === 'number'
         ? { WebkitLineClamp: $truncate }
