@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log(process.argv)
 const componentName = process.argv[2];
 
 if (!componentName) {

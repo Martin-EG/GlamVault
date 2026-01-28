@@ -93,7 +93,7 @@ const PasswordRecoveryCard = () => {
             />
           </div>
         </form>
-        <div className="flex justify-center items-center gap-2">
+        <div className="flex justify-center items-center gap-x-2 flex-wrap">
           <Text variant="label" size="sm" weight="semibold" as="span">
             ¿Recuerdas tu contraseña?
           </Text>
