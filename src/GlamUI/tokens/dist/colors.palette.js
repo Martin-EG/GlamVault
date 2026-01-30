@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.palette = void 0;
-// colors.palette.ts
 exports.palette = {
     pink: {
         500: '#EA638C',
@@ -12,6 +11,7 @@ exports.palette = {
         900: '#111827',
         600: '#4b5563',
         400: '#9ca3af',
+        300: '#f9fafb',
         200: '#e5e7eb',
         100: '#f3f4f6',
     },
