@@ -43,7 +43,8 @@ export const colors = {
 
   surface: {
     default: palette.white,
-    subtle: palette.gray[100],
+    subtle: palette.gray[300],
+    hover: palette.gray[100],
     muted: palette.gray[200],
     elevated: palette.white,
   },

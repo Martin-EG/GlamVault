@@ -18,3 +18,4 @@ __exportStar(require("./colors"), exports);
 __exportStar(require("./spacing"), exports);
 __exportStar(require("./radius"), exports);
 __exportStar(require("./typography"), exports);
+__exportStar(require("./shadows"), exports);

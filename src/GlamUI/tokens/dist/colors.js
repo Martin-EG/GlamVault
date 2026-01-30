@@ -37,7 +37,8 @@ exports.colors = {
     },
     surface: {
         default: colors_palette_1.palette.white,
-        subtle: colors_palette_1.palette.gray[100],
+        subtle: colors_palette_1.palette.gray[300],
+        hover: colors_palette_1.palette.gray[100],
         muted: colors_palette_1.palette.gray[200],
         elevated: colors_palette_1.palette.white,
     },
