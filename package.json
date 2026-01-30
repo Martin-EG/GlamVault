@@ -9,8 +9,8 @@
     "lint": "next lint",
     "generate:ui-component": "node scripts/generate-ui-component.js",
     "build:tokens": "tsc -p tsconfig.tokens.json",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "start:storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build"
   },
   "dependencies": {
     "next": "16.1.1",
