@@ -78,8 +78,10 @@ const SignupForm: FC<SignupFormProps> = ({
           rounded="full"
           size="sm"
           fullSize={true}
-          text="Registrarse"
-        />
+          aria-label="Registrarse"
+        >
+          Registrarse
+        </Button>
       </div>
     </form>
   )

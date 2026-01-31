@@ -89,8 +89,10 @@ const PasswordRecoveryCard = () => {
               rounded="full"
               size="sm"
               fullSize={true}
-              text="Reestablecer contraseña"
-            />
+              aria-label="Reestablecer contraseña"
+            >
+              Reestablecer contraseña
+            </Button>
           </div>
         </form>
         <div className="flex justify-center items-center gap-x-2 flex-wrap">

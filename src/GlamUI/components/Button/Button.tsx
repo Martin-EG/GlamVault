@@ -5,9 +5,7 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types';
 import { StyledButton } from './Button.styles';
 
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  readonly text: string;
   readonly variant?: ButtonVariant;
   readonly size?: ButtonSize;
   readonly rounded?: ButtonRounded;
@@ -15,11 +13,12 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button: FC<ButtonProps> = ({
-  text,
   variant = 'primary',
   size = 'md',
   fullSize = false,
   rounded = 'semi',
+  'aria-label': ariaLabel,
+  children,
   ...props
 }) => {
   return (
@@ -28,10 +27,10 @@ const Button: FC<ButtonProps> = ({
       $size={size}
       $fullSize={fullSize}
       $rounded={rounded}
-      aria-label={text}
+      aria-label={ariaLabel}
       {...props}
     >
-      {text}
+      {children}
     </StyledButton>
   )
 }

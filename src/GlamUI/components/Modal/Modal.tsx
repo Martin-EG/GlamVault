@@ -46,7 +46,9 @@ const Modal: FC<ModalProps> = ({
   const primaryButtonText = !!confirmText ? confirmText : 'Guardar';
 
   const secondaryButton = onCancel ? (
-    <Button variant="secondary" onClick={onCancel} text={secondaryButtonText} size="sm" fullSize />
+    <Button variant="secondary" onClick={onCancel} aria-label={secondaryButtonText} size="sm" fullSize>
+      {secondaryButtonText}
+    </Button>
   ) : null;
 
 
@@ -59,7 +61,9 @@ const Modal: FC<ModalProps> = ({
 
         <Footer>
           {secondaryButton}
-          <Button onClick={onConfirm} text={primaryButtonText} size="sm" fullSize />
+          <Button onClick={onConfirm} aria-label={primaryButtonText} size="sm" fullSize >
+            {primaryButtonText}
+          </Button>
         </Footer>
       </ModalBase>
     </Overlay>
