@@ -72,8 +72,10 @@ const LoginForm = () => {
           rounded="full"
           size="sm"
           fullSize={true}
-          text="Iniciar sesión"
-        />
+          aria-label="Iniciar sesión"
+        >
+          Iniciar sesión
+        </Button>
       </div>
     </form>
   )

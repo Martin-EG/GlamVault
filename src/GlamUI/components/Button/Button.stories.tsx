@@ -15,72 +15,76 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    text: "Iniciar sesión",
+    'aria-label': "Iniciar sesión",
     onClick: fn(),
-  }
+  },
+  render: (args) => (
+    <Button {...args} aria-label="Iniciar sesión" >Iniciar sesión</Button>
+  )
 };
 
 export const Variants: Story = {
   args: {
-    text: "Button",
+    'aria-label': "Button",
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
       <Text as="h3" variant="heading" weight="bold">Variants:</Text>
-      <Button {...args} variant="primary" text="Primary" />
-      <Button {...args} variant="secondary" text="Secondary" />
-      <Button {...args} variant="danger" text="Danger" />
+      <Button {...args} variant="primary" aria-label="Primary" >Primary</Button>
+      <Button {...args} variant="secondary" aria-label="Secondary" >Secondary</Button>
+      <Button {...args} variant="outline" aria-label="Outline" >Outline</Button>
+      <Button {...args} variant="danger" aria-label="Danger" >Danger</Button>
     </div>
   )
 };
 
 export const Sizes: Story = {
   args: {
-    text: "Button",
+    'aria-label': "Button",
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
       <Text as="h3" variant="heading" weight="bold">Sizes:</Text>
-      <Button {...args} size="sm" text="Small" />
-      <Button {...args} size="md" text="Medium" />
-      <Button {...args} size="lg" text="Large" />
+      <Button {...args} size="sm" aria-label="Small" >Small</Button>
+      <Button {...args} size="md" aria-label="Medium" >Medium</Button>
+      <Button {...args} size="lg" aria-label="Large" >Large</Button>
     </div>
   )
 };
 
 export const Rounded: Story = {
   args: {
-    text: "Button",
+    'aria-label': "Button",
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
       <Text as="h3" variant="heading" weight="bold">Rounded:</Text>
-      <Button {...args} rounded="semi" text="Semi Rounded" />
-      <Button {...args} rounded="full" text="Full Rounded" />
+      <Button {...args} rounded="semi" aria-label="Semi Rounded" >Semi Rounded</Button>
+      <Button {...args} rounded="full" aria-label="Full Rounded" >Full Rounded</Button>
     </div>
   )
 };
 
 export const States: Story = {
   args: {
-    text: "Button",
+    'aria-label': "Button",
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '20px' }}>
       <Text as="h3" variant="heading" weight="bold">States:</Text>
-      <Button {...args} disabled text="Disabled" />
+      <Button {...args} disabled aria-label="Disabled" >Disabled</Button>
     </div>
   )
 };
 
 export const FullSize: Story = {
   args: {
-    text: "Button",
+    'aria-label': "Button",
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '20px' }}>
       <Text as="h3" variant="heading" weight="bold">States:</Text>
-      <Button {...args} fullSize text="Full size" />
+      <Button {...args} fullSize aria-label="Full size" >Full size</Button>
     </div>
   )
 };

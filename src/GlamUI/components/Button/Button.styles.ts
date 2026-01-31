@@ -10,7 +10,7 @@ interface StyledButtonProps {
 }
 
 export const StyledButton = styled('button').attrs<StyledButtonProps>(
-  ({ $variant, $size, $rounded, $fullSize, disabled }) => ({
+  ({ $variant, $size, $rounded, disabled }) => ({
     className: `btn btn-${$variant} btn-${$size} btn-${$rounded} ${disabled ? 'btn-disabled' : ''}`,
     disabled: disabled,
   })
@@ -33,11 +33,16 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   /* Variants */
   &.btn-primary {
     background: ${({ theme }) => theme.colors.brand.primary};
-    color: white;
+    color: ${({ theme }) => theme.colors.background.page};
   }
 
   &.btn-secondary {
     border: 2px solid ${({ theme }) => theme.colors.brand.primary};
+  }
+
+  &.btn-outline {
+    border: 2px solid ${({ theme }) => theme.colors.border.default};
+    background: ${({ theme }) => theme.colors.background.page};
   }
 
   &.btn-disabled {
@@ -46,6 +51,12 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   }
 
   /* Sizes */
+
+  &.btn-xs {
+    padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.sm};
+    font-size: ${({ theme }) => theme.typography.sizes.xs};
+  }
+
   &.btn-sm {
     padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
     font-size: ${({ theme }) => theme.typography.sizes.sm};

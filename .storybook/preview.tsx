@@ -6,7 +6,7 @@ import { GlobalStyles } from '../src/GlamUI/styles/GlobalStyles';
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <div style={{ padding: '20px', width: '100%', height: '100%' }}>
+      <div style={{ padding: '20px', maxWidth: '100%', maxHeight: '100%' }}>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
           <Story />
