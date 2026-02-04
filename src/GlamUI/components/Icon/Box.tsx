@@ -9,6 +9,7 @@ export function Box({ size = 'sm', color = 'currentColor' }: IconProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      <title>Box</title>
       <path
         d="M2.5 5.5L8.5 2.5L14.5 5.5V11.5L8.5 14.5L2.5 11.5V5.5Z"
         stroke={color}

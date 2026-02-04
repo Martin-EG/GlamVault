@@ -10,6 +10,7 @@ export function Exit({ size = 'sm', color = 'currentColor' }: IconProps) {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
+      <title>Exit</title>
       <path
         d="M6 2.5H3.5C2.9 2.5 2.5 2.9 2.5 3.5V13.5C2.5 14.1 2.9 14.5 3.5 14.5H6"
         stroke={color}

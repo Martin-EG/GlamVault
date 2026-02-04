@@ -1,16 +1,10 @@
 "use client"
 
-import { ButtonHTMLAttributes, FC } from 'react';
+import { FC } from 'react';
 
-import { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types';
+import { ButtonProps } from './Button.types';
 import { StyledButton } from './Button.styles';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  readonly variant?: ButtonVariant;
-  readonly size?: ButtonSize;
-  readonly rounded?: ButtonRounded;
-  readonly fullSize?: boolean;
-}
 
 const Button: FC<ButtonProps> = ({
   variant = 'primary',
@@ -18,9 +12,26 @@ const Button: FC<ButtonProps> = ({
   fullSize = false,
   rounded = 'semi',
   'aria-label': ariaLabel,
+  icon,
+  iconPosition = 'start',
   children,
   ...props
 }) => {
+
+  const buttonBody = iconPosition === 'start'
+    ? (
+      <>
+        {icon}
+        {children}
+      </>
+    )
+    : (
+      <>
+        {children}
+        {icon}
+      </>
+    )
+
   return (
     <StyledButton
       $variant={variant}
@@ -30,7 +41,7 @@ const Button: FC<ButtonProps> = ({
       aria-label={ariaLabel}
       {...props}
     >
-      {children}
+      {buttonBody}
     </StyledButton>
   )
 }
