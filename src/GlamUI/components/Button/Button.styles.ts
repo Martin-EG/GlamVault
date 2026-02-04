@@ -38,12 +38,12 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   }
 
   &.btn-secondary {
-    border: 2px solid ${({ theme }) => theme.colors.brand.primary};
+    border: 1.5px solid ${({ theme }) => theme.colors.brand.primary};
     background: ${({ theme }) => theme.colors.background.page};
   }
 
   &.btn-outline {
-    border: 2px solid ${({ theme }) => theme.colors.border.default};
+    border: 1.5px solid ${({ theme }) => theme.colors.border.default};
     background: ${({ theme }) => theme.colors.background.page};
   }
 
