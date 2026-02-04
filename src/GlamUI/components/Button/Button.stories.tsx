@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { fn } from 'storybook/test';
 
-import Text from '../Text/Text';
+import { Image } from '../Icon';
+import Text from '../Text';
 
 import Button from './Button';
 
@@ -85,6 +87,19 @@ export const FullSize: Story = {
     <div style={{ display: 'flex', gap: '20px' }}>
       <Text as="h3" variant="heading" weight="bold">States:</Text>
       <Button {...args} fullSize aria-label="Full size" >Full size</Button>
+    </div>
+  )
+};
+
+export const WithIcon: Story = {
+  args: {
+    'aria-label': "Button",
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '20px' }}>
+      <Text as="h3" variant="heading" weight="bold">With icon:</Text>
+      <Button {...args} icon={<Image />} aria-label="Upload image" >Upload image</Button>
+      <Button {...args} icon={<Image />} iconPosition="end" aria-label="Upload image" >Upload image</Button>
     </div>
   )
 };
