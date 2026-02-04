@@ -1,3 +1,13 @@
-export { Eye } from './Eye'
-export { EyeOff } from './EyeOff'
-export type { IconProps } from './Icon.types'
+export type { IconProps } from './Icon.types';
+export { Box } from './Box';
+export { Camera } from './Camera';
+export { Edit } from './Edit';
+export { Eye } from './Eye';
+export { EyeOff } from './EyeOff';
+export { Exit } from './Exit';
+export { Heart } from './Heart';
+export { Image } from './Image';
+export { Remove } from './Remove';
+export { Star } from './Star';
+export { Upload } from './Upload';
+export { User } from './User';

@@ -1,10 +1,10 @@
-import type { IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types'
 
-export function Eye({ size = 16, color = 'currentColor' }: IconProps) {
+export function Eye({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
     <svg
-      width={size}
-      height={size}
+      width={iconSizes[size]}
+      height={iconSizes[size]}
       viewBox="0 0 24 24"
       fill="none"
       stroke={color}
