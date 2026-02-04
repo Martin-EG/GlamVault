@@ -36,6 +36,7 @@ export const Variants: Story = {
       <Button {...args} variant="secondary" aria-label="Secondary" >Secondary</Button>
       <Button {...args} variant="outline" aria-label="Outline" >Outline</Button>
       <Button {...args} variant="danger" aria-label="Danger" >Danger</Button>
+      <Button {...args} variant="transparent" aria-label="Transparent" >Transparent</Button>
     </div>
   )
 };

@@ -47,6 +47,10 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
     background: ${({ theme }) => theme.colors.background.page};
   }
 
+  &.btn-transparent {
+    background: transparent;
+  }
+
   &.btn-disabled {
     opacity: 0.5;
     cursor: not-allowed;
