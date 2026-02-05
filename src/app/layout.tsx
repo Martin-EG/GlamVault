@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${nunito.className} antialiased`}>
+      <body className={`${nunito.className} antialiased h-dvh`}>
         <StyledComponentsRegistry>
           <ThemeProvider>
             <GlobalStyles />
