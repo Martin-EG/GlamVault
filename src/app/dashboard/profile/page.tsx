@@ -5,9 +5,9 @@ import Text from '@/GlamUI/components/Text'
 
 const Profile = () => {
   return (
-    <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16  sm:items-start">
-      <Text as="h1">Profile</Text>
-    </main>
+    <div className="w-full">
+      < Text as="h1" > Profile</Text >
+    </div >
   );
 }
 

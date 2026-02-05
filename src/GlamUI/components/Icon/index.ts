@@ -1,3 +1,4 @@
+import { User } from './User';
 export type { IconProps } from './Icon.types';
 export { Box } from './Box';
 export { Camera } from './Camera';
@@ -11,3 +12,4 @@ export { Remove } from './Remove';
 export { Star } from './Star';
 export { Upload } from './Upload';
 export { User } from './User';
+export type Icon = typeof User; 

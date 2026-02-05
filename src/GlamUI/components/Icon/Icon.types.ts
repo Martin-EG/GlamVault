@@ -1,4 +1,3 @@
-
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 export const iconSizes: Record<IconSize, number> = {

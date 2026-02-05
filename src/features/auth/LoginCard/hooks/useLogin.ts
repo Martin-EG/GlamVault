@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 
 const errorsInitialState: LoginErrors = {
@@ -28,6 +28,7 @@ interface UseLoginProps {
 
 type UseLogin = () => UseLoginProps;
 export const useLogin: UseLogin = () => {
+  const router = useRouter();
   const [loginErrors, setLoginErrors] = useState<LoginErrors>(errorsInitialState);
   const [loginData, setLoginData] = useState<LoginProps>({
     email: '',
@@ -63,7 +64,7 @@ export const useLogin: UseLogin = () => {
       return;
     }
 
-    redirect('/dashboard');
+    router.push('/dashboard');
   };
 
   return {
