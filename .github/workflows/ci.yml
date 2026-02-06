@@ -7,7 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  lint-and-typecheck:
+  check:
+    name: Lint · Types · Format
     runs-on: ubuntu-latest
 
     steps:
