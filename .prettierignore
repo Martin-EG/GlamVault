@@ -2,3 +2,6 @@ node_modules
 .next
 dist
 coverage
+__snapshots__
+jest.config.cjs
+babel.config.js
