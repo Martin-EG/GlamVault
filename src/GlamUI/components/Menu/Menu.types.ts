@@ -1,17 +1,16 @@
 /**
-* Menu Item types
-* @property {id} id - Id for menu item
-* @property {label} label - The label for the menu item
-* @property {icon} icon - Optional icon for the menu item
-* @property {onClick} onClick - function call when menu item is clicked
-* @property {disabled} disabled - Optional prop to disable menu item, false by default
-* @property {variant} variant - The variant of the button
-* 
-*  Menu types
-* @property {items} items - Items that menu will contain
-* @property {align} align 0 Alignment for the menu component
-*/
-
+ * Menu Item types
+ * @property {id} id - Id for menu item
+ * @property {label} label - The label for the menu item
+ * @property {icon} icon - Optional icon for the menu item
+ * @property {onClick} onClick - function call when menu item is clicked
+ * @property {disabled} disabled - Optional prop to disable menu item, false by default
+ * @property {variant} variant - The variant of the button
+ *
+ *  Menu types
+ * @property {items} items - Items that menu will contain
+ * @property {align} align 0 Alignment for the menu component
+ */
 
 import type { ReactNode } from 'react';
 

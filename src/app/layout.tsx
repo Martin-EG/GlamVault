@@ -1,19 +1,19 @@
-import { GlobalStyles } from "@/GlamUI/styles/GlobalStyles";
-import AuthProvider from "@/providers/AuthProvider";
-import StyledComponentsRegistry from "@/providers/StyledComponentsRegistry";
-import ThemeProvider from "@/providers/ThemeProvider";
-import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
+import { GlobalStyles } from '@/GlamUI/styles/GlobalStyles';
+import AuthProvider from '@/providers/AuthProvider';
+import StyledComponentsRegistry from '@/providers/StyledComponentsRegistry';
+import ThemeProvider from '@/providers/ThemeProvider';
+import type { Metadata } from 'next';
+import { Nunito } from 'next/font/google';
 
-import "./globals.css";
+import './globals.css';
 
 const nunito = Nunito({
-  subsets: ["latin"],
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "GlamVault",
-  description: "GlamVault",
+  title: 'GlamVault',
+  description: 'GlamVault',
 };
 
 export default function RootLayout({
@@ -27,9 +27,7 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <ThemeProvider>
             <GlobalStyles />
-            <AuthProvider>
-              {children}
-            </AuthProvider>
+            <AuthProvider>{children}</AuthProvider>
           </ThemeProvider>
         </StyledComponentsRegistry>
       </body>

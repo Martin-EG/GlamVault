@@ -28,3 +28,6 @@ jobs:
 
       - name: Run TypeScript type check
         run: npm run typecheck
+
+      - name: Run prettier format check
+        run: npm run format:check

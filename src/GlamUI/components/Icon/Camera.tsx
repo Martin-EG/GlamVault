@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function Camera({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -17,13 +17,7 @@ export function Camera({ size = 'sm', color = 'currentColor' }: IconProps) {
         stroke-width="1.5"
         stroke-linejoin="round"
       />
-      <circle
-        cx="12"
-        cy="12"
-        r="3.5"
-        stroke={color}
-        stroke-width="1.5"
-      />
+      <circle cx="12" cy="12" r="3.5" stroke={color} stroke-width="1.5" />
     </svg>
-  )
+  );
 }

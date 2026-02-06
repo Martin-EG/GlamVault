@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 interface WrapperProps {
-  $hasError: boolean
-  $disabled: boolean
+  $hasError: boolean;
+  $disabled: boolean;
 }
 
 export const FieldWrapper = styled.div<WrapperProps>`
@@ -11,13 +11,13 @@ export const FieldWrapper = styled.div<WrapperProps>`
   gap: ${({ theme }) => theme.spacing.xs};
   opacity: ${({ $disabled }) => ($disabled ? 0.6 : 1)};
   margin-top: ${({ theme }) => theme.spacing.sm};
-`
+`;
 
 export const Label = styled.label`
   font-size: ${({ theme }) => theme.typography.sizes.sm};
   font-weight: ${({ theme }) => theme.typography.weights.medium};
   color: ${({ theme }) => theme.colors.text.primary};
-`
+`;
 
 export const Input = styled.input<WrapperProps>`
   line-height: 1;
@@ -32,9 +32,7 @@ export const Input = styled.input<WrapperProps>`
 
   border: 1px solid
     ${({ theme, $hasError }) =>
-    $hasError
-      ? theme.colors.feedback.errorText
-      : theme.colors.text.muted};
+      $hasError ? theme.colors.feedback.errorText : theme.colors.text.muted};
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.muted};
@@ -49,9 +47,9 @@ export const Input = styled.input<WrapperProps>`
   &:disabled {
     cursor: not-allowed;
   }
-`
+`;
 
 export const ErrorText = styled.span`
   font-size: ${({ theme }) => theme.typography.sizes.xs};
   color: ${({ theme }) => theme.colors.feedback.errorText};
-`
+`;

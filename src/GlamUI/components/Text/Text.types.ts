@@ -14,21 +14,13 @@ export type TextVariant =
   | 'caption'
   | 'label'
   | 'heading'
-  | 'subheading'
+  | 'subheading';
 
-export type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+export type TextSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
-export type TextWeight = 'regular' | 'medium' | 'semibold' | 'bold'
+export type TextWeight = 'regular' | 'medium' | 'semibold' | 'bold';
 
-export type TextAs =
-  | 'p'
-  | 'span'
-  | 'div'
-  | 'label'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
+export type TextAs = 'p' | 'span' | 'div' | 'label' | 'h1' | 'h2' | 'h3' | 'h4';
 
 export type TextColor =
   | 'default'
@@ -40,7 +32,7 @@ export type TextColor =
   | 'error'
   | 'success'
   | 'warning'
-  | 'info'
+  | 'info';
 
 export type TextTruncate = boolean | number;
 

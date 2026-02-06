@@ -1,10 +1,9 @@
-"use client";
+'use client';
 
-import { redirect } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
 const Dashboard = () => {
-
-  redirect("/dashboard/inventory");
-}
+  redirect('/dashboard/inventory');
+};
 
 export default Dashboard;

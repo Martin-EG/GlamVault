@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function User({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -22,5 +22,5 @@ export function User({ size = 'sm', color = 'currentColor' }: IconProps) {
         strokeLinecap="round"
       />
     </svg>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { FC } from 'react'
-import Text from '../Text'
+import { FC } from 'react';
+import Text from '../Text';
 
-import { FieldWrapper, Label, Input, ErrorText } from './TextInput.styles'
-import type { TextInputProps } from './TextInput.types'
+import { FieldWrapper, Label, Input, ErrorText } from './TextInput.styles';
+import type { TextInputProps } from './TextInput.types';
 
 const TextInput: FC<TextInputProps> = ({
   label,
@@ -17,16 +17,11 @@ const TextInput: FC<TextInputProps> = ({
   const ariaDescribedBy = error ? `${id}-error` : undefined;
 
   const errorText = !!error ? (
-    <ErrorText id={ariaDescribedBy}>
-      {error}
-    </ErrorText>
+    <ErrorText id={ariaDescribedBy}>{error}</ErrorText>
   ) : null;
 
   return (
-    <FieldWrapper
-      $hasError={!!error}
-      $disabled={!!disabled}
-    >
+    <FieldWrapper $hasError={!!error} $disabled={!!disabled}>
       {label && (
         <Label htmlFor={id}>
           <Text as="span" size="sm" weight="medium">
@@ -48,7 +43,7 @@ const TextInput: FC<TextInputProps> = ({
 
       {errorText}
     </FieldWrapper>
-  )
+  );
 };
 
 export default TextInput;

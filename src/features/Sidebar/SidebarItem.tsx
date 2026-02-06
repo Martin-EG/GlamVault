@@ -1,8 +1,7 @@
-import Text from "@/GlamUI/components/Text";
-import Link from 'next/link'
-import { FC, ReactNode } from "react";
+import Text from '@/GlamUI/components/Text';
+import Link from 'next/link';
+import { FC, ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
-
 
 interface SidebarItemProps {
   href: string;
@@ -23,7 +22,7 @@ const SidebarItem: FC<SidebarItemProps> = ({ href, label, icon }) => {
         {label}
       </Link>
     </Text>
-  )
-}
+  );
+};
 
-export default SidebarItem
+export default SidebarItem;

@@ -32,16 +32,17 @@ const MessageBar: FC<MessageBarProps> = ({
   const messageBarFocusProps = variant === 'error' ? { tabIndex: -1 } : {};
 
   return (
-    <StyledMessageBar $variant={variant} ref={messageBarRef} {...messageBarFocusProps}>
+    <StyledMessageBar
+      $variant={variant}
+      ref={messageBarRef}
+      {...messageBarFocusProps}
+    >
       <Text as="span" size="sm" weight="medium" color={variant}>
         {message}
       </Text>
 
       {dismissible && (
-        <MessageBarDismissButton
-          $variant={variant}
-          onClick={dismissMessageBar}
-        >
+        <MessageBarDismissButton $variant={variant} onClick={dismissMessageBar}>
           ×
         </MessageBarDismissButton>
       )}

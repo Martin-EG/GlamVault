@@ -12,15 +12,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: "Nombre",
-    placeholder: "Introduce tu nombre",
-  }
+    label: 'Nombre',
+    placeholder: 'Introduce tu nombre',
+  },
 };
 
 export const Error: Story = {
   args: {
-    label: "Nombre",
-    placeholder: "Introduce tu nombre",
-    error: "Error de nombre",
-  }
+    label: 'Nombre',
+    placeholder: 'Introduce tu nombre',
+    error: 'Error de nombre',
+  },
 };

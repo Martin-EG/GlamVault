@@ -40,9 +40,9 @@ const MyComponent = () => {
 
 All icons accept the following props:
 
-| Prop    | Type       | Default          | Description                                      |
-| ------- | ---------- | ---------------- | ------------------------------------------------ |
-| `size`  | `IconSize` | `'sm'`           | The size of the icon.                            |
+| Prop    | Type       | Default          | Description                                        |
+| ------- | ---------- | ---------------- | -------------------------------------------------- |
+| `size`  | `IconSize` | `'sm'`           | The size of the icon.                              |
 | `color` | `string`   | `'currentColor'` | The fill color of the icon. Accepts any CSS color. |
 
 ### Icon Sizes

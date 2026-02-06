@@ -15,7 +15,9 @@ const MyComponent = () => {
       <Button onClick={() => console.log('Clicked')}>Click Me</Button>
 
       {/* Button with variant and size */}
-      <Button variant="secondary" size="lg">Secondary Large</Button>
+      <Button variant="secondary" size="lg">
+        Secondary Large
+      </Button>
 
       {/* Button with icon */}
       <Button icon={<Camera />}>Capture</Button>
@@ -23,21 +25,22 @@ const MyComponent = () => {
   );
 };
 ```
+
 You can see live demos and usage in Storybook.
 
 ## Props
 
 All standard HTML button attributes are also supported (e.g., `disabled`, `onClick`, `type`).
 
-| Prop           | Type                                                               | Default     | Required | Description                                                                 |
-| -------------- | ------------------------------------------------------------------ | ----------- | :------: | --------------------------------------------------------------------------- |
-| `variant`      | `'primary' \| 'secondary' \| 'danger' \| 'outline' \| 'transparent'` | `'primary'` |    No    | The visual style of the button.                                             |
-| `size`         | `'xs' \| 'sm' \| 'md' \| 'lg'`                                     | `'md'`      |    No    | The size of the button.                                                     |
-| `rounded`      | `'full' \| 'semi'`                                                 | `'semi'`    |    No    | The border radius style. `'full'` creates a pill shape.                     |
-| `fullSize`     | `boolean`                                                          | `false`     |    No    | If `true`, the button takes up the full width of its container.             |
-| `icon`         | `ReactNode`                                                        | `undefined` |    No    | An icon element to display within the button.                               |
-| `iconPosition` | `'start' \| 'end'`                                                 | `'start'`   |    No    | The position of the icon relative to the text.                              |
-| `children`     | `ReactNode`                                                        | `undefined` |    No    | The content to display inside the button.                                   |
+| Prop           | Type                                                                 | Default     | Required | Description                                                     |
+| -------------- | -------------------------------------------------------------------- | ----------- | :------: | --------------------------------------------------------------- |
+| `variant`      | `'primary' \| 'secondary' \| 'danger' \| 'outline' \| 'transparent'` | `'primary'` |    No    | The visual style of the button.                                 |
+| `size`         | `'xs' \| 'sm' \| 'md' \| 'lg'`                                       | `'md'`      |    No    | The size of the button.                                         |
+| `rounded`      | `'full' \| 'semi'`                                                   | `'semi'`    |    No    | The border radius style. `'full'` creates a pill shape.         |
+| `fullSize`     | `boolean`                                                            | `false`     |    No    | If `true`, the button takes up the full width of its container. |
+| `icon`         | `ReactNode`                                                          | `undefined` |    No    | An icon element to display within the button.                   |
+| `iconPosition` | `'start' \| 'end'`                                                   | `'start'`   |    No    | The position of the icon relative to the text.                  |
+| `children`     | `ReactNode`                                                          | `undefined` |    No    | The content to display inside the button.                       |
 
 ## Features
 

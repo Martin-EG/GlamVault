@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function Star({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -17,5 +17,5 @@ export function Star({ size = 'sm', color = 'currentColor' }: IconProps) {
         strokeLinejoin="round"
       />
     </svg>
-  )
+  );
 }

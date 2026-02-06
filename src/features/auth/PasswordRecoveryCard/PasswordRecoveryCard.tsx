@@ -1,20 +1,20 @@
-"use client"
+'use client';
 
-import Button from '@/GlamUI/components/Button'
-import MessageBar from '@/GlamUI/components/MessageBar'
-import Text from '@/GlamUI/components/Text'
-import TextInput from '@/GlamUI/components/TextInput'
+import Button from '@/GlamUI/components/Button';
+import MessageBar from '@/GlamUI/components/MessageBar';
+import Text from '@/GlamUI/components/Text';
+import TextInput from '@/GlamUI/components/TextInput';
 
-import Link from 'next/link'
-import { redirect } from 'next/navigation'
-import { useState } from 'react'
+import Link from 'next/link';
+import { redirect } from 'next/navigation';
+import { useState } from 'react';
 
-import AuthCard from "../AuthCard";
+import AuthCard from '../AuthCard';
 
 const errorsInitialState: LoginErrors = {
   email: undefined,
   login: undefined,
-}
+};
 
 interface LoginErrors {
   email?: string;
@@ -22,14 +22,20 @@ interface LoginErrors {
 }
 
 const PasswordRecoveryCard = () => {
-  const [loginErrors, setLoginErrors] = useState<LoginErrors>(errorsInitialState);
-  const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined);
+  const [loginErrors, setLoginErrors] =
+    useState<LoginErrors>(errorsInitialState);
+  const [successMessage, setSuccessMessage] = useState<string | undefined>(
+    undefined,
+  );
   const [email, setEmail] = useState<string>('');
 
   const updateEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'email') {
       if (e.target.validity.typeMismatch) {
-        setLoginErrors((prev) => ({ ...prev, email: 'Introduce un email válido' }));
+        setLoginErrors((prev) => ({
+          ...prev,
+          email: 'Introduce un email válido',
+        }));
       } else {
         setLoginErrors((prev) => ({ ...prev, email: undefined }));
       }
@@ -53,10 +59,13 @@ const PasswordRecoveryCard = () => {
   return (
     <AuthCard title="Olvide mi contraseña">
       <div className="flex flex-col items-center w-full max-w-sm">
-        <Text variant='body' size='sm' weight='semibold' as='p' align='center'>
+        <Text variant="body" size="sm" weight="semibold" as="p" align="center">
           Ingresa tu correo y te enviaremos instrucciones para restablecerla
         </Text>
-        <form className="flex flex-col gap-2 w-full max-w-sm mt-2 mb-4" onSubmit={recoverPassword}>
+        <form
+          className="flex flex-col gap-2 w-full max-w-sm mt-2 mb-4"
+          onSubmit={recoverPassword}
+        >
           <TextInput
             label="Email"
             name="email"
@@ -72,7 +81,9 @@ const PasswordRecoveryCard = () => {
             message={loginErrors.login}
             variant="error"
             dismissible={true}
-            dismissMessageBar={() => setLoginErrors((prev) => ({ ...prev, login: undefined }))}
+            dismissMessageBar={() =>
+              setLoginErrors((prev) => ({ ...prev, login: undefined }))
+            }
           />
 
           <MessageBar
@@ -100,14 +111,20 @@ const PasswordRecoveryCard = () => {
             ¿Recuerdas tu contraseña?
           </Text>
           <Link href="/login">
-            <Text variant="label" size="sm" weight="bold" as="span" color="brandSecondary">
+            <Text
+              variant="label"
+              size="sm"
+              weight="bold"
+              as="span"
+              color="brandSecondary"
+            >
               Ingresa ahora
             </Text>
           </Link>
         </div>
       </div>
     </AuthCard>
-  )
+  );
 };
 
 export default PasswordRecoveryCard;

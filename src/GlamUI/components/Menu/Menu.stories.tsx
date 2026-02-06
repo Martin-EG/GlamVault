@@ -28,5 +28,5 @@ export const Default: Story = {
         onClick: fn(),
       },
     ],
-  }
+  },
 };

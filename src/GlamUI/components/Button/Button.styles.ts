@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import type { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types'
+import styled from 'styled-components';
+import type { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types';
 
 interface StyledButtonProps {
   readonly $variant: ButtonVariant;
@@ -13,8 +13,8 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   ({ $variant, $size, $rounded, disabled }) => ({
     className: `btn btn-${$variant} btn-${$size} btn-${$rounded} ${disabled ? 'btn-disabled' : ''}`,
     disabled: disabled,
-  })
-) <StyledButtonProps>`
+  }),
+)<StyledButtonProps>`
   cursor: pointer;
   color: black;
   display: flex;
@@ -22,10 +22,12 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   align-items: center;
   justify-content: center;
   border: none;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
   border-radius: ${({ theme }) => theme.radius.md};
   font-weight: ${({ theme }) => theme.typography.weights.semibold};
-  width: ${({ $fullSize }) => $fullSize ? '100%' : 'auto'};
+  width: ${({ $fullSize }) => ($fullSize ? '100%' : 'auto')};
 
   &:active {
     transform: scale(0.98);
@@ -58,22 +60,26 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
 
   /* Sizes */
   &.btn-xs {
-    padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.sm};
+    padding: ${({ theme }) => theme.spacing.xs}
+      ${({ theme }) => theme.spacing.sm};
     font-size: ${({ theme }) => theme.typography.sizes.xs};
   }
 
   &.btn-sm {
-    padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
+    padding: ${({ theme }) => theme.spacing.sm}
+      ${({ theme }) => theme.spacing.md};
     font-size: ${({ theme }) => theme.typography.sizes.sm};
   }
 
   &.btn-md {
-    padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
+    padding: ${({ theme }) => theme.spacing.md}
+      ${({ theme }) => theme.spacing.lg};
     font-size: ${({ theme }) => theme.typography.sizes.md};
   }
 
   &.btn-lg {
-    padding: ${({ theme }) => theme.spacing.lg} ${({ theme }) => theme.spacing.xl};
+    padding: ${({ theme }) => theme.spacing.lg}
+      ${({ theme }) => theme.spacing.xl};
     font-size: ${({ theme }) => theme.typography.sizes.lg};
   }
 
@@ -85,4 +91,4 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   &.btn-semi {
     border-radius: ${({ theme }) => theme.radius.lg};
   }
-`
+`;

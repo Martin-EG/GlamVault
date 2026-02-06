@@ -1,32 +1,28 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import { Input } from '../TextInput/TextInput.styles'
+import { Input } from '../TextInput/TextInput.styles';
 
 export const PasswordWrapper = styled.div`
   position: relative;
-`
+`;
 
 export const PasswordInputField = styled(Input)`
   padding: ${({ theme }) => theme.spacing.sm};
-  padding-right: calc(
-    ${({ theme }) => theme.spacing.sm} * 2 + 20px
-  );
-`
+  padding-right: calc(${({ theme }) => theme.spacing.sm} * 2 + 20px);
+`;
 
 interface ToggleButtonProps {
-  $hasError: boolean
+  $hasError: boolean;
 }
 
 export const ToggleButton = styled.button.attrs({
   type: 'button',
-}) <ToggleButtonProps>`
+})<ToggleButtonProps>`
   position: absolute;
   top: 50%;
   right: ${({ theme }) => theme.spacing.sm};
   transform: ${({ $hasError }) =>
-    $hasError
-      ? 'translateY(-30%)'
-      : 'translateY(0)'};
+    $hasError ? 'translateY(-30%)' : 'translateY(0)'};
 
   width: 32px;
   height: 32px;
@@ -50,4 +46,4 @@ export const ToggleButton = styled.button.attrs({
     outline-offset: 2px;
     border-radius: ${({ theme }) => theme.radius.sm};
   }
-`
+`;

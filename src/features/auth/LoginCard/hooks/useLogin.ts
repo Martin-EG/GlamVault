@@ -1,10 +1,10 @@
 import { useRouter } from 'next/navigation';
-import { useState } from 'react'
+import { useState } from 'react';
 
 const errorsInitialState: LoginErrors = {
   email: undefined,
   login: undefined,
-}
+};
 
 interface LoginProps {
   email: string;
@@ -29,7 +29,8 @@ interface UseLoginProps {
 type UseLogin = () => UseLoginProps;
 export const useLogin: UseLogin = () => {
   const router = useRouter();
-  const [loginErrors, setLoginErrors] = useState<LoginErrors>(errorsInitialState);
+  const [loginErrors, setLoginErrors] =
+    useState<LoginErrors>(errorsInitialState);
   const [loginData, setLoginData] = useState<LoginProps>({
     email: '',
     password: '',
@@ -39,7 +40,10 @@ export const useLogin: UseLogin = () => {
   const updateLoginData = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'email') {
       if (e.target.validity.typeMismatch) {
-        setLoginErrors((prev) => ({ ...prev, email: 'Introduce un email válido' }));
+        setLoginErrors((prev) => ({
+          ...prev,
+          email: 'Introduce un email válido',
+        }));
       } else {
         setLoginErrors((prev) => ({ ...prev, email: undefined }));
       }
@@ -60,7 +64,10 @@ export const useLogin: UseLogin = () => {
     setLoginErrors((prev) => ({ ...prev, login: undefined }));
 
     if (!loginData.email || !loginData.password) {
-      setLoginErrors((prev) => ({ ...prev, login: 'Completa todos los campos' }));
+      setLoginErrors((prev) => ({
+        ...prev,
+        login: 'Completa todos los campos',
+      }));
       return;
     }
 
@@ -76,4 +83,4 @@ export const useLogin: UseLogin = () => {
     updateRememberMe,
     handleLogin,
   };
-}
+};

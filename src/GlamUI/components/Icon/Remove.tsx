@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function Remove({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -15,5 +15,5 @@ export function Remove({ size = 'sm', color = 'currentColor' }: IconProps) {
         stroke={color}
       />
     </svg>
-  )
+  );
 }

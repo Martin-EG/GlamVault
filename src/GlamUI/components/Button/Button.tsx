@@ -1,10 +1,9 @@
-"use client"
+'use client';
 
 import { FC } from 'react';
 
 import { ButtonProps } from './Button.types';
 import { StyledButton } from './Button.styles';
-
 
 const Button: FC<ButtonProps> = ({
   variant = 'primary',
@@ -17,20 +16,18 @@ const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-
-  const buttonBody = iconPosition === 'start'
-    ? (
+  const buttonBody =
+    iconPosition === 'start' ? (
       <>
         {icon}
         {children}
       </>
-    )
-    : (
+    ) : (
       <>
         {children}
         {icon}
       </>
-    )
+    );
 
   return (
     <StyledButton
@@ -43,7 +40,7 @@ const Button: FC<ButtonProps> = ({
     >
       {buttonBody}
     </StyledButton>
-  )
-}
+  );
+};
 
 export default Button;

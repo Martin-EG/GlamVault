@@ -25,7 +25,7 @@ You can see live demos and usage in Storybook.
 
 And all standard HTML button attributes.
 
-| Prop    | Type        | Default | Required | Description                                                               |
-| :------ | :---------- | :------ | :------: | :------------------------------------------------------------------------ |
-| `icon`  | `ReactNode` | -       |   Yes    | The icon element to render inside the button.                             |
+| Prop    | Type        | Default | Required | Description                                                                     |
+| :------ | :---------- | :------ | :------: | :------------------------------------------------------------------------------ |
+| `icon`  | `ReactNode` | -       |   Yes    | The icon element to render inside the button.                                   |
 | `label` | `string`    | -       |   Yes    | The text description for the button. Used for `aria-label` and tooltip `title`. |

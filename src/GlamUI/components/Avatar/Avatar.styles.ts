@@ -18,14 +18,15 @@ export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
     role: $clickable ? 'button' : 'img',
     tabIndex: $clickable ? 0 : -1,
     'aria-label': $clickable ? 'Sube una foto de perfil' : undefined,
-  })
-) <StyledAvatarProps>`
+  }),
+)<StyledAvatarProps>`
   width: ${({ $size }) => SIZE_MAP[$size]};
   height: ${({ $size }) => SIZE_MAP[$size]};
   border-radius: 50%;
 
   background: ${({ theme }) => theme.colors.surface.muted};
-  border: 2px ${({ $clickable }) => ($clickable ? 'dashed' : 'solid')} ${({ theme }) => theme.colors.border.muted};
+  border: 2px ${({ $clickable }) => ($clickable ? 'dashed' : 'solid')}
+    ${({ theme }) => theme.colors.border.muted};
 
   display: flex;
   align-items: center;
@@ -41,7 +42,7 @@ export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
 
   &:hover {
     border-color: ${({ theme, $clickable }) =>
-    $clickable ? theme.colors.brand.primary : theme.colors.border.muted};
+      $clickable ? theme.colors.brand.primary : theme.colors.border.muted};
   }
 
   &:focus-visible {

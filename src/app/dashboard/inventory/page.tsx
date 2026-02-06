@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
-import Text from '@/GlamUI/components/Text'
-
+import Text from '@/GlamUI/components/Text';
 
 const Inventory = () => {
   return (
@@ -9,6 +8,6 @@ const Inventory = () => {
       <Text as="h1">Inventory</Text>
     </main>
   );
-}
+};
 
 export default Inventory;

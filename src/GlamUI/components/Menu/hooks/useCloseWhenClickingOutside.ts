@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-
+import { useEffect } from 'react';
 
 interface UseCloseWhenClickingOutsideProps {
   isOpen: boolean;
@@ -7,8 +6,14 @@ interface UseCloseWhenClickingOutsideProps {
   ref: React.RefObject<HTMLDivElement | null>;
 }
 
-type UseCloseWhenClickingOutside = (props: UseCloseWhenClickingOutsideProps) => void;
-export const useCloseWhenClickingOutside: UseCloseWhenClickingOutside = ({ isOpen, closeMenu, ref }) => {
+type UseCloseWhenClickingOutside = (
+  props: UseCloseWhenClickingOutsideProps,
+) => void;
+export const useCloseWhenClickingOutside: UseCloseWhenClickingOutside = ({
+  isOpen,
+  closeMenu,
+  ref,
+}) => {
   useEffect(() => {
     if (!isOpen) return;
 

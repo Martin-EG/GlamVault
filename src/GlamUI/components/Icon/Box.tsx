@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function Box({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -19,5 +19,5 @@ export function Box({ size = 'sm', color = 'currentColor' }: IconProps) {
       <path d="M8.5 14.5V8.5" stroke={color} strokeWidth="1.5" />
       <path d="M2.5 5.5L8.5 8.5L14.5 5.5" stroke={color} strokeWidth="1.5" />
     </svg>
-  )
+  );
 }

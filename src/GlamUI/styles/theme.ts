@@ -12,7 +12,7 @@ export const theme = {
   spacing,
   typography,
   radius,
-  shadows
-}
+  shadows,
+};
 
-export type AppTheme = typeof theme
+export type AppTheme = typeof theme;

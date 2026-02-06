@@ -1,12 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import type { MenuItem } from "../Menu/Menu.types";
+import type { MenuItem } from '../Menu/Menu.types';
 
 /**
-* Card types
-* @property {CardSize} size - The size of the Card
-*
-*/
+ * Card types
+ * @property {CardSize} size - The size of the Card
+ *
+ */
 
 export type CardSize = 'sm' | 'md' | 'lg';
 
@@ -18,4 +18,3 @@ export interface CardProps {
   readonly size?: CardSize;
   readonly options?: MenuItem[];
 }
-

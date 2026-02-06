@@ -8,7 +8,11 @@ if (!componentName) {
   process.exit(1);
 }
 
-const componentDir = path.join(__dirname, '../src/GlamUI/components', componentName);
+const componentDir = path.join(
+  __dirname,
+  '../src/GlamUI/components',
+  componentName,
+);
 
 if (fs.existsSync(componentDir)) {
   console.error(`Component ${componentName} already exists.`);
@@ -91,9 +95,23 @@ export const Default: Story = {
 `;
 
 fs.writeFileSync(path.join(componentDir, 'index.ts'), indexContent);
-fs.writeFileSync(path.join(componentDir, `${componentName}.types.ts`), typesContent);
-fs.writeFileSync(path.join(componentDir, `${componentName}.styles.ts`), stylesContent);
-fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), componentContent);
-fs.writeFileSync(path.join(componentDir, `${componentName}.stories.tsx`), storyContent);
+fs.writeFileSync(
+  path.join(componentDir, `${componentName}.types.ts`),
+  typesContent,
+);
+fs.writeFileSync(
+  path.join(componentDir, `${componentName}.styles.ts`),
+  stylesContent,
+);
+fs.writeFileSync(
+  path.join(componentDir, `${componentName}.tsx`),
+  componentContent,
+);
+fs.writeFileSync(
+  path.join(componentDir, `${componentName}.stories.tsx`),
+  storyContent,
+);
 
-console.log(`Component ${componentName} created successfully at ${componentDir}`);
+console.log(
+  `Component ${componentName} created successfully at ${componentDir}`,
+);

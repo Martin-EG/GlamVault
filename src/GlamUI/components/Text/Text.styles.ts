@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 import type {
   TextAlign,
@@ -7,7 +7,7 @@ import type {
   TextTruncate,
   TextVariant,
   TextWeight,
-} from './Text.types'
+} from './Text.types';
 
 interface StyledTextProps {
   readonly $variant: TextVariant;
@@ -38,8 +38,8 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
       typeof $truncate === 'number'
         ? { WebkitLineClamp: $truncate }
         : undefined,
-  })
-) <StyledTextProps>`
+  }),
+)<StyledTextProps>`
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.primary};
 
@@ -178,6 +178,7 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: ${({ $truncate }) => typeof $truncate === 'number' ? $truncate : 1};
+    -webkit-line-clamp: ${({ $truncate }) =>
+      typeof $truncate === 'number' ? $truncate : 1};
   }
-`
+`;

@@ -21,8 +21,8 @@ export const StyledMessageBar = styled.div.attrs<StyledMessageBarProps>(
   ({ $variant }) => ({
     className: `message-bar message-bar-${$variant}`,
     role: 'alert',
-  })
-) <StyledMessageBarProps>`
+  }),
+)<StyledMessageBarProps>`
   width: 100%;
   padding: ${({ theme }) => theme.spacing.sm};
   margin: ${({ theme }) => theme.spacing.xs} 0;

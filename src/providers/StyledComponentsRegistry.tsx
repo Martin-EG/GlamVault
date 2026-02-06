@@ -10,7 +10,7 @@ export default function StyledComponentsRegistry({
   children: React.ReactNode;
 }) {
   const [styledComponentsStyleSheet] = useState(
-    () => new (require('styled-components').ServerStyleSheet)()
+    () => new (require('styled-components').ServerStyleSheet)(),
   );
 
   useServerInsertedHTML(() => {

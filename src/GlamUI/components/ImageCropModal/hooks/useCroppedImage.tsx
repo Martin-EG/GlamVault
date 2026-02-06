@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
+'use client';
 
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
 type UseCroppedImage = () => (imageSrc: string, crop: any) => Promise<Blob>;
 export const useCroppedImage: UseCroppedImage = () => {
@@ -24,11 +24,11 @@ export const useCroppedImage: UseCroppedImage = () => {
       0,
       0,
       crop.width,
-      crop.height
+      crop.height,
     );
 
     return new Promise((resolve) =>
-      canvas.toBlob((blob) => resolve(blob!), 'image/jpeg')
+      canvas.toBlob((blob) => resolve(blob!), 'image/jpeg'),
     );
   }, []);
-}
+};
