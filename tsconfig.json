@@ -25,7 +25,8 @@
       "@/Features/*": ["./src/features/*"],
       "@/lib/*": ["./src/lib/*"],
       "@/providers/*": ["./src/providers/*"]
-    }
+    },
+    "types": ["jest", "@testing-library/jest-dom"]
   },
   "include": [
     "next-env.d.ts",
