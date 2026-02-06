@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --ext .ts,.tsx --cache",
     "typecheck": "tsc --noEmit",
     "generate:ui-component": "node scripts/generate-ui-component.js",
     "build:tokens": "tsc -p tsconfig.tokens.json",
