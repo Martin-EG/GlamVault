@@ -1,22 +1,13 @@
-import { iconSizes, type IconProps } from './Icon.types';
+import { Icon } from './Icon';
+import type { IconProps } from './Icon.types';
 
-export function Image({ size = 'sm', color = 'currentColor' }: IconProps) {
+export function Image(props: IconProps) {
+  const { color = 'currentColor' } = props;
   return (
-    <svg
-      width={iconSizes[size]}
-      height={iconSizes[size]}
-      viewBox="0 0 17 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>Image</title>
-      <path
-        d="M2.66667 16H14.3333C15.2538 16 16 15.2538 16 14.3333V2.66667C16 1.74619 15.2538 1 14.3333 1H2.66667C1.74619 1 1 1.74619 1 2.66667V14.3333C1 15.2538 1.74619 16 2.66667 16ZM2.66667 16L11.8333 6.83333L16 11M6.83333 5.58333C6.83333 6.27369 6.27369 6.83333 5.58333 6.83333C4.89298 6.83333 4.33333 6.27369 4.33333 5.58333C4.33333 4.89298 4.89298 4.33333 5.58333 4.33333C6.27369 4.33333 6.83333 4.89298 6.83333 5.58333Z"
-        stroke={color}
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
+    <Icon {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 15l5-5 4 4 5-5 4 4" />
+      <circle cx="9" cy="9" r="1.5" fill={color} stroke="none" />
+    </Icon>
   );
 }

@@ -37,7 +37,7 @@ const BottomNavItem: FC<BottomNavItemProps> = ({
         onClick={redirectToRoute}
         className="flex flex-col items-center justify-center"
       >
-        <BottomNavItemIcon color={color} />
+        <BottomNavItemIcon color={color} size="md" />
         <Text size="xs" variant={textVariant}>
           {label}
         </Text>

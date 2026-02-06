@@ -1,19 +1,11 @@
-import { iconSizes, type IconProps } from './Icon.types';
+import { Icon } from './Icon';
+import type { IconProps } from './Icon.types';
 
-export function Upload({ size = 'sm', color = 'currentColor' }: IconProps) {
+export function Upload(props: IconProps) {
   return (
-    <svg
-      width={iconSizes[size]}
-      height={iconSizes[size]}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>Upload</title>
-      <path
-        d="M14 24V7.7L8.8 12.9L6 10L16 0L26 10L23.2 12.9L18 7.7V24H14ZM4 32C2.9 32 1.95833 31.6083 1.175 30.825C0.391667 30.0417 0 29.1 0 28V22H4V28H28V22H32V28C32 29.1 31.6083 30.0417 30.825 30.825C30.0417 31.6083 29.1 32 28 32H4Z"
-        fill={color}
-      />
-    </svg>
+    <Icon {...props}>
+      <path d="M12 16V4M6 10l6-6 6 6" />
+      <path d="M4 20h16" />
+    </Icon>
   );
 }

@@ -11,4 +11,7 @@ export const iconSizes: Record<IconSize, number> = {
 export interface IconProps {
   size?: IconSize;
   color?: string;
+  strokeWidth?: number;
+  className?: string;
+  title?: string;
 }

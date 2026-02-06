@@ -1,15 +1,16 @@
+import { Icon } from '@/GlamUI/components/Icon';
 import Text from '@/GlamUI/components/Text';
 import Link from 'next/link';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { usePathname } from 'next/navigation';
 
 interface SidebarItemProps {
   href: string;
   label: string;
-  icon: ReactNode;
+  SidebarIcon: Icon;
 }
 
-const SidebarItem: FC<SidebarItemProps> = ({ href, label, icon }) => {
+const SidebarItem: FC<SidebarItemProps> = ({ href, label, SidebarIcon }) => {
   const pathname = usePathname();
   const isActive = pathname === href;
   const textVariant = !isActive ? 'caption' : undefined;
@@ -18,7 +19,7 @@ const SidebarItem: FC<SidebarItemProps> = ({ href, label, icon }) => {
   return (
     <Text variant={textVariant} weight={textWeight}>
       <Link href={href} className="flex items-center gap-2">
-        {icon}
+        <SidebarIcon size="md" />
         {label}
       </Link>
     </Text>

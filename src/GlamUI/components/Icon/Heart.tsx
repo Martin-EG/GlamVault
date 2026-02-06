@@ -1,21 +1,10 @@
-import { iconSizes, type IconProps } from './Icon.types';
+import { Icon } from './Icon';
+import type { IconProps } from './Icon.types';
 
-export function Heart({ size = 'sm', color = 'currentColor' }: IconProps) {
+export function Heart(props: IconProps) {
   return (
-    <svg
-      width={iconSizes[size]}
-      height={iconSizes[size]}
-      viewBox="0 0 17 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>Heart</title>
-      <path
-        d="M14.5 6C14.5 9.5 8.5 13.5 8.5 13.5C8.5 13.5 2.5 9.5 2.5 6C2.5 4.3 3.9 2.9 5.6 2.9C6.9 2.9 8 3.7 8.5 4.8C9 3.7 10.1 2.9 11.4 2.9C13.1 2.9 14.5 4.3 14.5 6Z"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <Icon {...props}>
+      <path d="M20.8 5.6a5.5 5.5 0 00-7.8 0L12 6.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 22l7.8-7.6 1-1a5.5 5.5 0 000-7.8z" />
+    </Icon>
   );
 }
