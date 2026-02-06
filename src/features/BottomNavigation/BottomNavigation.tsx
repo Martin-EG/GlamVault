@@ -4,7 +4,7 @@ import BottomNavItem from './BottomNavItem';
 
 const BottomNavigation = () => {
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-40 md:hidden bg-white border-t">
+    <nav className="fixed bottom-0 inset-x-0 z-40 md:hidden bg-white border-t-1 border-gray-200">
       <ul className="flex justify-around">
         <BottomNavItem
           href="/dashboard/profile"
