@@ -1,21 +1,10 @@
-import { iconSizes, type IconProps } from './Icon.types';
+import { Icon } from './Icon';
+import type { IconProps } from './Icon.types';
 
-export function Star({ size = 'sm', color = 'currentColor' }: IconProps) {
+export function Star(props: IconProps) {
   return (
-    <svg
-      width={iconSizes[size]}
-      height={iconSizes[size]}
-      viewBox="0 0 17 17"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>Star</title>
-      <path
-        d="M8.5 2.5L10.3 6.2L14.5 6.8L11.5 9.7L12.2 13.9L8.5 11.9L4.8 13.9L5.5 9.7L2.5 6.8L6.7 6.2L8.5 2.5Z"
-        stroke={color}
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <Icon {...props}>
+      <path d="M12 3l2.9 5.88L21 9.76l-4.5 4.38L17.8 21 12 17.9 6.2 21l1.3-6.86L3 9.76l6.1-.88L12 3z" />
+    </Icon>
   );
 }

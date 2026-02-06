@@ -18,7 +18,8 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   cursor: pointer;
   color: black;
   display: flex;
-  gap: ${({ theme }) => theme.spacing.sm};
+  column-gap: ${({ theme }) => theme.spacing.sm};
+  row-gap: ${({ theme }) => theme.spacing.xs};
   align-items: center;
   justify-content: center;
   border: none;

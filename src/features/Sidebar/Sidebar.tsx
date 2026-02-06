@@ -11,22 +11,22 @@ const Sidebar = () => {
         <SidebarItem
           href="/dashboard/profile"
           label="Mi perfil"
-          icon={<User />}
+          SidebarIcon={User}
         />
         <SidebarItem
           href="/dashboard/inventory"
           label="Mi inventario"
-          icon={<Box />}
+          SidebarIcon={Box}
         />
         <SidebarItem
           href="/dashboard/collections"
           label="Mis colecciones"
-          icon={<Star />}
+          SidebarIcon={Star}
         />
         <SidebarItem
           href="/dashboard/wishlist"
           label="Mis lista de deseos"
-          icon={<Heart />}
+          SidebarIcon={Heart}
         />
       </nav>
     </aside>
