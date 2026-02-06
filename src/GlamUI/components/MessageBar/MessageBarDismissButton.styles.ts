@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 import type { MessageBarVariant } from './MessageBar.types';
 
@@ -6,11 +6,13 @@ interface StyledMessageBarDismissButtonProps {
   readonly $variant: MessageBarVariant;
 }
 
-export const MessageBarDismissButton = styled.button.attrs<StyledMessageBarDismissButtonProps>(({ $variant }) => ({
-  className: `message-bar-dismiss-btn message-bar-dismiss-btn-${$variant}`,
-  type: 'button',
-  'aria-label': 'Dismiss message',
-})) <StyledMessageBarDismissButtonProps>`
+export const MessageBarDismissButton = styled.button.attrs<StyledMessageBarDismissButtonProps>(
+  ({ $variant }) => ({
+    className: `message-bar-dismiss-btn message-bar-dismiss-btn-${$variant}`,
+    type: 'button',
+    'aria-label': 'Dismiss message',
+  }),
+)<StyledMessageBarDismissButtonProps>`
   background: transparent;
   border: none;
   padding: ${({ theme }) => theme.spacing.xs};
@@ -27,7 +29,7 @@ export const MessageBarDismissButton = styled.button.attrs<StyledMessageBarDismi
     border-radius: ${({ theme }) => theme.radius.sm};
   }
 
-   &.message-bar-dismiss-btn-error {
+  &.message-bar-dismiss-btn-error {
     color: ${({ theme }) => theme.colors.feedback.errorText};
   }
 
@@ -42,4 +44,4 @@ export const MessageBarDismissButton = styled.button.attrs<StyledMessageBarDismi
   &.message-bar-dismiss-btn-info {
     color: ${({ theme }) => theme.colors.feedback.infoText};
   }
-`
+`;

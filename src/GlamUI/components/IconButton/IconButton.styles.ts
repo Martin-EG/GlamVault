@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledIconButton = styled.button`
   display: inline-flex;
@@ -25,4 +25,4 @@ export const StyledIconButton = styled.button`
     opacity: 0.5;
     cursor: not-allowed;
   }
-`
+`;

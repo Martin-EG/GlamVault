@@ -8,7 +8,10 @@ import {
 } from './Menu.styles';
 
 import type { MenuProps } from './Menu.types';
-import { useCloseWhenClickingOutside, useHandleFocusWithKeyboardCallback } from './hooks';
+import {
+  useCloseWhenClickingOutside,
+  useHandleFocusWithKeyboardCallback,
+} from './hooks';
 
 const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +19,9 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
   const itemRefs = useRef<HTMLButtonElement[]>([]);
   const closeMenu = () => setIsOpen(false);
   const toggleMenu = () => setIsOpen((value) => !value);
-  const handleFocusWithKeyboardCallback = useHandleFocusWithKeyboardCallback({ itemRefs });
+  const handleFocusWithKeyboardCallback = useHandleFocusWithKeyboardCallback({
+    itemRefs,
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -28,38 +33,44 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
 
   useCloseWhenClickingOutside({ isOpen, closeMenu, ref });
 
-  const menuItems = useMemo(() => items.map(({ onClick, disabled, variant, icon, label }, index) => {
-    const onMenuItemClick = () => {
-      onClick();
-      closeMenu();
-    }
+  const menuItems = useMemo(
+    () =>
+      items.map(({ onClick, disabled, variant, icon, label }, index) => {
+        const onMenuItemClick = () => {
+          onClick();
+          closeMenu();
+        };
 
-    const menuItemIcon = icon ? (
-      <MenuItemIcon aria-hidden>
-        {icon}
-      </MenuItemIcon>
-    ) : null;
+        const menuItemIcon = icon ? (
+          <MenuItemIcon aria-hidden>{icon}</MenuItemIcon>
+        ) : null;
 
-    return (
-      <MenuItemButton
-        key={index}
-        ref={(element) => {
-          if (element) itemRefs.current[index] = element;
-        }}
-        role="menuitem"
-        onClick={onMenuItemClick}
-        disabled={disabled}
-        $variant={variant}
-        tabIndex={-1}
-      >
-        {menuItemIcon}
-        {label}
-      </MenuItemButton>
-    );
-  }), [items]);
+        return (
+          <MenuItemButton
+            key={index}
+            ref={(element) => {
+              if (element) itemRefs.current[index] = element;
+            }}
+            role="menuitem"
+            onClick={onMenuItemClick}
+            disabled={disabled}
+            $variant={variant}
+            tabIndex={-1}
+          >
+            {menuItemIcon}
+            {label}
+          </MenuItemButton>
+        );
+      }),
+    [items],
+  );
 
   const menu = isOpen ? (
-    <MenuContainer role="menu" $align={align} onKeyDown={handleFocusWithKeyboardCallback}>
+    <MenuContainer
+      role="menu"
+      $align={align}
+      onKeyDown={handleFocusWithKeyboardCallback}
+    >
       {menuItems}
     </MenuContainer>
   ) : null;

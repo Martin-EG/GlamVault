@@ -24,7 +24,7 @@ You can see live demos and usage in Storybook.
 
 It inherits all props from [TextInput](../TextInput/README.md), except `variant` and `type`.
 
-| Prop        | Type     | Default                | Required | Description                                                    |
-| :---------- | :------- | :--------------------- | :------: | :------------------------------------------------------------- |
-| `showLabel` | `string` | `'Mostrar contraseña'` |    No    | `aria-label` for the toggle button when password is hidden.    |
-| `hideLabel` | `string` | `'Ocultar contraseña'` |    No    | `aria-label` for the toggle button when password is visible.   |
+| Prop        | Type     | Default                | Required | Description                                                  |
+| :---------- | :------- | :--------------------- | :------: | :----------------------------------------------------------- |
+| `showLabel` | `string` | `'Mostrar contraseña'` |    No    | `aria-label` for the toggle button when password is hidden.  |
+| `hideLabel` | `string` | `'Ocultar contraseña'` |    No    | `aria-label` for the toggle button when password is visible. |

@@ -1,4 +1,4 @@
-import { iconSizes, type IconProps } from './Icon.types'
+import { iconSizes, type IconProps } from './Icon.types';
 
 export function Edit({ size = 'sm', color = 'currentColor' }: IconProps) {
   return (
@@ -18,5 +18,5 @@ export function Edit({ size = 'sm', color = 'currentColor' }: IconProps) {
         stroke-linejoin="round"
       />
     </svg>
-  )
+  );
 }

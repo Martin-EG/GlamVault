@@ -18,7 +18,7 @@ export const Default: Story = {
   args: {
     title: 'Mi maquillaje diario',
     body: 'descripcion descripcion descripcion descripcion descripcion descripcion',
-  }
+  },
 };
 
 export const WithMenu: Story = {
@@ -28,8 +28,8 @@ export const WithMenu: Story = {
     options: [
       { label: 'Editar', onClick: fn() },
       { label: 'Eliminar', variant: 'danger', onClick: fn() },
-    ]
-  }
+    ],
+  },
 };
 
 export const WithImage: Story = {
@@ -37,35 +37,50 @@ export const WithImage: Story = {
     title: 'Mi maquillaje diario',
     body: 'descripcion descripcion descripcion descripcion descripcion descripcion',
     image: '/dog.jpg',
-  }
-}
+  },
+};
 
 export const WithFooter: Story = {
   args: {
     title: 'Mi maquillaje diario',
     body: 'descripcion descripcion descripcion descripcion descripcion descripcion',
-    footer: <Text weight='semibold' size='sm' color='light' align='left'>10 productos</Text>,
-  }
-}
+    footer: (
+      <Text weight="semibold" size="sm" color="light" align="left">
+        10 productos
+      </Text>
+    ),
+  },
+};
 
 export const Complete: Story = {
   args: {
     title: 'Sephora lipstick red 3',
     body: (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-        <Text size='sm'>Sephora • Labial</Text>
-        <Text size='sm'>Fecha de expiración: 31/12/2026</Text>
-        <Text size='sm'>Sitio de venta: Amazon</Text>
-        <Text size='sm' color='light' truncate={3}>Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas Notas notas notas</Text>
+        <Text size="sm">Sephora • Labial</Text>
+        <Text size="sm">Fecha de expiración: 31/12/2026</Text>
+        <Text size="sm">Sitio de venta: Amazon</Text>
+        <Text size="sm" color="light" truncate={3}>
+          Notas notas notas Notas notas notas Notas notas notas Notas notas
+          notas Notas notas notas Notas notas notas Notas notas notas Notas
+          notas notas Notas notas notas Notas notas notas
+        </Text>
       </div>
     ),
     image: '/dog.jpg',
     footer: (
       <div>
-        <Button variant='outline' size='xs' aria-label='Enviar a inventario' fullSize={true} >
-          <Text weight='semibold' size='xs' color='light'>Enviar a inventario</Text>
+        <Button
+          variant="outline"
+          size="xs"
+          aria-label="Enviar a inventario"
+          fullSize={true}
+        >
+          <Text weight="semibold" size="xs" color="light">
+            Enviar a inventario
+          </Text>
         </Button>
       </div>
     ),
-  }
-}
+  },
+};

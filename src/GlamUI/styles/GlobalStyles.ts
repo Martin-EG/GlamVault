@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   *, *::before, *::after {
@@ -12,4 +12,4 @@ export const GlobalStyles = createGlobalStyle`
     font-family: ${({ theme }) => theme.fonts.primary};
     color: ${({ theme }) => theme.colors.text.primary};
     background: ${({ theme }) => theme.colors.text.inverse};
-  }`
+  }`;

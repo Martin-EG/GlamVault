@@ -1,8 +1,8 @@
 /**
-* Avatar types
-* Add your types here like:
-* @property {AvatarSize} size - The size of the Avatar
-*/
+ * Avatar types
+ * Add your types here like:
+ * @property {AvatarSize} size - The size of the Avatar
+ */
 
 export type AvatarSize = 'sm' | 'md' | 'lg';
 

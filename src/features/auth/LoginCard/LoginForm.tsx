@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import MessageBar from '@/GlamUI/components/MessageBar'
-import Button from '@/GlamUI/components/Button'
-import PasswordInput from '@/GlamUI/components/PasswordInput'
-import Text from '@/GlamUI/components/Text'
-import TextInput from '@/GlamUI/components/TextInput'
+import MessageBar from '@/GlamUI/components/MessageBar';
+import Button from '@/GlamUI/components/Button';
+import PasswordInput from '@/GlamUI/components/PasswordInput';
+import Text from '@/GlamUI/components/Text';
+import TextInput from '@/GlamUI/components/TextInput';
 
 import { useLogin } from './hooks';
 
@@ -16,7 +16,7 @@ const LoginForm = () => {
     setLoginErrors,
     updateLoginData,
     updateRememberMe,
-    handleLogin
+    handleLogin,
   } = useLogin();
 
   return (
@@ -62,7 +62,9 @@ const LoginForm = () => {
         message={loginErrors.login}
         variant="error"
         dismissible={true}
-        dismissMessageBar={() => setLoginErrors((prev) => ({ ...prev, login: undefined }))}
+        dismissMessageBar={() =>
+          setLoginErrors((prev) => ({ ...prev, login: undefined }))
+        }
       />
 
       <div className="mt-4">
@@ -78,7 +80,7 @@ const LoginForm = () => {
         </Button>
       </div>
     </form>
-  )
+  );
 };
 
 export default LoginForm;

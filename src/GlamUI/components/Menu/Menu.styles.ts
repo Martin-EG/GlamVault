@@ -52,7 +52,9 @@ export const MenuContainer = styled.div<{ $align: 'left' | 'right' }>`
   z-index: 1000;
 `;
 
-export const MenuItemButton = styled.button<{ $variant?: 'default' | 'danger' }>`
+export const MenuItemButton = styled.button<{
+  $variant?: 'default' | 'danger';
+}>`
   all: unset;
   width: 100%;
   box-sizing: border-box;

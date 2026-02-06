@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
-import Avatar from "@/GlamUI/components/Avatar";
-import ImageCropModal from "@/GlamUI/components/ImageCropModal";
-import { FC, useRef, useState } from "react";
+import Avatar from '@/GlamUI/components/Avatar';
+import ImageCropModal from '@/GlamUI/components/ImageCropModal';
+import { FC, useRef, useState } from 'react';
 
 interface ProfilePhotoInputProps {
   readonly onChangeProfilePhoto?: (value: File) => void;
@@ -51,9 +51,7 @@ const ProfilePhotoInput: FC<ProfilePhotoInputProps> = ({
         type="file"
         hidden
         accept="image/*"
-        onChange={(e) =>
-          e.target.files && loadFile(e.target.files[0])
-        }
+        onChange={(e) => e.target.files && loadFile(e.target.files[0])}
       />
 
       {cropping && preview && (

@@ -15,30 +15,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    message: "Mensaje de prueba",
-  }
+    message: 'Mensaje de prueba',
+  },
 };
 
 export const Variants: Story = {
   args: {
-    message: "Mensaje de prueba",
+    message: 'Mensaje de prueba',
   },
   render: (args) => (
     <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-      <Text as="h3" variant="heading" weight="bold">Variants:</Text>
+      <Text as="h3" variant="heading" weight="bold">
+        Variants:
+      </Text>
       <MessageBar {...args} variant="error" message="Error" />
       <MessageBar {...args} variant="success" message="Success" />
       <MessageBar {...args} variant="warning" message="Warning" />
       <MessageBar {...args} variant="info" message="Info" />
     </div>
-  )
+  ),
 };
 
 export const Dismissible: Story = {
   args: {
-    message: "Mensaje de prueba",
+    message: 'Mensaje de prueba',
     dismissible: true,
     dismissMessageBar: fn(),
-  }
+  },
 };
-

@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import MessageBar from '@/GlamUI/components/MessageBar'
-import Button from '@/GlamUI/components/Button'
-import PasswordInput from '@/GlamUI/components/PasswordInput'
-import TextInput from '@/GlamUI/components/TextInput'
-import { FC } from 'react'
+import MessageBar from '@/GlamUI/components/MessageBar';
+import Button from '@/GlamUI/components/Button';
+import PasswordInput from '@/GlamUI/components/PasswordInput';
+import TextInput from '@/GlamUI/components/TextInput';
+import { FC } from 'react';
 
-import { SignupErrors, SignupProps } from './hooks'
+import { SignupErrors, SignupProps } from './hooks';
 
 interface SignupFormProps {
   signupData: SignupProps;
@@ -23,9 +23,11 @@ const SignupForm: FC<SignupFormProps> = ({
   handleSignup,
   setSignupErrors,
 }) => {
-
   return (
-    <form className="flex flex-col w-full max-w-sm mb-4" onSubmit={handleSignup}>
+    <form
+      className="flex flex-col w-full max-w-sm mb-4"
+      onSubmit={handleSignup}
+    >
       <TextInput
         label="Nombre"
         name="name"
@@ -67,7 +69,9 @@ const SignupForm: FC<SignupFormProps> = ({
           message={signupErrors.signup}
           variant="error"
           dismissible={true}
-          dismissMessageBar={() => setSignupErrors((prev) => ({ ...prev, signup: undefined }))}
+          dismissMessageBar={() =>
+            setSignupErrors((prev) => ({ ...prev, signup: undefined }))
+          }
         />
       </div>
 
@@ -84,7 +88,7 @@ const SignupForm: FC<SignupFormProps> = ({
         </Button>
       </div>
     </form>
-  )
+  );
 };
 
 export default SignupForm;

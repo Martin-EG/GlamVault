@@ -1,6 +1,7 @@
 ![GlamVault logo](public/glamvault-complete.svg)
 
 ## What it is
+
 **GlamVault** is an inventory platform where users can login and add their makeup items into their own digital inventory adding a custom “collection” for easy filtering/organize. **GlamVault** will also help users to track when their makeup will expire and save items to buy later in a wish list section.
 
 ## Getting Started
@@ -18,6 +19,7 @@ npm run dev
 ```
 
 ## Project Structure
+
 - glamvault-web
   - public/
     - glamvault-complete.svg
@@ -44,10 +46,10 @@ npm run dev
     - lib/
     - providers/
     - utils/
-    
   - package.json
 
 ## GlamUI
+
 GlamUI is a UI library that is used to build the UI of the GlamVault platform. On this library you can find components, icons and tokens that are used in the GlamVault platform.
 
 If you need to add a new component, you can do it by running:
@@ -67,6 +69,7 @@ On this directory you can find the component, the component's stories, the compo
   - index.ts
 
 ## How to contribute to GlamVault
+
 To contribute to GlamVault, you need to start by creating a new branch from the `main` branch.
 
 ```bash
@@ -82,6 +85,7 @@ git push origin <branch-name>
 ```
 
 Where `<type-of-change>` can be one of the following:
+
 - feat: A new feature
 - fix: A bug fix
 - docs: Documentation only changes
@@ -95,12 +99,15 @@ And `<scope>` is the scope of the change. For example, if you are adding a new c
 And `<commit-message>` is a short description of the change.
 
 For example:
+
 ```bash
 git add .
 git commit -m "feat(components): add avatar component"
 git push origin <branch-name>
 ```
+
 After that, you can create a pull request. And wait for the review of the maintainers.
 
 ## Deployment
+
 The deployment of the GlamVault platform is handled by Vercel. When a pull request is merged, the changes are automatically deployed to the `main` branch.

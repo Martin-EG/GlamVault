@@ -5,11 +5,7 @@ import { FC, PropsWithChildren } from 'react';
 import Text from '../Text';
 import Button from '../Button';
 
-import {
-  Footer,
-  ModalBase,
-  Overlay,
-} from './Modal.styles';
+import { Footer, ModalBase, Overlay } from './Modal.styles';
 
 interface ModalProps extends PropsWithChildren {
   readonly title?: string;
@@ -25,7 +21,7 @@ const Modal: FC<ModalProps> = ({
   confirmText,
   onCancel,
   onConfirm,
-  children
+  children,
 }) => {
   const modalTitle = title ? (
     <Text
@@ -42,15 +38,21 @@ const Modal: FC<ModalProps> = ({
     </Text>
   ) : null;
 
-  const secondaryButtonText = !!onCancel && !!cancelText ? cancelText : 'Cancelar';
+  const secondaryButtonText =
+    !!onCancel && !!cancelText ? cancelText : 'Cancelar';
   const primaryButtonText = !!confirmText ? confirmText : 'Guardar';
 
   const secondaryButton = onCancel ? (
-    <Button variant="secondary" onClick={onCancel} aria-label={secondaryButtonText} size="sm" fullSize>
+    <Button
+      variant="secondary"
+      onClick={onCancel}
+      aria-label={secondaryButtonText}
+      size="sm"
+      fullSize
+    >
       {secondaryButtonText}
     </Button>
   ) : null;
-
 
   return (
     <Overlay>
@@ -61,7 +63,12 @@ const Modal: FC<ModalProps> = ({
 
         <Footer>
           {secondaryButton}
-          <Button onClick={onConfirm} aria-label={primaryButtonText} size="sm" fullSize >
+          <Button
+            onClick={onConfirm}
+            aria-label={primaryButtonText}
+            size="sm"
+            fullSize
+          >
             {primaryButtonText}
           </Button>
         </Footer>

@@ -12,4 +12,4 @@ export { Remove } from './Remove';
 export { Star } from './Star';
 export { Upload } from './Upload';
 export { User } from './User';
-export type Icon = typeof User; 
+export type Icon = typeof User;

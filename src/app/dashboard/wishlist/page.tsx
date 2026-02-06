@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
-import Text from '@/GlamUI/components/Text'
-
+import Text from '@/GlamUI/components/Text';
 
 const Wishlist = () => {
   return (
@@ -9,6 +8,6 @@ const Wishlist = () => {
       <Text as="h1">Wishlist</Text>
     </main>
   );
-}
+};
 
 export default Wishlist;

@@ -23,8 +23,7 @@ const ImageCropModal: FC<ImageCropModalProps> = ({
   const getCroppedImage = useCroppedImage();
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
-  const [croppedAreaPixels, setCroppedAreaPixels] =
-    useState<any>(null);
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState<any>(null);
 
   const onCropComplete = (_: any, croppedPixels: any) => {
     setCroppedAreaPixels(croppedPixels);

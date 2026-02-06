@@ -22,17 +22,18 @@ const MyComponent = () => {
   );
 };
 ```
+
 You can see live demos and usage in Storybook.
 
 ## Props
 
-| Prop       | Type         | Default     | Required | Description                                                                 |
-| ---------- | ------------ | ----------- | :------: | --------------------------------------------------------------------------- |
-| `src`      | `string`     | `undefined` |    No    | The source URL of the image. If not provided, a placeholder will be shown.  |
-| `alt`      | `string`     | `'Avatar'`  |    No    | The alternative text for the image.                                         |
-| `size`     | `AvatarSize` | `'md'`      |    No    | The size of the avatar. Options: `'sm'`, `'md'`, `'lg'`.                    |
-| `editable` | `boolean`    | `false`     |    No    | If `true`, the avatar becomes interactive.                                  |
-| `loading`  | `boolean`    | `false`     |    No    | If `true`, displays a loading skeleton.                                     |
+| Prop       | Type         | Default     | Required | Description                                                                      |
+| ---------- | ------------ | ----------- | :------: | -------------------------------------------------------------------------------- |
+| `src`      | `string`     | `undefined` |    No    | The source URL of the image. If not provided, a placeholder will be shown.       |
+| `alt`      | `string`     | `'Avatar'`  |    No    | The alternative text for the image.                                              |
+| `size`     | `AvatarSize` | `'md'`      |    No    | The size of the avatar. Options: `'sm'`, `'md'`, `'lg'`.                         |
+| `editable` | `boolean`    | `false`     |    No    | If `true`, the avatar becomes interactive.                                       |
+| `loading`  | `boolean`    | `false`     |    No    | If `true`, displays a loading skeleton.                                          |
 | `onClick`  | `() => void` | `undefined` |    No    | Callback function when the avatar is clicked (requires `editable` to be `true`). |
 
 ## Features
@@ -60,6 +61,7 @@ To make the avatar clickable (e.g., to upload a new photo), set `editable` to `t
 ## Styles
 
 The component uses styled-components.
+
 - `AvatarRoot`: The container element.
 - `AvatarImage`: The image element.
 - `AvatarPlaceholder`: The fallback icon when no image is provided.

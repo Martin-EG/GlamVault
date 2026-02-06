@@ -7,7 +7,5 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true
   },
-  "include": [
-    "src/GlamUI/tokens/**/*.ts"
-  ]
+  "include": ["src/GlamUI/tokens/**/*.ts"]
 }

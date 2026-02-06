@@ -19,5 +19,5 @@ export const Default: Story = {
     onCancel: fn(),
     onConfirm: fn(),
     children: <Text>Content</Text>,
-  }
+  },
 };

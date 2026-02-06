@@ -1,16 +1,13 @@
-import { colors } from './src/GlamUI/tokens/dist/colors'
-import { spacing } from './src/GlamUI/tokens/dist/spacing'
-import { radius } from './src/GlamUI/tokens/dist/radius'
-import { typography } from './src/GlamUI/tokens/dist/typography'
-import { shadows } from './src/GlamUI/tokens/dist/shadows'
+import { colors } from './src/GlamUI/tokens/dist/colors';
+import { spacing } from './src/GlamUI/tokens/dist/spacing';
+import { radius } from './src/GlamUI/tokens/dist/radius';
+import { typography } from './src/GlamUI/tokens/dist/typography';
+import { shadows } from './src/GlamUI/tokens/dist/shadows';
 
 import type { Config } from 'tailwindcss' with { 'resolution-mode': 'import' };
 
 const config = {
-  content: [
-    './app/**/*.{ts,tsx}',
-    './features/**/*.{ts,tsx}',
-  ],
+  content: ['./app/**/*.{ts,tsx}', './features/**/*.{ts,tsx}'],
   corePlugins: {
     preflight: false,
   },
@@ -28,4 +25,4 @@ const config = {
   },
 } as unknown as Config;
 
-export default config
+export default config;

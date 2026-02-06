@@ -1,7 +1,6 @@
-"use client";
+'use client';
 
-import Text from '@/GlamUI/components/Text'
-
+import Text from '@/GlamUI/components/Text';
 
 const Collections = () => {
   return (
@@ -9,6 +8,6 @@ const Collections = () => {
       <Text as="h1">Collections</Text>
     </main>
   );
-}
+};
 
 export default Collections;

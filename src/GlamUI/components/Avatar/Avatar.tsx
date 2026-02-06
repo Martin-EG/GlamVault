@@ -2,11 +2,7 @@
 
 import { FC } from 'react';
 
-import {
-  AvatarRoot,
-  AvatarImage,
-  AvatarPlaceholder,
-} from './Avatar.styles';
+import { AvatarRoot, AvatarImage, AvatarPlaceholder } from './Avatar.styles';
 import type { AvatarProps } from './Avatar.types';
 import AvatarSkeleton from './AvatarSkeleton';
 

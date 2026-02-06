@@ -46,8 +46,17 @@ const colors = ['black', 'red', 'blue'];
 export const Default: Story = {
   render: () => (
     <>
-      <Text as="h3" variant="heading" weight="bold">Icons:</Text>
-      <div style={{ marginTop: '10px', display: 'flex', gap: '15px', alignItems: 'center' }}>
+      <Text as="h3" variant="heading" weight="bold">
+        Icons:
+      </Text>
+      <div
+        style={{
+          marginTop: '10px',
+          display: 'flex',
+          gap: '15px',
+          alignItems: 'center',
+        }}
+      >
         {icons.map((icon) => (
           <div
             key={icon.name}
@@ -65,14 +74,23 @@ export const Default: Story = {
         ))}
       </div>
     </>
-  )
+  ),
 };
 
 export const Sizes: Story = {
   render: () => (
     <>
-      <Text as="h3" variant="heading" weight="bold">Sizes:</Text>
-      <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+      <Text as="h3" variant="heading" weight="bold">
+        Sizes:
+      </Text>
+      <div
+        style={{
+          marginTop: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '15px',
+        }}
+      >
         {sizes.map((size) => (
           <div
             key={size}
@@ -84,19 +102,30 @@ export const Sizes: Story = {
             }}
           >
             <Eye size={size} />
-            <Text weight="semibold">{size} - {iconSizes[size]}px {size === 'xs' ? ' (default)' : ''}</Text>
+            <Text weight="semibold">
+              {size} - {iconSizes[size]}px {size === 'xs' ? ' (default)' : ''}
+            </Text>
           </div>
         ))}
       </div>
     </>
-  )
+  ),
 };
 
 export const Colors: Story = {
   render: () => (
     <>
-      <Text as="h3" variant="heading" weight="bold">Colors:</Text>
-      <div style={{ marginTop: '10px', display: 'flex', gap: '15px', alignItems: 'center' }}>
+      <Text as="h3" variant="heading" weight="bold">
+        Colors:
+      </Text>
+      <div
+        style={{
+          marginTop: '10px',
+          display: 'flex',
+          gap: '15px',
+          alignItems: 'center',
+        }}
+      >
         {colors.map((color) => (
           <div
             key={color}
@@ -114,7 +143,5 @@ export const Colors: Story = {
         ))}
       </div>
     </>
-  )
+  ),
 };
-
-

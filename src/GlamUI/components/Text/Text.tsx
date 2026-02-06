@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren } from 'react';
 
-import { StyledText } from './Text.styles'
+import { StyledText } from './Text.styles';
 import type {
   TextAs,
   TextAlign,
@@ -9,7 +9,7 @@ import type {
   TextTruncate,
   TextVariant,
   TextWeight,
-} from './Text.types'
+} from './Text.types';
 
 interface TextProps extends PropsWithChildren {
   readonly as?: TextAs;
@@ -48,7 +48,7 @@ const Text: FC<TextProps> = ({
     >
       {children}
     </StyledText>
-  )
+  );
 };
 
 export default Text;

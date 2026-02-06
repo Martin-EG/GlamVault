@@ -18,5 +18,5 @@ export function Image({ size = 'sm', color = 'currentColor' }: IconProps) {
         stroke-linejoin="round"
       />
     </svg>
-  )
+  );
 }

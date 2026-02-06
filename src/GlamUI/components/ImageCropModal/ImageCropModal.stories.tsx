@@ -13,8 +13,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    image: "/dog.jpg",
+    image: '/dog.jpg',
     onCancel: fn(),
     onConfirm: fn(),
-  }
+  },
 };

@@ -1,9 +1,9 @@
-"use client"
+'use client';
 
-import Text from '@/GlamUI/components/Text'
-import Link from 'next/link'
+import Text from '@/GlamUI/components/Text';
+import Link from 'next/link';
 
-import AuthCard from "../AuthCard";
+import AuthCard from '../AuthCard';
 
 import LoginForm from './LoginForm';
 
@@ -16,17 +16,28 @@ const LoginCard = () => (
           ¿No tienes cuenta?
         </Text>
         <Link href="/signup">
-          <Text variant="label" size="sm" weight="bold" as="span" color="brandSecondary">
+          <Text
+            variant="label"
+            size="sm"
+            weight="bold"
+            as="span"
+            color="brandSecondary"
+          >
             Registrate
           </Text>
         </Link>
       </div>
       <Link href="/password-recover">
-        <Text variant="label" size="sm" weight="bold" as="span" color="brandSecondary">
+        <Text
+          variant="label"
+          size="sm"
+          weight="bold"
+          as="span"
+          color="brandSecondary"
+        >
           ¿Olvidaste tu contraseña?
         </Text>
       </Link>
-
     </div>
   </AuthCard>
 );

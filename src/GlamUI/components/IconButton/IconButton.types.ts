@@ -1,7 +1,6 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-export interface IconButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon: ReactNode
-  label: string
+export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  icon: ReactNode;
+  label: string;
 }

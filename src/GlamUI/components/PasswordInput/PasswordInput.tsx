@@ -1,17 +1,19 @@
-"use client"
+'use client';
 
-import { FC, useState } from 'react'
+import { FC, useState } from 'react';
 
-import { Eye, EyeOff } from '../Icon'
-import TextInput from '../TextInput'
-import type { TextInputProps } from '../TextInput'
+import { Eye, EyeOff } from '../Icon';
+import TextInput from '../TextInput';
+import type { TextInputProps } from '../TextInput';
 
-import { PasswordWrapper, ToggleButton } from './PasswordInput.styles'
+import { PasswordWrapper, ToggleButton } from './PasswordInput.styles';
 
-export interface PasswordInputProps
-  extends Omit<TextInputProps, 'variant' | 'type'> {
-  showLabel?: string
-  hideLabel?: string
+export interface PasswordInputProps extends Omit<
+  TextInputProps,
+  'variant' | 'type'
+> {
+  showLabel?: string;
+  hideLabel?: string;
 }
 
 const PasswordInput: FC<PasswordInputProps> = ({
@@ -24,8 +26,8 @@ const PasswordInput: FC<PasswordInputProps> = ({
   const hasError = !!error;
 
   const toggleVisibility = () => {
-    setIsVisible((prev) => !prev)
-  }
+    setIsVisible((prev) => !prev);
+  };
 
   return (
     <PasswordWrapper>
@@ -45,7 +47,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
         {isVisible ? <Eye /> : <EyeOff />}
       </ToggleButton>
     </PasswordWrapper>
-  )
+  );
 };
 
 export default PasswordInput;

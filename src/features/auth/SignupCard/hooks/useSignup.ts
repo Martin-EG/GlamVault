@@ -1,12 +1,12 @@
-import { redirect } from 'next/navigation'
-import { useState } from 'react'
+import { redirect } from 'next/navigation';
+import { useState } from 'react';
 
 const errorsInitialState: SignupErrors = {
   email: undefined,
   password: undefined,
   passwordConfirmation: undefined,
   signup: undefined,
-}
+};
 
 export interface SignupProps {
   name: string;
@@ -35,7 +35,8 @@ interface UseSignupProps {
 type UseSignup = () => UseSignupProps;
 export const useSignup: UseSignup = () => {
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
-  const [signupErrors, setSignupErrors] = useState<SignupErrors>(errorsInitialState);
+  const [signupErrors, setSignupErrors] =
+    useState<SignupErrors>(errorsInitialState);
   const [signupData, setSignupData] = useState<SignupProps>({
     name: '',
     email: '',
@@ -46,7 +47,10 @@ export const useSignup: UseSignup = () => {
   const updateSignupData = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'email') {
       if (e.target.validity.typeMismatch) {
-        setSignupErrors((prev) => ({ ...prev, email: 'Introduce un email válido' }));
+        setSignupErrors((prev) => ({
+          ...prev,
+          email: 'Introduce un email válido',
+        }));
       } else {
         setSignupErrors((prev) => ({ ...prev, email: undefined }));
       }
@@ -54,7 +58,10 @@ export const useSignup: UseSignup = () => {
 
     if (e.target.name === 'password') {
       if (e.target.value.length < 8) {
-        setSignupErrors((prev) => ({ ...prev, password: 'La contraseña debe tener al menos 8 caracteres' }));
+        setSignupErrors((prev) => ({
+          ...prev,
+          password: 'La contraseña debe tener al menos 8 caracteres',
+        }));
       } else {
         setSignupErrors((prev) => ({ ...prev, password: undefined }));
       }
@@ -62,9 +69,15 @@ export const useSignup: UseSignup = () => {
 
     if (e.target.name === 'passwordConfirmation') {
       if (e.target.value !== signupData.password) {
-        setSignupErrors((prev) => ({ ...prev, passwordConfirmation: 'Las contraseñas no coinciden' }));
+        setSignupErrors((prev) => ({
+          ...prev,
+          passwordConfirmation: 'Las contraseñas no coinciden',
+        }));
       } else {
-        setSignupErrors((prev) => ({ ...prev, passwordConfirmation: undefined }));
+        setSignupErrors((prev) => ({
+          ...prev,
+          passwordConfirmation: undefined,
+        }));
       }
     }
 
@@ -78,16 +91,24 @@ export const useSignup: UseSignup = () => {
     e.preventDefault();
     setSignupErrors((prev) => ({ ...prev, signup: undefined }));
 
-    if (!signupData.name ||
+    if (
+      !signupData.name ||
       !signupData.email ||
       !signupData.password ||
-      !signupData.passwordConfirmation) {
-      setSignupErrors((prev) => ({ ...prev, signup: 'Completa todos los campos' }));
+      !signupData.passwordConfirmation
+    ) {
+      setSignupErrors((prev) => ({
+        ...prev,
+        signup: 'Completa todos los campos',
+      }));
       return;
     }
 
     if (signupData.password !== signupData.passwordConfirmation) {
-      setSignupErrors((prev) => ({ ...prev, passwordConfirmation: 'Las contraseñas no coinciden' }));
+      setSignupErrors((prev) => ({
+        ...prev,
+        passwordConfirmation: 'Las contraseñas no coinciden',
+      }));
       return;
     }
 
@@ -105,4 +126,4 @@ export const useSignup: UseSignup = () => {
     updateSignupData,
     handleSignup,
   };
-}
+};

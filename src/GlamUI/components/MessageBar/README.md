@@ -21,9 +21,9 @@ You can see live demos and usage in Storybook.
 
 ## Props
 
-| Prop                | Type                                      | Default   | Required | Description                                                    |
-| :------------------ | :---------------------------------------- | :-------- | :------: | :------------------------------------------------------------- |
-| `message`           | `string`                                  | `undefined`|   Yes    | The text to display. If undefined, the component renders null. |
-| `variant`           | `'error' \| 'success' \| 'warning' \| 'info'` | `'error'` |    No    | The visual style of the message bar.                           |
-| `dismissible`       | `boolean`                                 | `false`   |    No    | If `true`, a close button is rendered.                         |
-| `dismissMessageBar` | `() => void`                              | `undefined`|    No    | Callback function triggered when the close button is clicked.  |
+| Prop                | Type                                          | Default     | Required | Description                                                    |
+| :------------------ | :-------------------------------------------- | :---------- | :------: | :------------------------------------------------------------- |
+| `message`           | `string`                                      | `undefined` |   Yes    | The text to display. If undefined, the component renders null. |
+| `variant`           | `'error' \| 'success' \| 'warning' \| 'info'` | `'error'`   |    No    | The visual style of the message bar.                           |
+| `dismissible`       | `boolean`                                     | `false`     |    No    | If `true`, a close button is rendered.                         |
+| `dismissMessageBar` | `() => void`                                  | `undefined` |    No    | Callback function triggered when the close button is clicked.  |

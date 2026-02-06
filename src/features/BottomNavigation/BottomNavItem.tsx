@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import Button from "@/GlamUI/components/Button";
-import { Icon } from "@/GlamUI/components/Icon";
-import Text from "@/GlamUI/components/Text";
-import { colors } from "@/GlamUI/tokens/dist/colors";
-import { FC } from "react";
+import Button from '@/GlamUI/components/Button';
+import { Icon } from '@/GlamUI/components/Icon';
+import Text from '@/GlamUI/components/Text';
+import { colors } from '@/GlamUI/tokens/dist/colors';
+import { FC } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 interface BottomNavItemProps {
@@ -13,7 +13,11 @@ interface BottomNavItemProps {
   href: string;
 }
 
-const BottomNavItem: FC<BottomNavItemProps> = ({ BottomNavItemIcon, label, href }) => {
+const BottomNavItem: FC<BottomNavItemProps> = ({
+  BottomNavItemIcon,
+  label,
+  href,
+}) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -34,10 +38,12 @@ const BottomNavItem: FC<BottomNavItemProps> = ({ BottomNavItemIcon, label, href 
         className="flex flex-col items-center justify-center"
       >
         <BottomNavItemIcon color={color} />
-        <Text size="xs" variant={textVariant} >{label}</Text>
+        <Text size="xs" variant={textVariant}>
+          {label}
+        </Text>
       </Button>
     </li>
-  )
+  );
 };
 
 export default BottomNavItem;
