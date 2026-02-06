@@ -10,6 +10,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
+    ignores: ['**/*.test.{js,jsx,ts,tsx}'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
