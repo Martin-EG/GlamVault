@@ -1,0 +1,23 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "password": "Password",
+    "email": "Email",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "notAMember": "Don't have an account?",
+    "alreadyAMember": "Already have an account?",
+    "signup": "Sign up",
+    "login": "Log in",
+    "loginButton": "Log in",
+    "signupButton": "Sign up"
+  },
+  "errors": {
+    "invalidEmail": "Invalid email",
+    "emptyFields": "Complete all fields"
+  }
+}
