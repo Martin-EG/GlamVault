@@ -5,3 +5,7 @@ coverage
 __snapshots__
 jest.config.cjs
 babel.config.js
+eslint.config.mjs
+jest.setup.ts
+package-lock.json
+package.json
