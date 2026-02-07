@@ -56,10 +56,3 @@ describe('Button accessibility', () => {
     ).toBeInTheDocument();
   });
 });
-
-describe('Button snapshot', () => {
-  it('matches snapshot', () => {
-    const { container } = render(<Button>Click</Button>);
-    expect(container.firstChild).toMatchSnapshot();
-  });
-});

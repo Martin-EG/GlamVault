@@ -18,14 +18,14 @@ const Avatar: FC<AvatarProps> = ({
     return <AvatarSkeleton size={size} />;
   }
 
-  const clickable = editable && typeof onClick === 'function';
+  const clickable = editable && !!onClick;
 
   return (
     <AvatarRoot
       as={clickable ? 'button' : 'div'}
       type={clickable ? 'button' : undefined}
       onClick={clickable ? onClick : undefined}
-      aria-label={clickable ? 'Cambiar foto de perfil' : undefined}
+      ariaLabel={clickable ? 'Cambiar foto de perfil' : undefined}
       $size={size}
       $clickable={clickable}
     >
