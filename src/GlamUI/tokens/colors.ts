@@ -1,4 +1,3 @@
-// colors.ts
 import { palette } from './colors.palette';
 
 export const colors = {

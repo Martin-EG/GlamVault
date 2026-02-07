@@ -1,7 +1,7 @@
 import { GlobalStyles } from '@/GlamUI/styles/GlobalStyles';
-import AuthProvider from '@/providers/AuthProvider';
-import StyledComponentsRegistry from '@/providers/StyledComponentsRegistry';
-import ThemeProvider from '@/providers/ThemeProvider';
+import AuthProvider from '@/Providers/AuthProvider';
+import StyledComponentsRegistry from '@/Providers/StyledComponentsRegistry';
+import ThemeProvider from '@/Providers/ThemeProvider';
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 
