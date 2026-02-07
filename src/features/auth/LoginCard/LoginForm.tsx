@@ -5,10 +5,12 @@ import Button from '@/GlamUI/components/Button';
 import PasswordInput from '@/GlamUI/components/PasswordInput';
 import Text from '@/GlamUI/components/Text';
 import TextInput from '@/GlamUI/components/TextInput';
+import { useTranslations } from 'next-intl';
 
 import { useLogin } from './hooks';
 
 const LoginForm = () => {
+  const t = useTranslations('auth');
   const {
     loginData,
     loginErrors,
@@ -22,7 +24,7 @@ const LoginForm = () => {
   return (
     <form className="flex flex-col w-full max-w-sm mb-4" onSubmit={handleLogin}>
       <TextInput
-        label="Email"
+        label={t('email')}
         name="email"
         type="email"
         id="email"
@@ -32,7 +34,7 @@ const LoginForm = () => {
         error={loginErrors.email}
       />
       <PasswordInput
-        label="Contraseña"
+        label={t('password')}
         name="password"
         id="password"
         onChange={updateLoginData}
@@ -54,7 +56,7 @@ const LoginForm = () => {
           color="light"
           labelFor="rememberMe"
         >
-          Recordarme
+          {t('rememberMe')}
         </Text>
       </div>
 
@@ -74,9 +76,9 @@ const LoginForm = () => {
           rounded="full"
           size="sm"
           fullSize={true}
-          aria-label="Iniciar sesión"
+          aria-label={t('loginButton')}
         >
-          Iniciar sesión
+          {t('loginButton')}
         </Button>
       </div>
     </form>
