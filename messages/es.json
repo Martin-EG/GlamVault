@@ -1,0 +1,23 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "auth": {
+    "welcome": "Bienvenido",
+    "password": "Contraseña",
+    "email": "Correo electrónico",
+    "rememberMe": "Recordarme",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "notAMember": "¿No tienes cuenta?",
+    "alreadyAMember": "¿Ya tienes cuenta?",
+    "signup": "Regístrate",
+    "login": "Inicia sesión",
+    "loginButton": "Iniciar sesión",
+    "signupButton": "Registrarse"
+  },
+  "errors": {
+    "invalidEmail": "Introduce un email válido",
+    "emptyFields": "Completa todos los campos"
+  }
+}

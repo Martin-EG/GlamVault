@@ -3,6 +3,7 @@ import AuthProvider from '@/Providers/AuthProvider';
 import StyledComponentsRegistry from '@/Providers/StyledComponentsRegistry';
 import ThemeProvider from '@/Providers/ThemeProvider';
 import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
 import { Nunito } from 'next/font/google';
 
 import './globals.css';
@@ -22,14 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html>
       <body className={`${nunito.className} antialiased h-dvh`}>
-        <StyledComponentsRegistry>
-          <ThemeProvider>
-            <GlobalStyles />
-            <AuthProvider>{children}</AuthProvider>
-          </ThemeProvider>
-        </StyledComponentsRegistry>
+        <NextIntlClientProvider>
+          <StyledComponentsRegistry>
+            <ThemeProvider>
+              <GlobalStyles />
+              <AuthProvider>{children}</AuthProvider>
+            </ThemeProvider>
+          </StyledComponentsRegistry>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

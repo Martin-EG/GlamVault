@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -29,6 +30,8 @@ interface UseLoginProps {
 type UseLogin = () => UseLoginProps;
 export const useLogin: UseLogin = () => {
   const router = useRouter();
+  const t = useTranslations('errors');
+
   const [loginErrors, setLoginErrors] =
     useState<LoginErrors>(errorsInitialState);
   const [loginData, setLoginData] = useState<LoginProps>({
@@ -42,7 +45,7 @@ export const useLogin: UseLogin = () => {
       if (e.target.validity.typeMismatch) {
         setLoginErrors((prev) => ({
           ...prev,
-          email: 'Introduce un email válido',
+          email: t('invalidEmail'),
         }));
       } else {
         setLoginErrors((prev) => ({ ...prev, email: undefined }));
@@ -66,7 +69,7 @@ export const useLogin: UseLogin = () => {
     if (!loginData.email || !loginData.password) {
       setLoginErrors((prev) => ({
         ...prev,
-        login: 'Completa todos los campos',
+        login: t('emptyFields'),
       }));
       return;
     }
