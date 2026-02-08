@@ -11,13 +11,14 @@ const SIZE_MAP: Record<AvatarSize, string> = {
 interface StyledAvatarProps {
   readonly $size: AvatarSize;
   readonly $clickable: boolean;
+  readonly ariaLabel?: string;
 }
 
 export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
-  ({ $clickable }) => ({
+  ({ $clickable, ariaLabel }) => ({
     role: $clickable ? 'button' : 'img',
     tabIndex: $clickable ? 0 : -1,
-    'aria-label': $clickable ? 'Sube una foto de perfil' : undefined,
+    'aria-label': ariaLabel,
   }),
 )<StyledAvatarProps>`
   width: ${({ $size }) => SIZE_MAP[$size]};
