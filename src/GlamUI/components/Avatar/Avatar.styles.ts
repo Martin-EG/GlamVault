@@ -17,7 +17,6 @@ export const AvatarRoot = styled.div.attrs<StyledAvatarProps>(
   ({ $clickable }) => ({
     role: $clickable ? 'button' : 'img',
     tabIndex: $clickable ? 0 : -1,
-    'aria-label': $clickable ? 'Sube una foto de perfil' : undefined,
   }),
 )<StyledAvatarProps>`
   width: ${({ $size }) => SIZE_MAP[$size]};

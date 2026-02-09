@@ -17,6 +17,7 @@ export const Icon: FC<PropsWithChildren<IconWrapperProps>> = ({
   const uniqueId = useId();
   const titleId = titleText ? `icon-title-${uniqueId}` : undefined;
   const title = titleText ? <title id={titleId}>{titleText}</title> : null;
+
   return (
     <svg
       width={iconSizes[size]}
