@@ -18,7 +18,7 @@ const Avatar: FC<AvatarProps> = ({
     return <AvatarSkeleton size={size} />;
   }
 
-  const clickable = editable && typeof onClick === 'function';
+  const clickable = editable && !!onClick;
 
   return (
     <AvatarRoot

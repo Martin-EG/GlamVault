@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
-
-exports[`Button snapshot matches snapshot 1`] = `
-<button
-  class="sc-bdnxRL hRmJhu btn btn-primary btn-md btn-semi "
->
-  Click
-</button>
-`;

@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "antigravity.testCommand": "npm run test",
+  "antigravity.watchTestCommand": "npm run test:watch",
+
+  // Jest extension configuration
+  "jest.jestCommandLine": "npm run test --",
+  "jest.autoRun": "off",
+  "jest.showCoverageOnLoad": false,
+  "jest.runMode": "on-demand",
+
+  // Jest Runner extension configuration (if using Jest Runner instead)
+  "jestrunner.jestCommand": "npm run test",
+  "jestrunner.configPath": "jest.config.cjs"
+}
