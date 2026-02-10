@@ -5,6 +5,7 @@ import Button from '@/GlamUI/components/Button';
 import PasswordInput from '@/GlamUI/components/PasswordInput';
 import TextInput from '@/GlamUI/components/TextInput';
 import { FC } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { SignupErrors, SignupProps } from './hooks';
 
@@ -23,32 +24,35 @@ const SignupForm: FC<SignupFormProps> = ({
   handleSignup,
   setSignupErrors,
 }) => {
+  const t = useTranslations('signup');
+  const tCommon = useTranslations('common');
+
   return (
     <form
       className="flex flex-col w-full max-w-sm mb-4"
       onSubmit={handleSignup}
     >
       <TextInput
-        label="Nombre"
+        label={t('name')}
         name="name"
         type="text"
         id="name"
-        placeholder="Tu nombre"
+        placeholder={t('namePlaceholder')}
         onChange={updateSignupData}
         value={signupData.name}
       />
       <TextInput
-        label="Email"
+        label={tCommon('email')}
         name="email"
         type="email"
         id="email"
-        placeholder="you@email.com"
+        placeholder={tCommon('emailPlaceholder')}
         onChange={updateSignupData}
         value={signupData.email}
         error={signupErrors.email}
       />
       <PasswordInput
-        label="Contraseña"
+        label={tCommon('password')}
         name="password"
         id="password"
         onChange={updateSignupData}
@@ -56,7 +60,7 @@ const SignupForm: FC<SignupFormProps> = ({
         error={signupErrors.password}
       />
       <PasswordInput
-        label="Confirmar contraseña"
+        label={t('confirmPassword')}
         name="passwordConfirmation"
         id="passwordConfirmation"
         onChange={updateSignupData}
@@ -82,9 +86,9 @@ const SignupForm: FC<SignupFormProps> = ({
           rounded="full"
           size="sm"
           fullSize={true}
-          aria-label="Registrarse"
+          aria-label={t('signupButton')}
         >
-          Registrarse
+          {t('signupButton')}
         </Button>
       </div>
     </form>

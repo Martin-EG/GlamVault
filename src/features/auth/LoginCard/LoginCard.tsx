@@ -9,7 +9,7 @@ import AuthCard from '../AuthCard';
 import LoginForm from './LoginForm';
 
 const LoginCard = () => {
-  const t = useTranslations('auth');
+  const t = useTranslations('login');
 
   return (
     <AuthCard title={t('welcome')}>
