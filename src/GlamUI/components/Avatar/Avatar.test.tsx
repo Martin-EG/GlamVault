@@ -53,7 +53,7 @@ describe('Avatar interaction', () => {
 
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
-    expect(button).toHaveAccessibleName(/foto de perfil/i);
+    expect(button).toHaveAccessibleName('changeProfilePicture');
 
     fireEvent.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);

@@ -82,7 +82,7 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
       <TriggerButton
         aria-haspopup="menu"
         aria-expanded={isOpen}
-        aria-label={t('options')}
+        aria-label={t('menuAriaLabel')}
         onClick={toggleMenu}
       >
         ⋯

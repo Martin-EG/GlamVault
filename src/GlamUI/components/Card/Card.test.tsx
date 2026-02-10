@@ -44,7 +44,7 @@ describe('Card', () => {
 
     render(<Card {...defaultProps} options={options} />);
 
-    const trigger = screen.getByRole('button', { name: /⋯/i });
+    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
 
     fireEvent.click(trigger);
 

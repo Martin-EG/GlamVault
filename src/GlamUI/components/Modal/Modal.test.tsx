@@ -22,10 +22,8 @@ describe('Modal', () => {
   it('renders default button texts', () => {
     render(<Modal onConfirm={mockOnConfirm} onCancel={mockOnCancel} />);
 
-    expect(
-      screen.getByRole('button', { name: 'Cancelar' }),
-    ).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'Guardar' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'cancel' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'save' })).toBeInTheDocument();
   });
 
   it('renders custom button texts', () => {
@@ -46,19 +44,19 @@ describe('Modal', () => {
 
   it('calls onConfirm when confirm button clicked', () => {
     render(<Modal onConfirm={mockOnConfirm} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Guardar' }));
+    fireEvent.click(screen.getByRole('button', { name: 'save' }));
     expect(mockOnConfirm).toHaveBeenCalledTimes(1);
   });
 
   it('calls onCancel when cancel button clicked', () => {
     render(<Modal onConfirm={mockOnConfirm} onCancel={mockOnCancel} />);
-    fireEvent.click(screen.getByRole('button', { name: 'Cancelar' }));
+    fireEvent.click(screen.getByRole('button', { name: 'cancel' }));
     expect(mockOnCancel).toHaveBeenCalledTimes(1);
   });
 
   it('does not render cancel button if onCancel is not provided', () => {
     render(<Modal onConfirm={mockOnConfirm} />);
-    expect(screen.queryByText('Cancelar')).not.toBeInTheDocument();
+    expect(screen.queryByText('cancel')).not.toBeInTheDocument();
   });
 
   it('has dialog role', () => {
