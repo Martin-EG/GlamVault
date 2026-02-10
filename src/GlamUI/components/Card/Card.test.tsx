@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@/test-utils';
+import { fireEvent, render, screen } from '@/utils/test-utils';
 import 'jest-styled-components';
 
 import Card from './Card';

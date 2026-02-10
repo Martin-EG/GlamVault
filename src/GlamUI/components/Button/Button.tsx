@@ -16,19 +16,6 @@ const Button: FC<ButtonProps> = ({
   children,
   ...props
 }) => {
-  const buttonBody =
-    iconPosition === 'start' ? (
-      <>
-        {icon}
-        {children}
-      </>
-    ) : (
-      <>
-        {children}
-        {icon}
-      </>
-    );
-
   return (
     <StyledButton
       $variant={variant}
@@ -36,9 +23,11 @@ const Button: FC<ButtonProps> = ({
       $fullSize={fullSize}
       $rounded={rounded}
       aria-label={ariaLabel}
+      $iconPosition={iconPosition}
       {...props}
     >
-      {buttonBody}
+      {icon}
+      {children}
     </StyledButton>
   );
 };

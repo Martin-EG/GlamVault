@@ -1,14 +1,7 @@
 import styled from 'styled-components';
 
-import { Input } from '../TextInput/TextInput.styles';
-
 export const PasswordWrapper = styled.div`
   position: relative;
-`;
-
-export const PasswordInputField = styled(Input)`
-  padding: ${({ theme }) => theme.spacing.sm};
-  padding-right: calc(${({ theme }) => theme.spacing.sm} * 2 + 20px);
 `;
 
 interface ToggleButtonProps {

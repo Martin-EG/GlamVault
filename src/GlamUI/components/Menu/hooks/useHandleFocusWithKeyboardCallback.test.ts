@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { renderHook } from '@/test-utils';
+import { renderHook } from '@/utils/test-utils';
 import { useHandleFocusWithKeyboardCallback } from './useHandleFocusWithKeyboardCallback';
 
 describe('useHandleFocusWithKeyboardCallback', () => {

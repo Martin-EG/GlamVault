@@ -1,4 +1,4 @@
-import { renderHook, fireEvent } from '@/test-utils';
+import { renderHook, fireEvent } from '@/utils/test-utils';
 import { useCloseWhenClickingOutside } from './useCloseWhenClickingOutside';
 
 describe('useCloseWhenClickingOutside', () => {

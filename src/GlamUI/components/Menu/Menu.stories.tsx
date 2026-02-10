@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { fn } from 'storybook/test';
 
+import { Edit, Remove } from '@/GlamUI/components/Icon';
+
 import Menu from './Menu';
 
 const meta = {
@@ -25,6 +27,24 @@ export const Default: Story = {
       {
         label: 'Menu item 3',
         variant: 'danger',
+        onClick: fn(),
+      },
+    ],
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    items: [
+      {
+        label: 'Editar',
+        MenuItemIcon: Edit,
+        onClick: fn(),
+      },
+      {
+        label: 'Eliminar',
+        variant: 'danger',
+        MenuItemIcon: Remove,
         onClick: fn(),
       },
     ],

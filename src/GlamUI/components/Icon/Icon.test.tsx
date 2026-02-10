@@ -1,4 +1,4 @@
-import { render, screen } from '@/test-utils';
+import { render, screen } from '@/utils/test-utils';
 import 'jest-styled-components';
 
 import { Icon } from './Icon';

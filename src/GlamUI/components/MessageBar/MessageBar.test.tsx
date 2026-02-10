@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@/test-utils';
+import { render, screen, fireEvent } from '@/utils/test-utils';
 import 'jest-styled-components';
 import MessageBar from './MessageBar';
 
