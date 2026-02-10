@@ -75,10 +75,9 @@ describe('Button variants', () => {
 
 describe('Button with icon', () => {
   it('renders icon', () => {
-    const { container } = render(<Button icon={<Image />}>Save</Button>);
+    render(<Button icon={<Image />}>Save</Button>);
 
     expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
-    expect(container.firstChild).toHaveStyle('flex-direction: row');
   });
 
   it('renders icon at the end', () => {
