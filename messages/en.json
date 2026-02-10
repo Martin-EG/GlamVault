@@ -6,24 +6,44 @@
     "cancelEdition": "Cancel edition",
     "showPassword": "Show password",
     "hidePassword": "Hide password",
-    "options": "Options",
-    "close": "Close"
-  },
-  "auth": {
-    "welcome": "Welcome",
-    "password": "Password",
+    "menuAriaLabel": "Open menu",
+    "close": "Close",
     "email": "Email",
+    "password": "Password",
+    "profilePicture": "Profile picture",
+    "emailPlaceholder": "you@email.com"
+  },
+  "login": {
+    "welcome": "Welcome",
     "rememberMe": "Remember me",
     "forgotPassword": "Forgot password?",
     "notAMember": "Don't have an account?",
-    "alreadyAMember": "Already have an account?",
     "signup": "Sign up",
+    "loginButton": "Log in"
+  },
+  "signup": {
+    "title": "Create your account",
+    "subtitle": "Start organizing your makeup online",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "confirmPassword": "Confirm password",
+    "alreadyAMember": "Already have an account?",
     "login": "Log in",
-    "loginButton": "Log in",
     "signupButton": "Sign up"
+  },
+  "passwordRecovery": {
+    "title": "Forgot my password",
+    "instructions": "Enter your email and we'll send you instructions to reset it",
+    "enterEmail": "Enter your email",
+    "checkEmail": "Check your email",
+    "resetButton": "Reset password",
+    "rememberedPassword": "Remember your password?",
+    "loginNow": "Log in now"
   },
   "errors": {
     "invalidEmail": "Invalid email",
-    "emptyFields": "Complete all fields"
+    "emptyFields": "Complete all fields",
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 8 characters long"
   }
 }

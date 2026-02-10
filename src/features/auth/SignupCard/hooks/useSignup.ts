@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
@@ -34,6 +35,7 @@ interface UseSignupProps {
 
 type UseSignup = () => UseSignupProps;
 export const useSignup: UseSignup = () => {
+  const t = useTranslations('errors');
   const [profilePhoto, setProfilePhoto] = useState<File | null>(null);
   const [signupErrors, setSignupErrors] =
     useState<SignupErrors>(errorsInitialState);
@@ -49,7 +51,7 @@ export const useSignup: UseSignup = () => {
       if (e.target.validity.typeMismatch) {
         setSignupErrors((prev) => ({
           ...prev,
-          email: 'Introduce un email válido',
+          email: t('invalidEmail'),
         }));
       } else {
         setSignupErrors((prev) => ({ ...prev, email: undefined }));
@@ -60,7 +62,7 @@ export const useSignup: UseSignup = () => {
       if (e.target.value.length < 8) {
         setSignupErrors((prev) => ({
           ...prev,
-          password: 'La contraseña debe tener al menos 8 caracteres',
+          password: t('passwordTooShort'),
         }));
       } else {
         setSignupErrors((prev) => ({ ...prev, password: undefined }));
@@ -71,7 +73,7 @@ export const useSignup: UseSignup = () => {
       if (e.target.value !== signupData.password) {
         setSignupErrors((prev) => ({
           ...prev,
-          passwordConfirmation: 'Las contraseñas no coinciden',
+          passwordConfirmation: t('passwordMismatch'),
         }));
       } else {
         setSignupErrors((prev) => ({
@@ -99,7 +101,7 @@ export const useSignup: UseSignup = () => {
     ) {
       setSignupErrors((prev) => ({
         ...prev,
-        signup: 'Completa todos los campos',
+        signup: t('emptyFields'),
       }));
       return;
     }
@@ -107,7 +109,7 @@ export const useSignup: UseSignup = () => {
     if (signupData.password !== signupData.passwordConfirmation) {
       setSignupErrors((prev) => ({
         ...prev,
-        passwordConfirmation: 'Las contraseñas no coinciden',
+        passwordConfirmation: t('passwordMismatch'),
       }));
       return;
     }

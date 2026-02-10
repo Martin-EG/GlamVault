@@ -6,7 +6,7 @@ import Text from '@/GlamUI/components/Text';
 import TextInput from '@/GlamUI/components/TextInput';
 
 import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import AuthCard from '../AuthCard';
@@ -22,6 +22,10 @@ interface LoginErrors {
 }
 
 const PasswordRecoveryCard = () => {
+  const t = useTranslations('passwordRecovery');
+  const tCommon = useTranslations('common');
+  const tErrors = useTranslations('errors');
+
   const [loginErrors, setLoginErrors] =
     useState<LoginErrors>(errorsInitialState);
   const [successMessage, setSuccessMessage] = useState<string | undefined>(
@@ -34,7 +38,7 @@ const PasswordRecoveryCard = () => {
       if (e.target.validity.typeMismatch) {
         setLoginErrors((prev) => ({
           ...prev,
-          email: 'Introduce un email válido',
+          email: tErrors('invalidEmail'),
         }));
       } else {
         setLoginErrors((prev) => ({ ...prev, email: undefined }));
@@ -49,29 +53,29 @@ const PasswordRecoveryCard = () => {
     setLoginErrors((prev) => ({ ...prev, login: undefined }));
 
     if (!email) {
-      setLoginErrors((prev) => ({ ...prev, login: 'Ingresa tu email' }));
+      setLoginErrors((prev) => ({ ...prev, login: t('enterEmail') }));
       return;
     }
 
-    setSuccessMessage('Revisa tu correo');
+    setSuccessMessage(t('checkEmail'));
   };
 
   return (
-    <AuthCard title="Olvide mi contraseña">
+    <AuthCard title={t('title')}>
       <div className="flex flex-col items-center w-full max-w-sm">
         <Text variant="body" size="sm" weight="semibold" as="p" align="center">
-          Ingresa tu correo y te enviaremos instrucciones para restablecerla
+          {t('instructions')}
         </Text>
         <form
           className="flex flex-col gap-2 w-full max-w-sm mt-2 mb-4"
           onSubmit={recoverPassword}
         >
           <TextInput
-            label="Email"
+            label={tCommon('email')}
             name="email"
             type="email"
             id="email"
-            placeholder="you@email.com"
+            placeholder={tCommon('emailPlaceholder')}
             onChange={updateEmail}
             value={email}
             error={loginErrors.email}
@@ -100,15 +104,15 @@ const PasswordRecoveryCard = () => {
               rounded="full"
               size="sm"
               fullSize={true}
-              aria-label="Reestablecer contraseña"
+              aria-label={t('resetButton')}
             >
-              Reestablecer contraseña
+              {t('resetButton')}
             </Button>
           </div>
         </form>
         <div className="flex justify-center items-center gap-x-2 flex-wrap">
           <Text variant="label" size="sm" weight="semibold" as="span">
-            ¿Recuerdas tu contraseña?
+            {t('rememberedPassword')}
           </Text>
           <Link href="/login">
             <Text
@@ -118,7 +122,7 @@ const PasswordRecoveryCard = () => {
               as="span"
               color="brandSecondary"
             >
-              Ingresa ahora
+              {t('loginNow')}
             </Text>
           </Link>
         </div>

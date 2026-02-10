@@ -10,7 +10,9 @@ import { useTranslations } from 'next-intl';
 import { useLogin } from './hooks';
 
 const LoginForm = () => {
-  const t = useTranslations('auth');
+  const t = useTranslations('login');
+  const tCommon = useTranslations('common');
+
   const {
     loginData,
     loginErrors,
@@ -24,17 +26,17 @@ const LoginForm = () => {
   return (
     <form className="flex flex-col w-full max-w-sm mb-4" onSubmit={handleLogin}>
       <TextInput
-        label={t('email')}
+        label={tCommon('email')}
         name="email"
         type="email"
         id="email"
-        placeholder="you@email.com"
+        placeholder={tCommon('emailPlaceholder')}
         onChange={updateLoginData}
         value={loginData.email}
         error={loginErrors.email}
       />
       <PasswordInput
-        label={t('password')}
+        label={tCommon('password')}
         name="password"
         id="password"
         onChange={updateLoginData}

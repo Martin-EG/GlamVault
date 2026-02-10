@@ -3,6 +3,7 @@
 import Avatar from '@/GlamUI/components/Avatar';
 import ImageCropModal from '@/GlamUI/components/ImageCropModal';
 import { FC, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface ProfilePhotoInputProps {
   readonly onChangeProfilePhoto?: (value: File) => void;
@@ -11,6 +12,7 @@ interface ProfilePhotoInputProps {
 const ProfilePhotoInput: FC<ProfilePhotoInputProps> = ({
   onChangeProfilePhoto,
 }) => {
+  const t = useTranslations('common');
   const inputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [cropping, setCropping] = useState(false);
@@ -39,7 +41,7 @@ const ProfilePhotoInput: FC<ProfilePhotoInputProps> = ({
     <>
       <Avatar
         src={preview}
-        alt="Foto de perfil"
+        alt={t('profilePicture')}
         size="lg"
         editable
         loading={loading}
