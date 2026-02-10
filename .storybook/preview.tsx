@@ -1,18 +1,44 @@
 import type { Preview } from '@storybook/nextjs-vite';
 import { ThemeProvider } from 'styled-components';
+import { NextIntlClientProvider } from 'next-intl';
+
+import en from '../messages/en.json';
+import es from '../messages/es.json';
 import { theme } from '../src/GlamUI/styles/theme';
 import { GlobalStyles } from '../src/GlamUI/styles/GlobalStyles';
 
+const messages = { en, es };
+
 const preview: Preview = {
+  globalTypes: {
+    locale: {
+      name: 'Locale',
+      description: 'Internationalization locale',
+      defaultValue: 'en',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { value: 'en', left: '🇺🇸', title: 'English' },
+          { value: 'es', left: '🇪🇸', title: 'Español' },
+        ],
+      },
+    },
+  },
   decorators: [
-    (Story) => (
-      <div style={{ padding: '20px', maxWidth: '100%', maxHeight: '100%' }}>
-        <ThemeProvider theme={theme}>
-          <GlobalStyles />
-          <Story />
-        </ThemeProvider>
-      </div>
-    ),
+    (Story, context) => {
+      const locale = (context.globals.locale || 'en') as keyof typeof messages;
+
+      return (
+        <div style={{ padding: '20px', maxWidth: '100%', maxHeight: '100%' }}>
+          <ThemeProvider theme={theme}>
+            <NextIntlClientProvider messages={messages[locale]} locale={locale}>
+              <GlobalStyles />
+              <Story />
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </div>
+      );
+    },
   ],
   parameters: {
     controls: {
