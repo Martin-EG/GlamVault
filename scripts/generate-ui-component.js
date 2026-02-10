@@ -34,6 +34,9 @@ const typesContent = `/**
 * export type ${componentName}Variant = 'default';
 * export type ${componentName}Size = 'md';
 */
+
+interface ${componentName}Props extends PropsWithChildren {
+}
 `;
 
 const stylesContent = `import styled from 'styled-components';
@@ -56,18 +59,13 @@ export const Styled${componentName} = styled.div.attrs<Styled${componentName}Pro
 const componentContent = `import { FC, PropsWithChildren } from 'react';
 
 import { Styled${componentName} } from './${componentName}.styles';
-import type { ${componentName}Variant } from './${componentName}.types';
-
-interface ${componentName}Props extends PropsWithChildren {
-  variant?: ${componentName}Variant;
-}
+import { ${componentName}Props } from './${componentName}.types';
 
 const ${componentName}: FC<${componentName}Props> = ({
   children,
-  variant = 'default',
 }) => {
   return (
-    <Styled${componentName} $variant={variant}>
+    <Styled${componentName}>
       {children}
     </Styled${componentName}>
   );
@@ -94,6 +92,15 @@ export const Default: Story = {
 };
 `;
 
+const testContent = `import { render, screen } from '@testing-library/react';
+import 'jest-styled-components';
+
+import ${componentName} from './${componentName}';
+
+describe('${componentName}', () => {
+});
+`;
+
 fs.writeFileSync(path.join(componentDir, 'index.ts'), indexContent);
 fs.writeFileSync(
   path.join(componentDir, `${componentName}.types.ts`),
@@ -110,6 +117,10 @@ fs.writeFileSync(
 fs.writeFileSync(
   path.join(componentDir, `${componentName}.stories.tsx`),
   storyContent,
+);
+fs.writeFileSync(
+  path.join(componentDir, `${componentName}.test.tsx`),
+  testContent,
 );
 
 console.log(
