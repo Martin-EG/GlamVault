@@ -1,4 +1,8 @@
+'use client';
+
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
+
 import {
   MenuWrapper,
   TriggerButton,
@@ -13,6 +17,7 @@ import {
 } from './hooks';
 
 const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
+  const t = useTranslations('common');
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<HTMLButtonElement[]>([]);
@@ -77,6 +82,7 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
       <TriggerButton
         aria-haspopup="menu"
         aria-expanded={isOpen}
+        aria-label={t('options')}
         onClick={toggleMenu}
       >
         ⋯

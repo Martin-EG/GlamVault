@@ -3,6 +3,7 @@
 
 import { FC, useState } from 'react';
 import Cropper from 'react-easy-crop';
+import { useTranslations } from 'next-intl';
 
 import Modal from '../Modal';
 
@@ -20,6 +21,7 @@ const ImageCropModal: FC<ImageCropModalProps> = ({
   onCancel,
   onConfirm,
 }) => {
+  const t = useTranslations('common');
   const getCroppedImage = useCroppedImage();
   const [crop, setCrop] = useState({ x: 0, y: 0 });
   const [zoom, setZoom] = useState(1);
@@ -36,7 +38,7 @@ const ImageCropModal: FC<ImageCropModalProps> = ({
 
   return (
     <Modal
-      cancelText="Cancelar edición"
+      cancelText={t('cancelEdition')}
       onCancel={onCancel}
       onConfirm={handleConfirm}
     >

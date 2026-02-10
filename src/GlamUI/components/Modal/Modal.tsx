@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, PropsWithChildren } from 'react';
+import { useTranslations } from 'next-intl';
 
 import Text from '../Text';
 import Button from '../Button';
@@ -23,6 +24,7 @@ const Modal: FC<ModalProps> = ({
   onConfirm,
   children,
 }) => {
+  const t = useTranslations('common');
   const modalTitle = title ? (
     <Text
       variant="heading"
@@ -39,8 +41,8 @@ const Modal: FC<ModalProps> = ({
   ) : null;
 
   const secondaryButtonText =
-    !!onCancel && !!cancelText ? cancelText : 'Cancelar';
-  const primaryButtonText = !!confirmText ? confirmText : 'Guardar';
+    !!onCancel && !!cancelText ? cancelText : t('cancel');
+  const primaryButtonText = !!confirmText ? confirmText : t('save');
 
   const secondaryButton = onCancel ? (
     <Button

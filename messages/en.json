@@ -1,7 +1,13 @@
 {
   "common": {
     "save": "Save",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "changeProfilePicture": "Change profile picture",
+    "cancelEdition": "Cancel edition",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "options": "Options",
+    "close": "Close"
   },
   "auth": {
     "welcome": "Welcome",
