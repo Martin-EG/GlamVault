@@ -25,6 +25,8 @@
       "@/GlamUI/components/*": ["./src/GlamUI/components/*"],
       "@/Hooks/*": ["./src/hooks/*"],
       "@/Lib/*": ["./src/lib/*"],
+      "@/Types/*": ["./src/types/*"],
+      "@/Store/*": ["./src/store/*"],
       "@/Providers/*": ["./src/providers/*"]
     },
     "types": ["jest", "@testing-library/jest-dom"]
