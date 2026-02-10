@@ -48,14 +48,14 @@ describe('ImageCropModal', () => {
     render(<ImageCropModal {...defaultProps} />);
     expect(screen.getByTestId('mock-cropper')).toBeInTheDocument();
 
-    expect(screen.getByText('Cancelar edición')).toBeInTheDocument();
-    expect(screen.getByText('Guardar')).toBeInTheDocument();
+    expect(screen.getByText('cancelEdition')).toBeInTheDocument();
+    expect(screen.getByText('save')).toBeInTheDocument();
   });
 
   it('calls onConfirm when confirm button is clicked', async () => {
     render(<ImageCropModal {...defaultProps} />);
 
-    const confirmBtn = screen.getByRole('button', { name: 'Guardar' });
+    const confirmBtn = screen.getByRole('button', { name: 'save' });
     fireEvent.click(confirmBtn);
 
     await waitFor(() => {
@@ -67,7 +67,7 @@ describe('ImageCropModal', () => {
   it('calls onCancel when cancel button is clicked', () => {
     render(<ImageCropModal {...defaultProps} />);
 
-    const cancelBtn = screen.getByRole('button', { name: 'Cancelar edición' });
+    const cancelBtn = screen.getByRole('button', { name: 'cancelEdition' });
     fireEvent.click(cancelBtn);
     expect(mockOnCancel).toHaveBeenCalled();
   });
@@ -78,7 +78,7 @@ describe('ImageCropModal', () => {
     const cropper = screen.getByTestId('mock-cropper');
     fireEvent.click(cropper);
 
-    const confirmBtn = screen.getByRole('button', { name: 'Guardar' });
+    const confirmBtn = screen.getByRole('button', { name: 'save' });
     fireEvent.click(confirmBtn);
 
     await waitFor(() => {
