@@ -1,7 +1,13 @@
 {
   "common": {
     "save": "Guardar",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "changeProfilePicture": "Cambiar foto de perfil",
+    "cancelEdition": "Cancelar edición",
+    "showPassword": "Mostrar contraseña",
+    "hidePassword": "Ocultar contraseña",
+    "options": "Opciones",
+    "close": "Cerrar"
   },
   "auth": {
     "welcome": "Bienvenido",

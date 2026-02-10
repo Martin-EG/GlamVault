@@ -1,4 +1,7 @@
+'use client';
+
 import { FC, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 
 import Text from '../Text';
 
@@ -19,6 +22,7 @@ const MessageBar: FC<MessageBarProps> = ({
   dismissible = false,
   dismissMessageBar,
 }) => {
+  const t = useTranslations('common');
   const messageBarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,7 +46,11 @@ const MessageBar: FC<MessageBarProps> = ({
       </Text>
 
       {dismissible && (
-        <MessageBarDismissButton $variant={variant} onClick={dismissMessageBar}>
+        <MessageBarDismissButton
+          $variant={variant}
+          onClick={dismissMessageBar}
+          aria-label={t('close')}
+        >
           ×
         </MessageBarDismissButton>
       )}

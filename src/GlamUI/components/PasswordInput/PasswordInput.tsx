@@ -1,6 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { Eye, EyeOff } from '../Icon';
 import TextInput from '../TextInput';
@@ -17,11 +18,14 @@ export interface PasswordInputProps extends Omit<
 }
 
 const PasswordInput: FC<PasswordInputProps> = ({
-  showLabel = 'Mostrar contraseña',
-  hideLabel = 'Ocultar contraseña',
+  showLabel,
+  hideLabel,
   error,
   ...props
 }) => {
+  const t = useTranslations('common');
+  const displayShowLabel = showLabel || t('showPassword');
+  const displayHideLabel = hideLabel || t('hidePassword');
   const [isVisible, setIsVisible] = useState(false);
   const hasError = !!error;
 
@@ -38,7 +42,7 @@ const PasswordInput: FC<PasswordInputProps> = ({
       />
 
       <ToggleButton
-        aria-label={isVisible ? hideLabel : showLabel}
+        aria-label={isVisible ? displayHideLabel : displayShowLabel}
         aria-pressed={isVisible}
         onClick={toggleVisibility}
         $hasError={hasError}

@@ -1,6 +1,7 @@
 'use client';
 
 import { FC } from 'react';
+import { useTranslations } from 'next-intl';
 
 import { AvatarRoot, AvatarImage, AvatarPlaceholder } from './Avatar.styles';
 import type { AvatarProps } from './Avatar.types';
@@ -8,12 +9,14 @@ import AvatarSkeleton from './AvatarSkeleton';
 
 const Avatar: FC<AvatarProps> = ({
   src,
-  alt = 'Avatar',
+  alt,
   size = 'md',
   editable = false,
   loading = false,
   onClick,
 }) => {
+  const t = useTranslations('common');
+
   if (loading) {
     return <AvatarSkeleton size={size} />;
   }
@@ -25,7 +28,7 @@ const Avatar: FC<AvatarProps> = ({
       as={clickable ? 'button' : 'div'}
       type={clickable ? 'button' : undefined}
       onClick={clickable ? onClick : undefined}
-      aria-label={clickable ? 'Cambiar foto de perfil' : undefined}
+      aria-label={clickable ? t('changeProfilePicture') : undefined}
       $size={size}
       $clickable={clickable}
     >
