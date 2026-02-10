@@ -27,6 +27,9 @@ npm run dev
     - glamvault-wordmark.svg
   - scripts/
     - generate-ui-component.js
+  - messages/
+    - en.json
+    - es.json
   - src/
     - app/
       - api/
@@ -66,7 +69,110 @@ On this directory you can find the component, the component's stories, the compo
   - Avatar.stories.tsx
   - Avatar.styles.ts
   - Avatar.types.ts
+  - Avatar.test.tsx
   - index.ts
+
+## Testings
+
+We want to keep components test-driven, so every component must have a test file. The goal with testing is to test the component's behaviour and styles. more than implementation so we can focus on what the component does and not how it does it.
+You can find the test file in the same directory as the component. It will be named like the component but with `.test.tsx` extension.
+
+We have a custom `render` function that wraps the component in a `ThemeProvider` and a `QueryClientProvider`. You can find it in `src/utils/test-utils.tsx` And every test should import and use this `render` function instead of the default `render` function from `@testing-library/react` so we can make sure our tests are consistent and reliable.
+
+What we test:
+
+**Component's behaviour**
+
+Always the component's behavior must be tested so we can make sure our tests are consistent and reliable.
+
+```
+render(<Button>Save</Button>)
+
+expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
+```
+
+- ✔️ Validates what the user see.
+- ✔️ Survives to refactors.
+- ✔️ Documents the expected component's behavior.
+
+**Component's variants**
+just for relevant states, not for every state.
+
+```
+render(<Button variant="danger">Delete</Button>)
+
+expect(screen.getByRole('button', { name: /delete/i })).toHaveClass('button-danger')
+```
+
+**Component's styles**
+
+```
+const { container } = render(<Button fullSize>Full Size</Button>);
+
+expect(container.firstChild).toHaveStyle('width: 100%');
+```
+
+**Component's accessibility**
+Please use:
+
+- `getByRole`
+- `aria-label`
+- `aria-disabled`
+- `role="alert"`
+- `aria-expanded`
+
+```
+render(<Button>Save</Button>)
+
+expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
+```
+
+**If you cannot find an element with `getByRole`, it could be because it's not accessible. Please make sure it is accessible by adding `aria-label` or `role` attributes.**
+
+You can run tests with:
+
+```bash
+npm run test
+```
+
+or
+
+```bash
+npm run test:watch
+```
+
+If you only want to run an specific test file, you can do it by running:
+
+```bash
+npm run test <path-to-test-file>
+```
+
+## Translations
+
+We use `next-intl` for translations. You can find the translations in the `messages` directory. By now we only have english and spanish translations.
+We use the next structure for translations:
+
+```
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  },
+  "auth": {
+    "welcome": "Bienvenido",
+    "password": "Contraseña",
+    "email": "Correo electrónico",
+    ...
+  },
+  "errors": {
+    "invalidEmail": "Introduce un email válido",
+    "emptyFields": "Completa todos los campos",
+    ...
+  }
+}
+```
+
+If you need to add new translations, do please add them to the `messages` directory in the same scope as the rest of the translations. Please make sure to add the translation to both `en.json` and `es.json` files.
 
 ## How to contribute to GlamVault
 
@@ -92,6 +198,7 @@ Where `<type-of-change>` can be one of the following:
 - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 - refactor: A code change that neither fixes a bug or adds a feature
 - test: Adding missing tests or correcting existing tests
+- strings: Changes to the translations
 - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
 
 And `<scope>` is the scope of the change. For example, if you are adding a new component, the scope would be `components`.
