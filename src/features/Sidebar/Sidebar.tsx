@@ -1,31 +1,35 @@
 import Avatar from '@/GlamUI/components/Avatar';
 import { Box, Heart, Star, User } from '@/GlamUI/components/Icon';
+import { useTranslations } from 'next-intl';
 
 import SidebarItem from './SidebarItem';
 
 const Sidebar = () => {
+  const t = useTranslations('navigation');
+  const tCommon = useTranslations('common');
+
   return (
     <aside className="hidden md:flex flex-col items-center gap-6 w-60 shrink-0 px-8 py-10 bg-white sticky top-40 h-[calc(100dvh-10rem)] border-r-1 border-gray-200">
-      <Avatar src="/dog.jpg" alt="Foto de perfil" size="lg" />
+      <Avatar src="/dog.jpg" alt={tCommon('profilePicture')} size="lg" />
       <nav className="w-full flex flex-col gap-3">
         <SidebarItem
           href="/dashboard/profile"
-          label="Mi perfil"
+          label={t('myProfile')}
           SidebarIcon={User}
         />
         <SidebarItem
           href="/dashboard/inventory"
-          label="Mi inventario"
+          label={t('myInventory')}
           SidebarIcon={Box}
         />
         <SidebarItem
           href="/dashboard/collections"
-          label="Mis colecciones"
+          label={t('myCollections')}
           SidebarIcon={Star}
         />
         <SidebarItem
           href="/dashboard/wishlist"
-          label="Mis lista de deseos"
+          label={t('myWishlist')}
           SidebarIcon={Heart}
         />
       </nav>

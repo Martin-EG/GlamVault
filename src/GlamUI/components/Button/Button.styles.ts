@@ -20,7 +20,7 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   color: black;
   display: flex;
   flex-direction: ${({ $iconPosition }) =>
-    $iconPosition === 'start' ? 'row' : 'row-reverse'};
+    $iconPosition === 'end' ? 'row-reverse' : undefined};
   column-gap: ${({ theme }) => theme.spacing.sm};
   row-gap: ${({ theme }) => theme.spacing.xs};
   align-items: center;

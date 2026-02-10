@@ -6,8 +6,10 @@ import { Exit } from '@/GlamUI/components/Icon';
 import Text from '@/GlamUI/components/Text';
 import { useResponsive } from '@/Hooks/responsive';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const DashboardHeader = () => {
+  const t = useTranslations('dashboard');
   const { isMobile } = useResponsive();
   const headerClasses = isMobile ? 'h-25' : 'h-40';
   const logoSize = isMobile ? 60 : 92;
@@ -15,10 +17,10 @@ const DashboardHeader = () => {
   const wordmarkHeight = isMobile ? 50 : 80;
   const textSize = isMobile ? 'sm' : 'lg';
   const logoutButton = isMobile ? (
-    <IconButton icon={<Exit size="xl" />} label="Cerrar Sesión" />
+    <IconButton icon={<Exit size="xl" />} label={t('logout')} />
   ) : (
     <Button variant="transparent" icon={<Exit color="black" size="md" />}>
-      Cerrar Sesión
+      {t('logout')}
     </Button>
   );
 
@@ -41,7 +43,7 @@ const DashboardHeader = () => {
             height={wordmarkHeight}
           />
           <Text variant="body" size={textSize} weight="medium">
-            Hola, John Doe
+            {t('greetings', { name: 'John Doe' })}
           </Text>
         </div>
         <div className="flex items-center gap-4">{logoutButton}</div>
