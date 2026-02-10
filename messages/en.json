@@ -40,6 +40,20 @@
     "rememberedPassword": "Remember your password?",
     "loginNow": "Log in now"
   },
+  "navigation": {
+    "profile": "Profile",
+    "inventory": "Inventory",
+    "collections": "Collections",
+    "wishlist": "Wishlist",
+    "myProfile": "My profile",
+    "myInventory": "My inventory",
+    "myCollections": "My collections",
+    "myWishlist": "My wishlist"
+  },
+  "dashboard": {
+    "greetings": "Hello, {name}",
+    "logout": "Log out"
+  },
   "errors": {
     "invalidEmail": "Invalid email",
     "emptyFields": "Complete all fields",
