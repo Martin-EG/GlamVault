@@ -60,7 +60,6 @@ export const MenuItemButton = styled.button<{
   box-sizing: border-box;
 
   display: flex;
-  align-items: center;
   gap: ${({ theme }) => theme.spacing.sm};
 
   padding: ${({ theme }) => theme.spacing.sm};
@@ -78,9 +77,4 @@ export const MenuItemButton = styled.button<{
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.border.focus};
   }
-`;
-
-export const MenuItemIcon = styled.span`
-  display: flex;
-  align-items: center;
 `;

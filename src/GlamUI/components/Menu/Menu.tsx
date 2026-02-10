@@ -4,7 +4,6 @@ import {
   TriggerButton,
   MenuContainer,
   MenuItemButton,
-  MenuItemIcon,
 } from './Menu.styles';
 
 import type { MenuProps } from './Menu.types';
@@ -25,9 +24,7 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
 
   useEffect(() => {
     if (isOpen) {
-      requestAnimationFrame(() => {
-        itemRefs.current[0]?.focus();
-      });
+      itemRefs.current[0]?.focus();
     }
   }, [isOpen]);
 
@@ -35,33 +32,33 @@ const Menu: FC<MenuProps> = ({ items, align = 'left' }) => {
 
   const menuItems = useMemo(
     () =>
-      items.map(({ onClick, disabled, variant, icon, label }, index) => {
-        const onMenuItemClick = () => {
-          onClick();
-          closeMenu();
-        };
+      items.map(
+        ({ onClick, disabled, variant, MenuItemIcon, label }, index) => {
+          const onMenuItemClick = () => {
+            onClick();
+            closeMenu();
+          };
 
-        const menuItemIcon = icon ? (
-          <MenuItemIcon aria-hidden>{icon}</MenuItemIcon>
-        ) : null;
+          const menuItemIcon = MenuItemIcon ? <MenuItemIcon size="md" /> : null;
 
-        return (
-          <MenuItemButton
-            key={index}
-            ref={(element) => {
-              if (element) itemRefs.current[index] = element;
-            }}
-            role="menuitem"
-            onClick={onMenuItemClick}
-            disabled={disabled}
-            $variant={variant}
-            tabIndex={-1}
-          >
-            {menuItemIcon}
-            {label}
-          </MenuItemButton>
-        );
-      }),
+          return (
+            <MenuItemButton
+              key={index}
+              ref={(element) => {
+                if (element) itemRefs.current[index] = element;
+              }}
+              role="menuitem"
+              onClick={onMenuItemClick}
+              disabled={disabled}
+              $variant={variant}
+              tabIndex={-1}
+            >
+              {menuItemIcon}
+              {label}
+            </MenuItemButton>
+          );
+        },
+      ),
     [items],
   );
 

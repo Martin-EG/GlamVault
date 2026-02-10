@@ -1,12 +1,19 @@
-import { render, screen, fireEvent } from '@/test-utils';
+import { render, screen, fireEvent } from '@/utils/test-utils';
 import 'jest-styled-components';
+
+import { Edit, Remove } from '@/GlamUI/components/Icon';
 
 import Menu from './Menu';
 
 describe('Menu', () => {
   const mockItems = [
-    { label: 'Edit', onClick: jest.fn() },
-    { label: 'Delete', onClick: jest.fn(), variant: 'danger' as const },
+    { label: 'Edit', onClick: jest.fn(), MenuItemIcon: Edit },
+    {
+      label: 'Delete',
+      onClick: jest.fn(),
+      variant: 'danger' as const,
+      MenuItemIcon: Remove,
+    },
     { label: 'Disabled', onClick: jest.fn(), disabled: true },
   ];
 
@@ -27,11 +34,37 @@ describe('Menu', () => {
 
     const menu = screen.getByRole('menu');
     expect(menu).toBeInTheDocument();
+    expect(menu).toHaveStyle('left: 0;');
     expect(trigger).toHaveAttribute('aria-expanded', 'true');
 
     expect(screen.getByText('Edit')).toBeInTheDocument();
     expect(screen.getByText('Delete')).toBeInTheDocument();
     expect(screen.getByText('Disabled')).toBeInTheDocument();
+  });
+
+  it('opens menu on trigger click and aligns to right', () => {
+    render(<Menu items={mockItems} align="right" />);
+    const trigger = screen.getByRole('button', { name: /⋯/i });
+
+    fireEvent.click(trigger);
+
+    const menu = screen.getByRole('menu');
+    expect(menu).toBeInTheDocument();
+    expect(menu).toHaveStyle('right: 0;');
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    expect(screen.getByText('Edit')).toBeInTheDocument();
+    expect(screen.getByText('Delete')).toBeInTheDocument();
+    expect(screen.getByText('Disabled')).toBeInTheDocument();
+  });
+
+  it('focuses first item when menu opens', () => {
+    render(<Menu items={mockItems} />);
+    const trigger = screen.getByRole('button', { name: /⋯/i });
+    fireEvent.click(trigger);
+
+    const firstItem = screen.getByText('Edit');
+    expect(firstItem).toHaveFocus();
   });
 
   it('handles item clicks and closes menu', async () => {
@@ -58,6 +91,15 @@ describe('Menu', () => {
 
     const deleteButton = screen.getByText('Delete').closest('button');
     expect(deleteButton).toBeInTheDocument();
+  });
+
+  it('renders items with icons', () => {
+    render(<Menu items={mockItems} />);
+    const trigger = screen.getByRole('button', { name: /⋯/i });
+    fireEvent.click(trigger);
+
+    const editButton = screen.getByText('Edit').closest('button');
+    expect(editButton).toBeInTheDocument();
   });
 
   it('handles disabled items', () => {

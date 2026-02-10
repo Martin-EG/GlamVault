@@ -1,12 +1,23 @@
-import { render, screen, fireEvent } from '@/test-utils';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { render, screen, fireEvent, waitFor } from '@/utils/test-utils';
 import 'jest-styled-components';
 import ImageCropModal from './ImageCropModal';
 import { useCroppedImage } from './hooks';
+import React from 'react';
 
 jest.mock('react-easy-crop', () => {
   return {
     __esModule: true,
-    default: () => <div data-testid="mock-cropper">Mock Cropper</div>,
+    default: ({ onCropComplete }: any) => (
+      <div
+        data-testid="mock-cropper"
+        onClick={() =>
+          onCropComplete?.({}, { x: 0, y: 0, width: 100, height: 100 })
+        }
+      >
+        Mock Cropper
+      </div>
+    ),
   };
 });
 
@@ -37,15 +48,47 @@ describe('ImageCropModal', () => {
     render(<ImageCropModal {...defaultProps} />);
     expect(screen.getByTestId('mock-cropper')).toBeInTheDocument();
 
-    // Modal buttons
     expect(screen.getByText('Cancelar edición')).toBeInTheDocument();
     expect(screen.getByText('Guardar')).toBeInTheDocument();
   });
 
+  it('calls onConfirm when confirm button is clicked', async () => {
+    render(<ImageCropModal {...defaultProps} />);
+
+    const confirmBtn = screen.getByRole('button', { name: 'Guardar' });
+    fireEvent.click(confirmBtn);
+
+    await waitFor(() => {
+      expect(mockGetCroppedImage).toHaveBeenCalled();
+      expect(mockOnConfirm).toHaveBeenCalled();
+    });
+  });
+
   it('calls onCancel when cancel button is clicked', () => {
     render(<ImageCropModal {...defaultProps} />);
+
     const cancelBtn = screen.getByRole('button', { name: 'Cancelar edición' });
     fireEvent.click(cancelBtn);
     expect(mockOnCancel).toHaveBeenCalled();
+  });
+
+  it('sets cropped area pixels when crop is completed', async () => {
+    render(<ImageCropModal {...defaultProps} />);
+
+    const cropper = screen.getByTestId('mock-cropper');
+    fireEvent.click(cropper);
+
+    const confirmBtn = screen.getByRole('button', { name: 'Guardar' });
+    fireEvent.click(confirmBtn);
+
+    await waitFor(() => {
+      expect(mockGetCroppedImage).toHaveBeenCalledWith('test-image.jpg', {
+        x: 0,
+        y: 0,
+        width: 100,
+        height: 100,
+      });
+      expect(mockOnConfirm).toHaveBeenCalled();
+    });
   });
 });

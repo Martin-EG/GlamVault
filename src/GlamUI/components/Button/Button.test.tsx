@@ -1,4 +1,7 @@
-import { render, screen } from '@/test-utils';
+import { render, screen } from '@/utils/test-utils';
+import 'jest-styled-components';
+
+import { Image } from '../Icon';
 
 import Button from './Button';
 
@@ -26,6 +29,67 @@ describe('Button variants', () => {
     const button = screen.getByRole('button', { name: /delete/i });
 
     expect(button).toHaveClass('btn-danger');
+  });
+
+  it('renders outline variant', () => {
+    render(<Button variant="outline">Outline</Button>);
+
+    const button = screen.getByRole('button', { name: /outline/i });
+
+    expect(button).toHaveClass('btn-outline');
+  });
+
+  it('renders transparent variant', () => {
+    render(<Button variant="transparent">Transparent</Button>);
+
+    const button = screen.getByRole('button', { name: /transparent/i });
+
+    expect(button).toHaveClass('btn-transparent');
+  });
+
+  it('renders full size button', () => {
+    const { container } = render(<Button fullSize>Full Size</Button>);
+
+    expect(
+      screen.getByRole('button', { name: /full size/i }),
+    ).toBeInTheDocument();
+    expect(container.firstChild).toHaveStyle('width: 100%');
+  });
+
+  it('renders semi rounded button', () => {
+    render(<Button rounded="semi">Semi Rounded</Button>);
+
+    const button = screen.getByRole('button', { name: /semi rounded/i });
+
+    expect(button).toHaveClass('btn-semi');
+  });
+
+  it('renders full rounded button', () => {
+    render(<Button rounded="full">Full Rounded</Button>);
+
+    const button = screen.getByRole('button', { name: /full rounded/i });
+
+    expect(button).toHaveClass('btn-full');
+  });
+});
+
+describe('Button with icon', () => {
+  it('renders icon', () => {
+    const { container } = render(<Button icon={<Image />}>Save</Button>);
+
+    expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
+    expect(container.firstChild).toHaveStyle('flex-direction: row');
+  });
+
+  it('renders icon at the end', () => {
+    const { container } = render(
+      <Button icon={<Image />} iconPosition="end">
+        Save
+      </Button>,
+    );
+
+    expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
+    expect(container.firstChild).toHaveStyle('flex-direction: row-reverse');
   });
 });
 

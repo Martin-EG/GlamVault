@@ -7,6 +7,7 @@ interface StyledButtonProps {
   readonly $rounded: ButtonRounded;
   readonly $fullSize?: boolean;
   readonly disabled?: boolean;
+  readonly $iconPosition?: 'start' | 'end';
 }
 
 export const StyledButton = styled('button').attrs<StyledButtonProps>(
@@ -18,6 +19,8 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   cursor: pointer;
   color: black;
   display: flex;
+  flex-direction: ${({ $iconPosition }) =>
+    $iconPosition === 'start' ? 'row' : 'row-reverse'};
   column-gap: ${({ theme }) => theme.spacing.sm};
   row-gap: ${({ theme }) => theme.spacing.xs};
   align-items: center;

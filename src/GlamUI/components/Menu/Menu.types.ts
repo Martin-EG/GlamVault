@@ -12,11 +12,11 @@
  * @property {align} align 0 Alignment for the menu component
  */
 
-import type { ReactNode } from 'react';
+import type { Icon } from '@/GlamUI/components/Icon';
 
 export interface MenuItem {
   label: string;
-  icon?: ReactNode;
+  MenuItemIcon?: Icon;
   onClick: () => void;
   disabled?: boolean;
   variant?: 'default' | 'danger';
