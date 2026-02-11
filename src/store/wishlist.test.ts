@@ -1,4 +1,4 @@
-import useWishlistStore from './wishlist';
+import { useWishlistStore } from './wishlist';
 
 describe('useWishlistStore', () => {
   beforeEach(() => {

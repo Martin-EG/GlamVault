@@ -11,7 +11,7 @@ type InventoryStore = {
   deleteProductFromInventory: (productId: string) => void;
 };
 
-const useInventoryStore = create<InventoryStore>((set) => ({
+export const useInventoryStore = create<InventoryStore>((set) => ({
   inventory: [],
   addProductToInventory: (newProduct: Product) =>
     set((state) => ({ inventory: [...state.inventory, newProduct] })),
@@ -26,5 +26,3 @@ const useInventoryStore = create<InventoryStore>((set) => ({
       inventory: state.inventory.filter((item) => item.id !== productId),
     })),
 }));
-
-export default useInventoryStore;

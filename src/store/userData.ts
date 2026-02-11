@@ -12,7 +12,7 @@ type UserStore = {
   setUser: (user: User) => void;
 };
 
-const useUserStore = create<UserStore>((set) => ({
+export const useUserStore = create<UserStore>((set) => ({
   user: {
     id: '',
     name: '',
@@ -21,5 +21,3 @@ const useUserStore = create<UserStore>((set) => ({
   },
   setUser: (user: User) => set({ user }),
 }));
-
-export default useUserStore;

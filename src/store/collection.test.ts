@@ -1,4 +1,4 @@
-import useCollectionStore from './collection';
+import { useCollectionStore } from './collection';
 
 describe('useCollectionStore', () => {
   beforeEach(() => {

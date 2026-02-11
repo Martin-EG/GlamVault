@@ -1,4 +1,4 @@
-import useInventoryStore from './inventory';
+import { useInventoryStore } from './inventory';
 
 describe('Inventory Store', () => {
   beforeEach(() => {

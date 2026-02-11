@@ -7,7 +7,7 @@ type WishlistStore = {
   deleteFromWishlist: (productId: string) => void;
 };
 
-const useWishlistStore = create<WishlistStore>((set) => ({
+export const useWishlistStore = create<WishlistStore>((set) => ({
   wishlist: [],
   addToWishlist: (product: Product) =>
     set((state) => ({ wishlist: [...state.wishlist, product] })),
@@ -16,5 +16,3 @@ const useWishlistStore = create<WishlistStore>((set) => ({
       wishlist: state.wishlist.filter((product) => product.id !== productId),
     })),
 }));
-
-export default useWishlistStore;

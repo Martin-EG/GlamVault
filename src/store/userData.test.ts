@@ -1,4 +1,4 @@
-import useUserStore from './userData';
+import { useUserStore } from './userData';
 
 describe('useUserStore', () => {
   beforeEach(() => {
