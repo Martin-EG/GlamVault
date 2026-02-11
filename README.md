@@ -48,6 +48,8 @@ npm run dev
     - features/
     - lib/
     - providers/
+    - store/
+    - types/
     - utils/
   - package.json
 

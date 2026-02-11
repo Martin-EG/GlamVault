@@ -15,7 +15,7 @@ type CollectionStore = {
   deleteCollection: (collectionId: string) => void;
 };
 
-const useCollectionStore = create<CollectionStore>((set) => ({
+export const useCollectionStore = create<CollectionStore>((set) => ({
   collections: [],
   addCollection: (newCollection: Collection) =>
     set((state) => ({ collections: [...state.collections, newCollection] })),
@@ -32,5 +32,3 @@ const useCollectionStore = create<CollectionStore>((set) => ({
       ),
     })),
 }));
-
-export default useCollectionStore;
