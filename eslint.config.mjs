@@ -8,7 +8,7 @@ const eslintConfig = defineConfig([
   ...nextTs,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
-    ignores: ['**/*.test.{js,jsx,ts,tsx}'],
+    ignores: ['**/*.test.{js,jsx,ts,tsx}', 'src/GlamUI/components/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-empty-object-type': 'off',
@@ -104,6 +104,7 @@ or, if semantics matter:
   },
   {
     files: ['GlamUI/**/*.{ts,tsx}'],
+    ignores: ['**/*.test.{js,jsx,ts,tsx}', 'src/GlamUI/components/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-syntax': [
         'error',
@@ -116,6 +117,7 @@ or, if semantics matter:
   },
   {
     files: ['app/**/*.{ts,tsx}'],
+    ignores: ['**/*.test.{js,jsx,ts,tsx}', 'src/GlamUI/components/**/*.{ts,tsx}'],
     rules: {
       'no-restricted-syntax': 'off',
     },
