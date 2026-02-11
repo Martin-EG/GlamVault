@@ -13,6 +13,10 @@
     "profilePicture": "Profile picture",
     "emailPlaceholder": "you@email.com"
   },
+  "searchbar": {
+    "placeholder": "Search...",
+    "clearSearch": "Clear search"
+  },
   "login": {
     "welcome": "Welcome",
     "rememberMe": "Remember me",

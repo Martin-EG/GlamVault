@@ -6,6 +6,7 @@ import { IconSize, iconSizes } from './Icon.types';
 import {
   Box,
   Camera,
+  Close,
   Edit,
   Exit,
   Eye,
@@ -13,6 +14,7 @@ import {
   Heart,
   Image,
   Remove,
+  Search,
   Star,
   Upload,
   User,
@@ -28,6 +30,7 @@ type Story = StoryObj<typeof meta>;
 const icons = [
   { name: 'Box', icon: Box },
   { name: 'Camera', icon: Camera },
+  { name: 'Close', icon: Close },
   { name: 'Edit', icon: Edit },
   { name: 'Exit', icon: Exit },
   { name: 'Eye', icon: Eye },
@@ -35,6 +38,7 @@ const icons = [
   { name: 'Heart', icon: Heart },
   { name: 'Image', icon: Image },
   { name: 'Remove', icon: Remove },
+  { name: 'Search', icon: Search },
   { name: 'Star', icon: Star },
   { name: 'Upload', icon: Upload },
   { name: 'User', icon: User },
