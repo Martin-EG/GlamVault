@@ -45,7 +45,7 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
 
   &.btn-secondary {
     border: 1.5px solid ${({ theme }) => theme.colors.brand.primary};
-    background: ${({ theme }) => theme.colors.background.page};
+    background: transparent;
   }
 
   &.btn-outline {
@@ -64,26 +64,26 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
 
   /* Sizes */
   &.btn-xs {
-    padding: ${({ theme }) => theme.spacing.xs}
-      ${({ theme }) => theme.spacing.sm};
+    height: 36px;
+    padding: 0 ${({ theme }) => theme.spacing.sm};
     font-size: ${({ theme }) => theme.typography.sizes.xs};
   }
 
   &.btn-sm {
-    padding: ${({ theme }) => theme.spacing.sm}
-      ${({ theme }) => theme.spacing.md};
+    height: 40px;
+    padding: 0 ${({ theme }) => theme.spacing.md};
     font-size: ${({ theme }) => theme.typography.sizes.sm};
   }
 
   &.btn-md {
-    padding: ${({ theme }) => theme.spacing.md}
-      ${({ theme }) => theme.spacing.lg};
+    height: 44px;
+    padding: 0 ${({ theme }) => theme.spacing.lg};
     font-size: ${({ theme }) => theme.typography.sizes.md};
   }
 
   &.btn-lg {
-    padding: ${({ theme }) => theme.spacing.lg}
-      ${({ theme }) => theme.spacing.xl};
+    height: 48px;
+    padding: 0 ${({ theme }) => theme.spacing.xl};
     font-size: ${({ theme }) => theme.typography.sizes.lg};
   }
 

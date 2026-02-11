@@ -64,6 +64,9 @@ export const Sizes: Story = {
       <Text as="h3" variant="heading" weight="bold">
         Sizes:
       </Text>
+      <Button {...args} size="xs" aria-label="Extra Small">
+        Extra Small
+      </Button>
       <Button {...args} size="sm" aria-label="Small">
         Small
       </Button>
