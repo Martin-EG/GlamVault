@@ -1,0 +1,21 @@
+{
+  "title": "Agregar un nuevo producto",
+  "productNameLabel": "Nombre del producto",
+  "productNamePlaceholder": "Ej. Labial rojo Dior",
+  "brandLabel": "Marca del producto",
+  "brandPlaceholder": "Ej. Dior, Pink Up, Beauty Creation",
+  "typeLabel": "Tipo de producto",
+  "typePlaceholder": "Seleccione un tipo",
+  "collectionLabel": "Colección",
+  "collectionPlaceholder": "Ej. Mi maquillaje diario",
+  "expirationDateLabel": "Fecha de expiración",
+  "expirationDatePlaceholder": "Value",
+  "purchaseSiteLabel": "Sitio de compra",
+  "purchaseSitePlaceholder": "Ej. Amazon, Walmart",
+  "productPhotoLabel": "Foto del producto",
+  "dragAndDropText": "Arrastra una imagen aqui",
+  "orText": "O",
+  "selectPhotoButton": "Selecciona una foto",
+  "imageFormatsHint": "PNG, JPG maximo 10MB",
+  "notesLabel": "Notas del producto"
+}

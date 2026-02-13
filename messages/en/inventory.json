@@ -1,0 +1,14 @@
+{
+  "title": "Inventory",
+  "subtitle": "All your makeup, organized.",
+  "addProductButton": "Add product",
+  "emptyStateTitle": "Your makeup inventory is empty",
+  "emptyStateSubtitle": "Start adding your makeup products to keep track of brands, tones, and expiration dates.",
+  "addFirstProductButton": "Add my first product",
+  "noResultsTitle": "Nothing here yet",
+  "noResultsSubtitle": "No products match {search}",
+  "searchbarPlaceholder": "Search for makeup within your inventory",
+  "productOpenDate": "Open date",
+  "productPurchaseSite": "Purchase site:",
+  "productMoveToWishlist": "Move to wishlist"
+}

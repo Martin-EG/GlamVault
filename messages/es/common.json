@@ -1,0 +1,19 @@
+{
+  "save": "Guardar",
+  "cancel": "Cancelar",
+  "changeProfilePicture": "Cambiar foto de perfil",
+  "cancelEdition": "Cancelar edición",
+  "showPassword": "Mostrar contraseña",
+  "hidePassword": "Ocultar contraseña",
+  "menuAriaLabel": "Abrir menu",
+  "close": "Cerrar",
+  "email": "Correo electrónico",
+  "password": "Contraseña",
+  "profilePicture": "Foto de perfil",
+  "emailPlaceholder": "you@email.com",
+  "searchbarPlaceholder": "Buscar...",
+  "clearSearch": "Limpiar búsqueda",
+  "edit": "Editar",
+  "delete": "Eliminar",
+  "confirmDelete": "¿Estás seguro de eliminar este producto?"
+}

@@ -1,0 +1,10 @@
+{
+  "title": "Crea tu cuenta",
+  "subtitle": "Comienza a organizar tu maquillaje en linea",
+  "name": "Nombre",
+  "namePlaceholder": "Tu nombre",
+  "confirmPassword": "Confirmar contraseña",
+  "alreadyAMember": "¿Ya tienes cuenta?",
+  "login": "Inicia sesión",
+  "signupButton": "Registrarse"
+}

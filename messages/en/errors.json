@@ -1,0 +1,6 @@
+{
+  "invalidEmail": "Invalid email",
+  "emptyFields": "Complete all fields",
+  "passwordMismatch": "Passwords do not match",
+  "passwordTooShort": "Password must be at least 8 characters long"
+}
