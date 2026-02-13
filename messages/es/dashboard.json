@@ -1,0 +1,4 @@
+{
+  "greetings": "Hola, {name}",
+  "logout": "Cerrar sesión"
+}

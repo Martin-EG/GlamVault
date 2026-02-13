@@ -13,7 +13,7 @@ const SearchBar: FC<SearchbarProps> = ({
   onChange,
   onClear,
 }) => {
-  const t = useTranslations('searchbar');
+  const t = useTranslations('common');
   const placeholderText = placeholder || t('placeholder');
 
   const rightIcon = value ? (

@@ -33,5 +33,8 @@ jobs:
       - name: Run prettier format check
         run: npm run format:check
 
+      - name: Run i18n consistency test
+        run: npm run test:i18n
+
       - name: Run tests
         run: npm run test

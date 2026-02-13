@@ -1,0 +1,14 @@
+{
+  "title": "Inventario",
+  "subtitle": "Todo tu maquillaje, organizado.",
+  "addProductButton": "Agregar producto",
+  "emptyStateTitle": "Tu inventario de maquillaje está vacío",
+  "emptyStateSubtitle": "Empieza agregando tus productos de maquillaje para llevar control de marcas, tonos y fechas de caducidad.",
+  "addFirstProductButton": "Agregar mi primer producto",
+  "noResultsTitle": "Nada por aquí todavía",
+  "noResultsSubtitle": "Ningún producto coincide con {search}",
+  "searchbarPlaceholder": "Busca un maquillaje dentro de tu inventario",
+  "productOpenDate": "Fecha de apertura",
+  "productPurchaseSite": "Sitio de compra:",
+  "productMoveToWishlist": "Enviar a lista de deseos"
+}
