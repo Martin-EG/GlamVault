@@ -5,29 +5,31 @@ import Menu from '../Menu/Menu';
 
 import {
   StyledCard,
-  CardBody,
-  CardImage,
-  CardFooter,
-  CardTitle,
+  StyledCardBody,
+  StyledCardImage,
+  StyledCardFooter,
+  StyledCardTitle,
 } from './Card.styles';
 import type { CardProps } from './Card.types';
 
 const Card: FC<CardProps> = ({ title, image, body, footer, options }) => {
-  const cardImage = image ? <CardImage src={image} alt={title} /> : null;
-  const cardFooter = footer ? <CardFooter>{footer}</CardFooter> : null;
+  const cardImage = image ? <StyledCardImage src={image} alt={title} /> : null;
+  const cardFooter = footer ? (
+    <StyledCardFooter>{footer}</StyledCardFooter>
+  ) : null;
 
   const menu = options ? <Menu items={options} align="right" /> : null;
 
   return (
     <StyledCard>
       {cardImage}
-      <CardBody>
-        <CardTitle>
+      <StyledCardBody>
+        <StyledCardTitle>
           <Text weight="bold">{title}</Text>
           {menu}
-        </CardTitle>
+        </StyledCardTitle>
         {body}
-      </CardBody>
+      </StyledCardBody>
       {cardFooter}
     </StyledCard>
   );
