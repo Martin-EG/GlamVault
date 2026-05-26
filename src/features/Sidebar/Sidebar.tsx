@@ -14,22 +14,22 @@ const Sidebar = () => {
       <nav className="w-full flex flex-col gap-3">
         <SidebarItem
           href="/dashboard/profile"
-          label={t('myProfile')}
+          label={t('profile')}
           SidebarIcon={User}
         />
         <SidebarItem
           href="/dashboard/inventory"
-          label={t('myInventory')}
+          label={t('inventory')}
           SidebarIcon={Box}
         />
         <SidebarItem
           href="/dashboard/collections"
-          label={t('myCollections')}
+          label={t('collections')}
           SidebarIcon={Star}
         />
         <SidebarItem
           href="/dashboard/wishlist"
-          label={t('myWishlist')}
+          label={t('wishlist')}
           SidebarIcon={Heart}
         />
       </nav>

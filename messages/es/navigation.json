@@ -2,9 +2,5 @@
   "profile": "Perfil",
   "inventory": "Inventario",
   "collections": "Colecciones",
-  "wishlist": "Lista de deseos",
-  "myProfile": "Mi perfil",
-  "myInventory": "Mi inventario",
-  "myCollections": "Mis colecciones",
-  "myWishlist": "Mi lista de deseos"
+  "wishlist": "Lista de deseos"
 }
