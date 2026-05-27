@@ -1,7 +1,7 @@
 import { render, screen } from '@/utils/test-utils';
 import 'jest-styled-components';
 
-import { Image } from '../Icon';
+import { User } from '../Icon';
 
 import Button from './Button';
 
@@ -75,14 +75,14 @@ describe('Button variants', () => {
 
 describe('Button with icon', () => {
   it('renders icon', () => {
-    render(<Button icon={<Image />}>Save</Button>);
+    render(<Button icon={<User />}>Save</Button>);
 
     expect(screen.getByRole('button', { name: /save/i })).toBeInTheDocument();
   });
 
   it('renders icon at the end', () => {
     const { container } = render(
-      <Button icon={<Image />} iconPosition="end">
+      <Button icon={<User />} iconPosition="end">
         Save
       </Button>,
     );

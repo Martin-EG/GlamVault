@@ -8,7 +8,7 @@ import navigation from './navigation.json';
 import passwordRecovery from './passwordRecovery.json';
 import signup from './signup.json';
 
-export default {
+const messages = {
   common,
   dashboard,
   errors,
@@ -19,3 +19,5 @@ export default {
   passwordRecovery,
   signup,
 };
+
+export default messages;
