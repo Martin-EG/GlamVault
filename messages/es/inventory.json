@@ -6,7 +6,7 @@
   "emptyStateSubtitle": "Empieza agregando tus productos de maquillaje para llevar control de marcas, tonos y fechas de caducidad.",
   "addFirstProductButton": "Agregar mi primer producto",
   "noResultsTitle": "Nada por aquí todavía",
-  "noResultsSubtitle": "Ningún producto coincide con {search}",
+  "noResultsSubtitle": "Ese producto no está en tu inventario. ¿Quieres agregarlo?",
   "searchbarPlaceholder": "Busca un maquillaje dentro de tu inventario",
   "productOpenDate": "Fecha de apertura",
   "productPurchaseSite": "Sitio de compra:",

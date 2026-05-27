@@ -6,7 +6,7 @@
   "emptyStateSubtitle": "Start adding your makeup products to keep track of brands, tones, and expiration dates.",
   "addFirstProductButton": "Add my first product",
   "noResultsTitle": "Nothing here yet",
-  "noResultsSubtitle": "No products match {search}",
+  "noResultsSubtitle": "That product is not in your inventory. Want to add it?",
   "searchbarPlaceholder": "Search for makeup within your inventory",
   "productOpenDate": "Open date",
   "productPurchaseSite": "Purchase site:",
