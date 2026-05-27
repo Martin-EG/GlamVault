@@ -3,6 +3,7 @@
 import Button from '@/GlamUI/components/Button';
 import Text from '@/GlamUI/components/Text';
 import SearchBar from '@/GlamUI/components/Searchbar';
+import { InventoryEmptyState } from '@/features/inventory';
 import { useInventoryStore } from '@/store';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
@@ -11,6 +12,12 @@ const Inventory = () => {
   const t = useTranslations('inventory');
   const inventory = useInventoryStore((state) => state.inventory);
   const [search, setSearch] = useState('');
+  const hasSearch = search.trim().length > 0;
+
+  const inventoryEmptyState =
+    inventory.length === 0 ? (
+      <InventoryEmptyState hasSearch={hasSearch} />
+    ) : null;
 
   return (
     <>
@@ -38,6 +45,8 @@ const Inventory = () => {
         onClear={() => setSearch('')}
         placeholder={t('searchbarPlaceholder')}
       />
+
+      {inventoryEmptyState}
     </>
   );
 };
