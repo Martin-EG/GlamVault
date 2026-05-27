@@ -43,6 +43,6 @@ export const useHandleFocusWithKeyboardCallback: UseHandleFocusWithKeyboardCallb
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },
-      [itemRefs.current],
+      [itemRefs],
     );
   };
