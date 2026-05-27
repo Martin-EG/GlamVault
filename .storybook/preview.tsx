@@ -2,8 +2,9 @@ import type { Preview } from '@storybook/nextjs-vite';
 import { ThemeProvider } from 'styled-components';
 import { NextIntlClientProvider } from 'next-intl';
 
-import en from '../messages/en.json';
-import es from '../messages/es.json';
+import en from '../messages/en';
+import es from '../messages/es';
+
 import { theme } from '../src/GlamUI/styles/theme';
 import { GlobalStyles } from '../src/GlamUI/styles/GlobalStyles';
 
