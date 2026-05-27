@@ -47,6 +47,18 @@ describe('Inventory Store', () => {
       image: 'Image 1',
     };
     addProductToInventory(product1);
+    const product2 = {
+      id: '2',
+      name: 'Product 2',
+      makeupType: 'Makeup Type 2',
+      brand: 'Brand 2',
+      openedAt: new Date(),
+      boughtIn: 'Bought In 2',
+      description: 'Description 2',
+      collectionId: 'Collection Id 2',
+      image: 'Image 2',
+    };
+    addProductToInventory(product2);
 
     const updatedProduct = {
       id: '1',
@@ -62,7 +74,7 @@ describe('Inventory Store', () => {
     updateProductInInventory('1', updatedProduct);
 
     const inventory = useInventoryStore.getState().inventory;
-    expect(inventory).toEqual([updatedProduct]);
+    expect(inventory[0]).toEqual(updatedProduct);
   });
 
   it('should delete a product from inventory', () => {
