@@ -26,6 +26,11 @@ describe('useCollectionStore', () => {
       name: 'Collection 1',
     };
     addCollection(collection1);
+    const collection2 = {
+      id: '2',
+      name: 'Collection 2',
+    };
+    addCollection(collection2);
 
     const updatedCollection = {
       id: '1',
@@ -34,7 +39,7 @@ describe('useCollectionStore', () => {
     updateCollection('1', updatedCollection);
 
     const collections = useCollectionStore.getState().collections;
-    expect(collections).toEqual([updatedCollection]);
+    expect(collections[0]).toEqual(updatedCollection);
   });
 
   it('should delete a collection', () => {
