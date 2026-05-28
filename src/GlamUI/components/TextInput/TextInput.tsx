@@ -1,9 +1,10 @@
 'use client';
 
 import { FC } from 'react';
-import Text from '../Text';
 
-import { FieldWrapper, Label, Input, ErrorText } from './TextInput.styles';
+import Label from '../Label';
+
+import { FieldWrapper, Input, ErrorText } from './TextInput.styles';
 import type { TextInputProps } from './TextInput.types';
 
 const TextInput: FC<TextInputProps> = ({
@@ -20,15 +21,11 @@ const TextInput: FC<TextInputProps> = ({
     <ErrorText id={ariaDescribedBy}>{error}</ErrorText>
   ) : null;
 
+  const labelText = !!label ? <Label htmlFor={id} text={label} /> : null;
+
   return (
     <FieldWrapper $hasError={!!error} $disabled={!!disabled}>
-      {label && (
-        <Label htmlFor={id}>
-          <Text as="span" size="sm" weight="medium">
-            {label}
-          </Text>
-        </Label>
-      )}
+      {labelText}
 
       <Input
         id={id}
