@@ -17,12 +17,6 @@ export const FieldWrapper = styled.div<FieldStateProps>`
   margin-top: ${({ theme }) => theme.spacing.sm};
 `;
 
-export const Label = styled.label`
-  font-size: ${({ theme }) => theme.typography.sizes.sm};
-  font-weight: ${({ theme }) => theme.typography.weights.medium};
-  color: ${({ theme }) => theme.colors.text.primary};
-`;
-
 export const DropZone = styled.div<DropZoneProps>`
   box-sizing: border-box;
   display: flex;
@@ -64,6 +58,15 @@ export const HiddenInput = styled.input`
 export const UploadIconWrapper = styled.span`
   display: inline-flex;
   color: ${({ theme }) => theme.colors.text.secondary};
+`;
+
+export const PreviewImage = styled.img`
+  width: 100%;
+  max-width: 160px;
+  height: 96px;
+  border: 1px solid ${({ theme }) => theme.colors.border.default};
+  border-radius: ${({ theme }) => theme.radius.md};
+  object-fit: cover;
 `;
 
 export const DragText = styled.span`

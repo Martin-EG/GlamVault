@@ -1,6 +1,6 @@
 'use client';
 
-import { DragEvent, FC, useId, useRef, useState } from 'react';
+import { DragEvent, FC, useEffect, useId, useRef, useState } from 'react';
 import { Image as ImageIcon, Upload } from '../Icon';
 
 import {
@@ -12,6 +12,7 @@ import {
   FieldWrapper,
   HelperText,
   HiddenInput,
+  PreviewImage,
   SeparatorText,
   UploadIconWrapper,
 } from './FileInput.styles';
@@ -44,8 +45,13 @@ const FileInput: FC<FileInputProps> = ({
   const generatedId = useId();
   const inputId = id ?? generatedId;
   const inputRef = useRef<HTMLInputElement>(null);
+  const previewUrlRef = useRef<string | undefined>(undefined);
   const [isDragging, setIsDragging] = useState(false);
   const [sizeError, setSizeError] = useState<string>();
+  const [preview, setPreview] = useState<{
+    url: string;
+    name: string;
+  }>();
 
   const visibleError = error ?? sizeError;
   const errorId = visibleError ? `${inputId}-error` : undefined;
@@ -57,6 +63,43 @@ const FileInput: FC<FileInputProps> = ({
 
   const labelText = label ? <Label htmlFor={inputId} text={label} /> : null;
 
+  useEffect(() => {
+    return () => {
+      if (previewUrlRef.current) {
+        URL.revokeObjectURL(previewUrlRef.current);
+      }
+    };
+  }, []);
+
+  const clearPreview = () => {
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+      previewUrlRef.current = undefined;
+    }
+
+    setPreview(undefined);
+  };
+
+  const updatePreview = (files: File[]) => {
+    const imageFile = files.find((file) => file.type.startsWith('image/'));
+
+    if (!imageFile) {
+      clearPreview();
+      return;
+    }
+
+    if (previewUrlRef.current) {
+      URL.revokeObjectURL(previewUrlRef.current);
+    }
+
+    const previewUrl = URL.createObjectURL(imageFile);
+    previewUrlRef.current = previewUrl;
+    setPreview({
+      url: previewUrl,
+      name: imageFile.name,
+    });
+  };
+
   const handleFiles = (fileList: FileList | File[]) => {
     const files = Array.from(fileList);
     const selectedFiles = multiple ? files : files.slice(0, 1);
@@ -66,11 +109,13 @@ const FileInput: FC<FileInputProps> = ({
 
     if (oversizedFile) {
       setSizeError(t('errorSize', { maxSize: maxSizeMB }));
+      clearPreview();
       onFilesChange?.([]);
       return;
     }
 
     setSizeError(undefined);
+    updatePreview(selectedFiles);
     onFilesChange?.(selectedFiles);
   };
 
@@ -120,9 +165,13 @@ const FileInput: FC<FileInputProps> = ({
           {...props}
         />
 
-        <UploadIconWrapper>
-          <Upload size="xl" strokeWidth={2.5} />
-        </UploadIconWrapper>
+        {preview ? (
+          <PreviewImage src={preview.url} alt={preview.name} />
+        ) : (
+          <UploadIconWrapper>
+            <Upload size="xl" strokeWidth={2.5} />
+          </UploadIconWrapper>
+        )}
 
         <DragText>{dragLabelStr}</DragText>
         <SeparatorText>{t('or')}</SeparatorText>

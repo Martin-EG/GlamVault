@@ -80,13 +80,12 @@ const DateInput: FC<DateInputProps> = ({
       setInputValue(nextValue);
     }
 
-    if (inputRef.current) {
-      inputRef.current.value = nextValue;
-      onChange?.({
-        target: inputRef.current,
-        currentTarget: inputRef.current,
-      } as ChangeEvent<HTMLInputElement>);
-    }
+    const input = inputRef.current as HTMLInputElement;
+    input.value = nextValue;
+    onChange?.({
+      target: input,
+      currentTarget: input,
+    } as ChangeEvent<HTMLInputElement>);
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {

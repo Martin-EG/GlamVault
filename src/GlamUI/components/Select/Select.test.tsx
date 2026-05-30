@@ -15,6 +15,21 @@ describe('Select', () => {
   it('renders select with placeholder and options', () => {
     render(
       <Select
+        placeholder={inventoryAddProduct.typePlaceholder}
+        options={options}
+        defaultValue=""
+      />,
+    );
+
+    expect(
+      screen.getByText(inventoryAddProduct.typePlaceholder),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Makeup')).toBeInTheDocument();
+  });
+
+  it('renders with label', () => {
+    render(
+      <Select
         label={inventoryAddProduct.typeLabel}
         placeholder={inventoryAddProduct.typePlaceholder}
         options={options}
@@ -25,10 +40,6 @@ describe('Select', () => {
     expect(
       screen.getByLabelText(inventoryAddProduct.typeLabel),
     ).toBeInTheDocument();
-    expect(
-      screen.getByText(inventoryAddProduct.typePlaceholder),
-    ).toBeInTheDocument();
-    expect(screen.getByText('Makeup')).toBeInTheDocument();
   });
 
   it('renders error message and aria attributes', () => {
