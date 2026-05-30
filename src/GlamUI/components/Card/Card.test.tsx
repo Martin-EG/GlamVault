@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import Card from './Card';
@@ -44,7 +45,9 @@ describe('Card', () => {
 
     render(<Card {...defaultProps} options={options} />);
 
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
 
     fireEvent.click(trigger);
 

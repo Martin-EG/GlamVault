@@ -1,10 +1,8 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 
 import CalendarPopover from './CalendarPopover';
-
-jest.mock('next-intl', () => ({
-  useTranslations: jest.fn(),
-}));
+import { useGetMonthsAndDays } from './hooks';
 
 jest.mock('./DaysGrid', () => ({
   __esModule: true,
@@ -17,16 +15,12 @@ jest.mock('./hooks', () => ({
 
 describe('CalendarPopover', () => {
   const visibleDate = new Date(2026, 4, 1);
-  const monthNamesMock = [
-    'months.0',
-    'months.1',
-    'months.2',
-    'months.3',
-    'months.4',
-  ];
-  const weekdaysMock = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
-  const previousMonthAriaLabel = 'Previous month';
-  const nextMonthAriaLabel = 'Next month';
+  const monthNamesMock = Object.values(testMessages.calendar.months);
+  const weekdaysMock = Object.values(testMessages.calendar.weekdays).map(
+    (day) => day.slice(0, 2),
+  );
+  const previousMonthAriaLabel = testMessages.calendar.previousMonth;
+  const nextMonthAriaLabel = testMessages.calendar.nextMonth;
   const previousMonthButtonText = '<';
   const nextMonthButtonText = '>';
 
@@ -35,35 +29,11 @@ describe('CalendarPopover', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    const { useTranslations } = require('next-intl');
-    const { useGetMonthsAndDays } = require('./hooks');
-    (useTranslations as jest.Mock).mockReturnValue((key: string) => {
-      const translations: Record<string, string> = {
-        previousMonth: previousMonthAriaLabel,
-        nextMonth: nextMonthAriaLabel,
-        'months.0': 'Enero',
-        'months.1': 'Febrero',
-        'months.2': 'Marzo',
-        'months.3': 'Abril',
-        'months.4': 'Mayo',
-        'months.5': 'Junio',
-        'months.6': 'Julio',
-        'months.7': 'Agosto',
-        'months.8': 'Septiembre',
-        'months.9': 'Octubre',
-        'months.10': 'Noviembre',
-        'months.11': 'Diciembre',
-        'weekdays.0': 'Lunes',
-        'weekdays.1': 'Martes',
-        'weekdays.2': 'Miércoles',
-        'weekdays.3': 'Jueves',
-        'weekdays.4': 'Viernes',
-        'weekdays.5': 'Sábado',
-        'weekdays.6': 'Domingo',
-      };
-      return translations[key] || key;
-    });
-    (useGetMonthsAndDays as jest.Mock).mockReturnValue({
+    const useGetMonthsAndDaysMock = useGetMonthsAndDays as jest.MockedFunction<
+      typeof useGetMonthsAndDays
+    >;
+
+    useGetMonthsAndDaysMock.mockReturnValue({
       monthNames: monthNamesMock,
       weekdays: weekdaysMock,
     });

@@ -27,7 +27,8 @@
       "@/Lib/*": ["./src/lib/*"],
       "@/Types/*": ["./src/types/*"],
       "@/Store/*": ["./src/store/*"],
-      "@/Providers/*": ["./src/providers/*"]
+      "@/Providers/*": ["./src/providers/*"],
+      "@/Messages/*": ["./src/messages/*"]
     },
     "types": ["jest", "@testing-library/jest-dom"]
   },

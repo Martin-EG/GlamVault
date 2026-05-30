@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from '@/utils/test-utils';
 import 'jest-styled-components';
 
 import Label from './Label';
@@ -9,6 +9,6 @@ describe('Label', () => {
     const labelElement = screen.getByText('Test Label');
 
     expect(labelElement).toBeInTheDocument();
-    expect(labelElement).toHaveAttribute('for', 'test-input');
+    expect(labelElement.closest('label')).toHaveAttribute('for', 'test-input');
   });
 });

@@ -1,48 +1,20 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 
 import DateInput from './DateInput';
 
-jest.mock('next-intl', () => ({
-  useTranslations: jest.fn(),
-}));
-
 describe('DateInput', () => {
+  const { calendar, inventoryAddProduct } = testMessages;
+  const expirationDateLabel = inventoryAddProduct.expirationDateLabel;
+
   beforeEach(() => {
     jest.clearAllMocks();
-    const { useTranslations } = require('next-intl');
-    (useTranslations as jest.Mock).mockReturnValue((key: string) => {
-      const translations: Record<string, string> = {
-        openCalendar: 'Abrir calendario',
-        previousMonth: 'Mes anterior',
-        nextMonth: 'Mes siguiente',
-        'months.0': 'Enero',
-        'months.1': 'Febrero',
-        'months.2': 'Marzo',
-        'months.3': 'Abril',
-        'months.4': 'Mayo',
-        'months.5': 'Junio',
-        'months.6': 'Julio',
-        'months.7': 'Agosto',
-        'months.8': 'Septiembre',
-        'months.9': 'Octubre',
-        'months.10': 'Noviembre',
-        'months.11': 'Diciembre',
-        'weekdays.0': 'Lunes',
-        'weekdays.1': 'Martes',
-        'weekdays.2': 'Miércoles',
-        'weekdays.3': 'Jueves',
-        'weekdays.4': 'Viernes',
-        'weekdays.5': 'Sábado',
-        'weekdays.6': 'Domingo',
-      };
-      return translations[key] || key;
-    });
   });
 
   it('renders date input correctly', () => {
-    render(<DateInput label="Fecha de expiración" />);
+    render(<DateInput label={expirationDateLabel} />);
 
-    const input = screen.getByLabelText('Fecha de expiración');
+    const input = screen.getByLabelText(expirationDateLabel);
     expect(input).toBeInTheDocument();
     expect(input).toHaveAttribute('type', 'date');
   });
@@ -51,13 +23,13 @@ describe('DateInput', () => {
     render(
       <DateInput
         id="expiration-date"
-        label="Fecha"
-        error="Selecciona una fecha valida"
+        label={expirationDateLabel}
+        error={calendar.errorInvalidDate}
       />,
     );
 
-    const input = screen.getByLabelText('Fecha');
-    const errorMessage = screen.getByText('Selecciona una fecha valida');
+    const input = screen.getByLabelText(expirationDateLabel);
+    const errorMessage = screen.getByText(calendar.errorInvalidDate);
 
     expect(input).toHaveAttribute('aria-invalid', 'true');
     expect(input).toHaveAttribute('aria-describedby', 'expiration-date-error');
@@ -65,16 +37,16 @@ describe('DateInput', () => {
   });
 
   it('handles disabled state', () => {
-    render(<DateInput disabled label="Fecha" />);
+    render(<DateInput disabled label={expirationDateLabel} />);
 
-    expect(screen.getByLabelText('Fecha')).toBeDisabled();
+    expect(screen.getByLabelText(expirationDateLabel)).toBeDisabled();
   });
 
   it('passes change events to input element', () => {
     const handleChange = jest.fn();
-    render(<DateInput label="Fecha" onChange={handleChange} />);
+    render(<DateInput label={expirationDateLabel} onChange={handleChange} />);
 
-    fireEvent.change(screen.getByLabelText('Fecha'), {
+    fireEvent.change(screen.getByLabelText(expirationDateLabel), {
       target: { value: '2026-05-27' },
     });
 
@@ -82,11 +54,15 @@ describe('DateInput', () => {
   });
 
   it('opens calendar when clicking the calendar icon', () => {
-    render(<DateInput label="Fecha" defaultValue="2026-05-27" />);
+    render(<DateInput label={expirationDateLabel} defaultValue="2026-05-27" />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Abrir calendario' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: calendar.openCalendar }),
+    );
 
-    expect(screen.getByText('Mayo 2026')).toBeInTheDocument();
+    expect(
+      screen.getByText(`${calendar.months['4']} 2026`),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole('button', { name: '2026-05-27' }),
     ).toBeInTheDocument();
@@ -96,40 +72,52 @@ describe('DateInput', () => {
     const handleChange = jest.fn();
     render(
       <DateInput
-        label="Fecha"
+        label={expirationDateLabel}
         defaultValue="2026-05-27"
         onChange={handleChange}
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Abrir calendario' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: calendar.openCalendar }),
+    );
     fireEvent.click(screen.getByRole('button', { name: '2026-05-15' }));
 
-    expect(screen.getByLabelText('Fecha')).toHaveValue('2026-05-15');
+    expect(screen.getByLabelText(expirationDateLabel)).toHaveValue(
+      '2026-05-15',
+    );
     expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(screen.queryByText('Mayo 2026')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(`${calendar.months['4']} 2026`),
+    ).not.toBeInTheDocument();
   });
 
   it('navigates between calendar months', () => {
-    render(<DateInput label="Fecha" defaultValue="2026-05-27" />);
+    render(<DateInput label={expirationDateLabel} defaultValue="2026-05-27" />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Abrir calendario' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Mes siguiente' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: calendar.openCalendar }),
+    );
+    fireEvent.click(screen.getByRole('button', { name: calendar.nextMonth }));
 
-    expect(screen.getByText('Junio 2026')).toBeInTheDocument();
+    expect(
+      screen.getByText(`${calendar.months['5']} 2026`),
+    ).toBeInTheDocument();
   });
 
   it('disables dates outside min and max range', () => {
     render(
       <DateInput
-        label="Fecha"
+        label={expirationDateLabel}
         defaultValue="2026-05-15"
         min="2026-05-10"
         max="2026-05-20"
       />,
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Abrir calendario' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: calendar.openCalendar }),
+    );
 
     expect(screen.getByRole('button', { name: '2026-05-09' })).toBeDisabled();
     expect(screen.getByRole('button', { name: '2026-05-21' })).toBeDisabled();

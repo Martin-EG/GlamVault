@@ -1,34 +1,37 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import TextArea from './TextArea';
 
 describe('TextArea', () => {
+  const notesLabel = testMessages.inventoryAddProduct.notesLabel;
+
   it('renders textarea correctly', () => {
-    render(<TextArea placeholder="Describe el producto" />);
+    render(<TextArea placeholder="Describe the product" />);
 
     expect(
-      screen.getByPlaceholderText('Describe el producto'),
+      screen.getByPlaceholderText('Describe the product'),
     ).toBeInTheDocument();
   });
 
   it('renders with label', () => {
-    render(<TextArea label="Descripción" id="description" />);
+    render(<TextArea label={notesLabel} id="description" />);
 
-    expect(screen.getByLabelText('Descripción')).toBeInTheDocument();
+    expect(screen.getByLabelText(notesLabel)).toBeInTheDocument();
   });
 
   it('renders error message and aria attributes', () => {
     render(
       <TextArea
         id="description"
-        label="Descripción"
-        error="La descripción es requerida"
+        label={notesLabel}
+        error="Product notes are required"
       />,
     );
 
-    const textArea = screen.getByLabelText('Descripción');
-    const errorMessage = screen.getByText('La descripción es requerida');
+    const textArea = screen.getByLabelText(notesLabel);
+    const errorMessage = screen.getByText('Product notes are required');
 
     expect(textArea).toHaveAttribute('aria-invalid', 'true');
     expect(textArea).toHaveAttribute('aria-describedby', 'description-error');
@@ -36,17 +39,17 @@ describe('TextArea', () => {
   });
 
   it('handles disabled state', () => {
-    render(<TextArea disabled label="Descripción" />);
+    render(<TextArea disabled label={notesLabel} />);
 
-    expect(screen.getByLabelText('Descripción')).toBeDisabled();
+    expect(screen.getByLabelText(notesLabel)).toBeDisabled();
   });
 
   it('passes change events to textarea element', () => {
     const handleChange = jest.fn();
-    render(<TextArea label="Descripción" onChange={handleChange} />);
+    render(<TextArea label={notesLabel} onChange={handleChange} />);
 
-    fireEvent.change(screen.getByLabelText('Descripción'), {
-      target: { value: 'Nuevo producto' },
+    fireEvent.change(screen.getByLabelText(notesLabel), {
+      target: { value: 'New product' },
     });
 
     expect(handleChange).toHaveBeenCalledTimes(1);

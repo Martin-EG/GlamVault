@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { render, screen, fireEvent, waitFor } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 import ImageCropModal from './ImageCropModal';
 import { useCroppedImage } from './hooks';
@@ -48,14 +49,18 @@ describe('ImageCropModal', () => {
     render(<ImageCropModal {...defaultProps} />);
     expect(screen.getByTestId('mock-cropper')).toBeInTheDocument();
 
-    expect(screen.getByText('cancelEdition')).toBeInTheDocument();
-    expect(screen.getByText('save')).toBeInTheDocument();
+    expect(
+      screen.getByText(testMessages.common.cancelEdition),
+    ).toBeInTheDocument();
+    expect(screen.getByText(testMessages.common.save)).toBeInTheDocument();
   });
 
   it('calls onConfirm when confirm button is clicked', async () => {
     render(<ImageCropModal {...defaultProps} />);
 
-    const confirmBtn = screen.getByRole('button', { name: 'save' });
+    const confirmBtn = screen.getByRole('button', {
+      name: testMessages.common.save,
+    });
     fireEvent.click(confirmBtn);
 
     await waitFor(() => {
@@ -67,7 +72,9 @@ describe('ImageCropModal', () => {
   it('calls onCancel when cancel button is clicked', () => {
     render(<ImageCropModal {...defaultProps} />);
 
-    const cancelBtn = screen.getByRole('button', { name: 'cancelEdition' });
+    const cancelBtn = screen.getByRole('button', {
+      name: testMessages.common.cancelEdition,
+    });
     fireEvent.click(cancelBtn);
     expect(mockOnCancel).toHaveBeenCalled();
   });
@@ -78,7 +85,9 @@ describe('ImageCropModal', () => {
     const cropper = screen.getByTestId('mock-cropper');
     fireEvent.click(cropper);
 
-    const confirmBtn = screen.getByRole('button', { name: 'save' });
+    const confirmBtn = screen.getByRole('button', {
+      name: testMessages.common.save,
+    });
     fireEvent.click(confirmBtn);
 
     await waitFor(() => {
