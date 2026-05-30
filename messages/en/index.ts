@@ -1,3 +1,4 @@
+import calendar from './calendar.json';
 import common from './common.json';
 import dashboard from './dashboard.json';
 import errors from './errors.json';
@@ -9,6 +10,7 @@ import passwordRecovery from './passwordRecovery.json';
 import signup from './signup.json';
 
 const messages = {
+  calendar,
   common,
   dashboard,
   errors,
