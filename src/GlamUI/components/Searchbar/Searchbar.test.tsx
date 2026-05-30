@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import Searchbar from './Searchbar';
@@ -14,7 +15,7 @@ describe('Searchbar', () => {
     render(<Searchbar value="test" onChange={jest.fn()} onClear={jest.fn()} />);
 
     expect(
-      screen.getByRole('button', { name: 'clearSearch' }),
+      screen.getByRole('button', { name: testMessages.common.clearSearch }),
     ).toBeInTheDocument();
   });
 
@@ -22,7 +23,9 @@ describe('Searchbar', () => {
     const onClear = jest.fn();
     render(<Searchbar value="test" onChange={jest.fn()} onClear={onClear} />);
 
-    screen.getByRole('button', { name: 'clearSearch' }).click();
+    screen
+      .getByRole('button', { name: testMessages.common.clearSearch })
+      .click();
 
     expect(onClear).toHaveBeenCalledTimes(1);
   });

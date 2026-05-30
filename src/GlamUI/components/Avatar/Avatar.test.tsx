@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import Avatar from './Avatar';
@@ -53,7 +54,9 @@ describe('Avatar interaction', () => {
 
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
-    expect(button).toHaveAccessibleName('changeProfilePicture');
+    expect(button).toHaveAccessibleName(
+      testMessages.common.changeProfilePicture,
+    );
 
     fireEvent.click(button);
     expect(handleClick).toHaveBeenCalledTimes(1);

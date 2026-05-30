@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 import Modal from './Modal';
 
@@ -22,8 +23,12 @@ describe('Modal', () => {
   it('renders default button texts', () => {
     render(<Modal onConfirm={mockOnConfirm} onCancel={mockOnCancel} />);
 
-    expect(screen.getByRole('button', { name: 'cancel' })).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: 'save' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: testMessages.common.cancel }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: testMessages.common.save }),
+    ).toBeInTheDocument();
   });
 
   it('renders custom button texts', () => {
@@ -44,19 +49,25 @@ describe('Modal', () => {
 
   it('calls onConfirm when confirm button clicked', () => {
     render(<Modal onConfirm={mockOnConfirm} />);
-    fireEvent.click(screen.getByRole('button', { name: 'save' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: testMessages.common.save }),
+    );
     expect(mockOnConfirm).toHaveBeenCalledTimes(1);
   });
 
   it('calls onCancel when cancel button clicked', () => {
     render(<Modal onConfirm={mockOnConfirm} onCancel={mockOnCancel} />);
-    fireEvent.click(screen.getByRole('button', { name: 'cancel' }));
+    fireEvent.click(
+      screen.getByRole('button', { name: testMessages.common.cancel }),
+    );
     expect(mockOnCancel).toHaveBeenCalledTimes(1);
   });
 
   it('does not render cancel button if onCancel is not provided', () => {
     render(<Modal onConfirm={mockOnConfirm} />);
-    expect(screen.queryByText('cancel')).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(testMessages.common.cancel),
+    ).not.toBeInTheDocument();
   });
 
   it('has dialog role', () => {

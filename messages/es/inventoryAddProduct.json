@@ -12,10 +12,13 @@
   "expirationDatePlaceholder": "Value",
   "purchaseSiteLabel": "Sitio de compra",
   "purchaseSitePlaceholder": "Ej. Amazon, Walmart",
+  "notesLabel": "Notas del producto",
   "productPhotoLabel": "Foto del producto",
-  "dragAndDropText": "Arrastra una imagen aqui",
-  "orText": "O",
-  "selectPhotoButton": "Selecciona una foto",
-  "imageFormatsHint": "PNG, JPG maximo 10MB",
-  "notesLabel": "Notas del producto"
+  "fileInput": {
+    "helperText": "PNG, JPG máximo {maxSize}MB",
+    "browseLabel": "Seleccione una foto",
+    "dragLabel": "Arrastra una imagen aqui",
+    "or": "o",
+    "errorSize": "El archivo es demasiado grande. El tamaño máximo permitido es de {maxSize}MB."
+  }
 }

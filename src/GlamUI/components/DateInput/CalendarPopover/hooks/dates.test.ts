@@ -2,7 +2,7 @@ jest.mock('react', () => {
   const originalReact = jest.requireActual('react');
   return {
     ...originalReact,
-    useMemo: (fn: () => any) => fn(),
+    useMemo: <T>(fn: () => T) => fn(),
   };
 });
 

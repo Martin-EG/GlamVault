@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import { Edit, Remove } from '@/GlamUI/components/Icon';
@@ -19,7 +20,9 @@ describe('Menu', () => {
 
   it('renders trigger button initially', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     expect(trigger).toBeInTheDocument();
     expect(trigger).toHaveAttribute('aria-haspopup', 'menu');
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
@@ -28,7 +31,9 @@ describe('Menu', () => {
 
   it('opens menu on trigger click', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
 
     fireEvent.click(trigger);
 
@@ -44,7 +49,9 @@ describe('Menu', () => {
 
   it('opens menu on trigger click and aligns to right', () => {
     render(<Menu items={mockItems} align="right" />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
 
     fireEvent.click(trigger);
 
@@ -60,7 +67,9 @@ describe('Menu', () => {
 
   it('focuses first item when menu opens', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
 
     const firstItem = screen.getByText('Edit');
@@ -69,7 +78,9 @@ describe('Menu', () => {
 
   it('handles item clicks and closes menu', async () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
 
     const editButton = screen.getByText('Edit').closest('button');
@@ -86,7 +97,9 @@ describe('Menu', () => {
 
   it('renders item variants', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
 
     const deleteButton = screen.getByText('Delete').closest('button');
@@ -95,7 +108,9 @@ describe('Menu', () => {
 
   it('renders items with icons', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
 
     const editButton = screen.getByText('Edit').closest('button');
@@ -104,7 +119,9 @@ describe('Menu', () => {
 
   it('handles disabled items', () => {
     render(<Menu items={mockItems} />);
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
 
     const disabledButton = screen.getByText('Disabled').closest('button');
@@ -125,7 +142,9 @@ describe('Menu', () => {
       </div>,
     );
 
-    const trigger = screen.getByRole('button', { name: 'menuAriaLabel' });
+    const trigger = screen.getByRole('button', {
+      name: testMessages.common.menuAriaLabel,
+    });
     fireEvent.click(trigger);
     expect(screen.getByRole('menu')).toBeInTheDocument();
 

@@ -1,41 +1,48 @@
 import { render, screen, fireEvent } from '@/utils/test-utils';
+import { testMessages } from '@/utils/test-messages';
 import 'jest-styled-components';
 
 import Select from './Select';
 
 const options = [
-  { label: 'Maquillaje', value: 'makeup' },
-  { label: 'Perfume', value: 'fragrance' },
+  { label: 'Makeup', value: 'makeup' },
+  { label: 'Fragrance', value: 'fragrance' },
 ];
 
 describe('Select', () => {
+  const { inventoryAddProduct } = testMessages;
+
   it('renders select with placeholder and options', () => {
     render(
       <Select
-        label="Tipo de producto"
-        placeholder="Seleccione un tipo"
+        label={inventoryAddProduct.typeLabel}
+        placeholder={inventoryAddProduct.typePlaceholder}
         options={options}
         defaultValue=""
       />,
     );
 
-    expect(screen.getByLabelText('Tipo de producto')).toBeInTheDocument();
-    expect(screen.getByText('Seleccione un tipo')).toBeInTheDocument();
-    expect(screen.getByText('Maquillaje')).toBeInTheDocument();
+    expect(
+      screen.getByLabelText(inventoryAddProduct.typeLabel),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(inventoryAddProduct.typePlaceholder),
+    ).toBeInTheDocument();
+    expect(screen.getByText('Makeup')).toBeInTheDocument();
   });
 
   it('renders error message and aria attributes', () => {
     render(
       <Select
         id="product-type"
-        label="Tipo"
+        label={inventoryAddProduct.typeLabel}
         options={options}
-        error="Selecciona una opcion"
+        error="Select an option"
       />,
     );
 
-    const select = screen.getByLabelText('Tipo');
-    const errorMessage = screen.getByText('Selecciona una opcion');
+    const select = screen.getByLabelText(inventoryAddProduct.typeLabel);
+    const errorMessage = screen.getByText('Select an option');
 
     expect(select).toHaveAttribute('aria-invalid', 'true');
     expect(select).toHaveAttribute('aria-describedby', 'product-type-error');
@@ -43,16 +50,28 @@ describe('Select', () => {
   });
 
   it('handles disabled state', () => {
-    render(<Select disabled label="Tipo" options={options} />);
+    render(
+      <Select
+        disabled
+        label={inventoryAddProduct.typeLabel}
+        options={options}
+      />,
+    );
 
-    expect(screen.getByLabelText('Tipo')).toBeDisabled();
+    expect(screen.getByLabelText(inventoryAddProduct.typeLabel)).toBeDisabled();
   });
 
   it('passes change events to select element', () => {
     const handleChange = jest.fn();
-    render(<Select label="Tipo" options={options} onChange={handleChange} />);
+    render(
+      <Select
+        label={inventoryAddProduct.typeLabel}
+        options={options}
+        onChange={handleChange}
+      />,
+    );
 
-    fireEvent.change(screen.getByLabelText('Tipo'), {
+    fireEvent.change(screen.getByLabelText(inventoryAddProduct.typeLabel), {
       target: { value: 'fragrance' },
     });
 
