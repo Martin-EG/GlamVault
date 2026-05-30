@@ -5,6 +5,7 @@ import Text from '../Text/Text';
 import { IconSize, iconSizes } from './Icon.types';
 import {
   Box,
+  Calendar,
   Camera,
   Close,
   Edit,
@@ -29,6 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 const icons = [
   { name: 'Box', icon: Box },
+  { name: 'Calendar', icon: Calendar },
   { name: 'Camera', icon: Camera },
   { name: 'Close', icon: Close },
   { name: 'Edit', icon: Edit },
