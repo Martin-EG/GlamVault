@@ -1,6 +1,7 @@
 import { User } from './User';
 export type { IconProps } from './Icon.types';
 export { Box } from './Box';
+export { Calendar } from './Calendar';
 export { Camera } from './Camera';
 export { Close } from './Close';
 export { Edit } from './Edit';
